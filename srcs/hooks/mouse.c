@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 20:25:25 by user42            #+#    #+#             */
-/*   Updated: 2020/07/01 15:18:36 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/01 17:28:03 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int             motion_end(void *fill) // good
 
     s = (t_scene *)fill;
     free_all(s);
+	printf("xdxdxdx");
     return (0);
 }
 
