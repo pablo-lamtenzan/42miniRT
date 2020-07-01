@@ -6,13 +6,14 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 14:54:26 by user42            #+#    #+#             */
-/*   Updated: 2020/07/01 15:03:57 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/02 00:08:26 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <raytracer.h>
 #include <stdlib.h>
 #include <pthread.h>
+#include <aux.h>
 
 t_vec3                  pixel_add_hooks(t_scene *s, double t, t_obj near, t_light l)
 {
@@ -86,12 +87,15 @@ void                *engine_hooks(void *fill)
     register int        y;
     t_color_precision   color;
     t_scene             *s;
+	int					it;
 
     s = (t_scene *)fill;
     y = 0;
     while (y < s->image->max_h)
     {
         x = s->index;
+		if (x == 0 && y > (s->image->max_h / 40) * it && (it++))
+			ft_putstr_fd("\033[42m  \033[0m", 1);
         while (x < s->image->max_w)
         {
             color = set_color_precision(0x0, 0x0, 0x0);

@@ -100,6 +100,7 @@ typedef struct              s_scene
     t_vec3                  p;
     t_vec3                  n;
     double                  aa;
+	int						threads;
     int                     mouse;
     int                     aarainbow;
     char                    filter;
@@ -108,14 +109,14 @@ typedef struct              s_scene
 
 
 bool                        parser(int ac, char **argv, t_scene *s);
-bool                        load_image(t_scene *s);
+int                        	load_image(void *s);
 void                        *engine(void *fill);
 void                        *engine_hooks(void *fill);
 bool                        check_obj_collision(t_scene *s, t_obj **near, t_ray ray);
 bool                        check_light_collision(t_scene *s, double *min, t_ray ray);
 void                        export_bmp(t_scene *s);
 bool                        calc_image_hooks(t_scene *s);
-bool 		                calc_image(t_scene *s);
+int 		                calc_image(t_scene *s);
 t_scene      				*copy_structure(t_scene *s);
 
 t_color                     filter(t_scene *s, t_color c);

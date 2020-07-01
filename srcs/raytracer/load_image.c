@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/12 18:53:16 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/01 17:10:59 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/01 22:37:46 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static bool			start_multithreading(t_scene *s)
     int             i;
     
     i = -1;
-    while (++i < NB_PTHREADS)
+    while (++i < s->threads)
     {
         if (!(instances[i] = copy_structure(s)))
             return (false);
@@ -43,7 +43,7 @@ static bool			start_multithreading(t_scene *s)
             return (false);
     }
     i = -1;
-    while (++i < NB_PTHREADS)
+    while (++i < s->threads)
     {
         if (pthread_join(threads[i], NULL))
             return (false);
@@ -55,32 +55,41 @@ static bool			start_multithreading(t_scene *s)
     return (true);
 }
 
-bool 		        calc_image(t_scene *s)
+int 		        calc_image(t_scene *x)
 {
     int 			tmp;
+	t_scene			*s;
 
+	s = (t_scene *)x;
 	ft_putstr_fd("\033[35m==================\n\n\033[0m", 1);
 	ft_putstr_fd("\033[1m\033[5m Processing Shapes ...  \033[0m\n", 1);
     if (!(s->image->img = mlx_new_image(s->image->mlx, s->image->max_w, s->image->max_h))
             || !(s->image->end_buff = (t_color *)mlx_get_data_addr(s->image->img, &tmp, &tmp, &tmp))
             || !(s->image->buff = malloc(s->image->max_w * s->image->max_h * sizeof(t_color_precision)))
 			|| start_multithreading(s) == false)
+	{
         return (false);
+	}
     copy_buff(s);
     return (true);
 }
 
-bool 				load_image(t_scene *s)
+int 				load_image(void *x)
 {
+	t_scene		*s;
+
+	s = (t_scene *)x;
     if (!(s->image->win = mlx_new_window(s->image->mlx, s->image->max_w, s->image->max_h,
-            "plamtenz's miniRT")) || calc_image(s) == false)
+            "plamtenz's miniRT")))
         return (false);
-    if (!(s->flags & SAVE))
+    if (!(s->flags & SAVE || calc_image(s) == false))
     {
-        (void)mlx_put_image_to_window(s->image->mlx, s->image->win, s->image->img, 0, 0);
+		//mlx_loop_hook(s->image->mlx, calc_image, s);
+		//printf("[%p]\n", s->image->img);
+		(void)mlx_put_image_to_window(s->image->mlx, s->image->win, s->image->img, 0, 0);
     	mlx_key_hook(s->image->win, key_hook, s);
-    	//mlx_mouse_hook(s->image->win, mouse_hook, s);
-    	//mlx_hook(s->image->win, 6, (1L << 6), motion_hook, s);
+    	mlx_mouse_hook(s->image->win, mouse_hook, s);
+    	mlx_hook(s->image->win, 6, (1L << 6), motion_hook, s);
     	mlx_hook(s->image->win, DestroyNotify, StructureNotifyMask, motion_end, s);
         mlx_loop(s->image->mlx);
     }

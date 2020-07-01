@@ -6,14 +6,15 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 21:03:08 by user42            #+#    #+#             */
-/*   Updated: 2020/06/26 13:30:05 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/01 21:26:05 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HOOKS_H
-#define HOOKS_H
+# define HOOKS_H
 
-# include <shape.h>
+#include <shape.h>
+#include <X11/keysym.h>
 
 void            resize_dir(double *point, double resize);
 int             motion_hook(int x, int y, void *fill);

@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/15 21:35:34 by user42            #+#    #+#             */
-/*   Updated: 2020/07/01 14:05:57 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/01 23:42:30 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ t_scene         *rt_new_scene(void)
 		return (NULL);
     new->index = 0;
     new->lights = NULL;
-    new->mouse = 0;
+    new->mouse = -1;
+	new->threads = 8;
     new->objs = NULL;
     new->aa = 1;
     new->aarainbow = 0;

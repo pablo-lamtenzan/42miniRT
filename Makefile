@@ -13,7 +13,7 @@ OBJDIR	= bin
 INCDIR	= includes
 # TSTDIR	= tests
 
-CFLAGS	= -Wall -Wextra -Werror -g3 #-fsanitize=address
+CFLAGS	= -Wall -Wextra -Werror -g3 -fsanitize=address
 IFLAGS	= -I$(INCDIR) -I$(LIBX)
 
 OS		= $(shell uname)

@@ -6,13 +6,14 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 14:53:35 by user42            #+#    #+#             */
-/*   Updated: 2020/07/01 15:08:11 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/01 22:01:50 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <hooks.h>
 #include <pthread.h>
+#include <X11/X.h>
 
 bool			start_multithreading_hooks(t_scene *s)
 {
@@ -21,7 +22,7 @@ bool			start_multithreading_hooks(t_scene *s)
     int             i;
     
     i = -1;
-    while (++i < NB_PTHREADS)
+    while (++i < s->threads)
     {
         if (!(instances[i] = copy_structure(s)))
             return (false);
@@ -30,7 +31,7 @@ bool			start_multithreading_hooks(t_scene *s)
             return (false);
     }
     i = -1;
-    while (++i < NB_PTHREADS)
+    while (++i < s->threads)
     {
         if (pthread_join(threads[i], NULL))
             return (false);
@@ -61,7 +62,7 @@ bool                calc_image_hooks(t_scene *s)
     mlx_key_hook(s->image->win, key_hook, s);
     mlx_mouse_hook(s->image->win, mouse_hook, s);
     mlx_hook(s->image->win, 6, (1L << 6), motion_hook, s);
-    mlx_hook(s->image->win, 17, 0L, motion_end, s);
+    mlx_hook(s->image->win, DestroyNotify, StructureNotifyMask, motion_end, s);
     mlx_loop(s->image->mlx);
     return (true);
 }

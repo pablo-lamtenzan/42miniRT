@@ -6,13 +6,14 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 20:25:25 by user42            #+#    #+#             */
-/*   Updated: 2020/07/01 17:28:03 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/02 00:25:53 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <allocations.h>
 #include <hooks.h>
+#include <aux.h>
 
 void            resize_dir(double *point, double resize) // good
 {
@@ -28,6 +29,7 @@ int             motion_hook(int x, int y, void *fill) // good
 {
     t_scene *s;
 
+	printf("[%d][%d]\n", x, y);
     s = (t_scene *)fill;
     if (s->mouse < 0)
         return (-1);
@@ -40,6 +42,7 @@ int             motion_hook(int x, int y, void *fill) // good
     else if (y < s->image->max_h / 2 / 3)
         resize_dir(&s->cams->dir.x, 0.01 * s->mouse);
     mlx_destroy_image(s->image->mlx, s->image->img);
+	printf("[%f][%f][%f]\n", s->cams->dir.x, s->cams->dir.y, s->cams->dir.z);
     s->image->img = NULL;
     calc_image_hooks(s);
     return (0);
@@ -51,7 +54,6 @@ int             motion_end(void *fill) // good
 
     s = (t_scene *)fill;
     free_all(s);
-	printf("xdxdxdx");
     return (0);
 }
 
@@ -64,16 +66,34 @@ int             mouse_hook(int key, int x, int y, void *fill)
     update = false;
     x += x - x;
     y += y - y;
-    if (key == 4 && (update = true)) // 'h'
-        s->cams->pos.z -= 20;
-    else if (key == 5 && (update = true)) // 'g'
+    if (key == 4 && (update = true)) // 'mouse front'
+	{
         s->cams->pos.z += 20;
-    if (key == 3 && (update == true)) // 'f'
+		ft_putstr_fd("\033[35m ZOOMING IN\033[0m\n", 1);
+	}
+    else if (key == 5 && (update = true)) // 'mouse back'
+	{
+        s->cams->pos.z -= 20;
+		ft_putstr_fd("\033[35m ZOOMING OUT\033[0m\n", 1);
+	}
+    if (key == 2 && (update = true)) // center mouse
+	{
         s->mouse = -s->mouse;
-    else if (key == 1 && s->mouse > 0 && (update = true)) // 's'
+		if (s->mouse > 0)
+			ft_putstr_fd("\033[35m ROT CAM FACTOT UP\033[0m\n", 1);
+		else
+			ft_putstr_fd("\033[35m ROT CAM FACTOT DOWN\033[0m\n", 1);
+	}
+    else if (key == 3 && s->mouse > 0 && (update = true)) // mouse left
+	{
         s->mouse++;
-    else if (key == 2 && s->mouse > 1 && (update = true)) // 'd'
+		ft_putstr_fd("\033[35m INCREASING ROT CAM FACTOR\033[0m\n", 1);
+	}
+    else if (key == 1 && s->mouse > 1 && (update = true)) // mouse right
+	{
         s->mouse--;
+		ft_putstr_fd("\033[35m DECREASING ROT CAM FACTOR\033[0m\n", 1);
+	}
     if (update)
     {
         mlx_destroy_image(s->image->mlx, s->image->img);

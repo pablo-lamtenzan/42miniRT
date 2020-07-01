@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/12 19:31:58 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/01 14:55:46 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/01 22:02:40 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ void                        *engine(void *fill)
         {
             color = set_color_precision(0x0, 0x0, 0x0);
             s->image->buff[(s->image->max_h - y - 1) * s->image->max_w + x] = set_ray(s, color, x, y);
-            x += NB_PTHREADS;
+            x += s->threads;
         }
     }
     pthread_exit(NULL);
