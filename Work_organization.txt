@@ -1,0 +1,94 @@
+My miniRT :
+
+1) Parse input file format
+2) Parse input file values
+3) Init image
+4) Create pthreads
+5) Calc image (engine)
+6) Free all
+
+TO DO :
+//- Parse well
+//- Collision function
+//- Object creation functions
+//- Change color by color precision
+//- Copy struct function
+//- Export bmp
+//- Function that init ray->dir
+//- End vec3 lib
+//- Normal object functions (cyl to do)
+- Hooks
+//- Types in parse
+//- parse bonus
+- set good keys
+- Link all
+
+- Rotation - Translation composed obj
+for cyl -> put a pointer to the 2 discks for have acces and rotate/translate
+for others -> to think
+
+//- init objs
+//- SEE IN LOAD IMAGE (start_multiphreading()) WTF IS USED THE INDEX FOR
+//- obj in rt file separeted by blank or just space ?
+//- minmax use 2nd param must be aa
+//- use is digit in all numb parse
+//- check better parse of normal distruption
+//- filename for bmp
+//- free all (alreaddy did ? about splitmulticharset)
+//- obj dist to see if if is ok in all files
+- when i ll test or before check rotation vec fct
+- check leaks in my splitmulticharset
+//- create some func that check ints or doubles por parse
+//- check all collision functions
+//- check all normal functions
+//- do map pyramid and map cube and map cyl
+//- where i use interdisck ? + check if the plane and cy struct are compatible to be casted in pl and in cy
+//- set errors
+- put cool print stuff like "starting ray tracing engine"
+- finish effects
+- check when use 1 pthreads
+- securize all nmap
+//- include strlcpy, strlen, strjoin (ft)
+- compile
+- correct errors
+- norme
+- optim code
+- try to break it
+- END + correct
+
+Notes:
+
+Composed obj need to have a create fct (ex: parse a cyl have to add 2 discks)
+For that:
+- create struct disc (new obj with collison and normal fct) and calc the 2 pos and inherit the dir when a cyl is parsed
+- pyramid : create a sq, then 4 tr
+- cube : just 6 square
+
+BONUS:
+//- Mapping
+//- Bonus Collisions
+//- Bonus Normals
+//- Apply effect
+//- Apply filter
+//- Damier
+//- Rainbow
+//- mirror
+//- Link all
+//- link filters
+//- cone normal
+
+//13/05 -> Bonus
+//14/05 -> Hooks
+//15/05 -> parse
+//16/05 -> All the rest (have to work)
+
+Debug:
+- can t read last line while parsing
+- all simple obj ok
+- all cmp obj ok
+- error gestion in parse bonus nb of arg 
+- rainbow is ok but so linear lines
+- damier bug too (size)
+- pyramid base seems smaller
+- parse line is too long doesnt ret false
+- put my style since load_image
