@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 20:25:25 by user42            #+#    #+#             */
-/*   Updated: 2020/07/02 13:40:45 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/02 17:03:45 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <hooks.h>
 #include <aux.h>
 
-void            resize_dir(double *point, double resize) // good
+void            resize_dir(double *point, double resize)
 {
     if (*point + resize > 1)
         *point = -1;
@@ -25,7 +25,7 @@ void            resize_dir(double *point, double resize) // good
         *point += resize;
 }
 
-int             motion_hook(int x, int y, void *fill) // good
+int             motion_hook(int x, int y, void *fill)
 {
     t_scene *s;
 
