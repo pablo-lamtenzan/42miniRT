@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/23 12:47:58 by user42            #+#    #+#             */
-/*   Updated: 2020/06/29 18:43:22 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/02 18:57:37 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ bool            put_triangle(t_scene *s, t_obj *obj, t_tri t)
     if (!(tr = rt_new_obj(TRIANGLE)))
         return (false);
     *tr = *obj;
+	tr->cmp = PYRAMID;
     ft_objadd_back(&s->objs, tr);
     rt_triangle_obj(tr, rt_new_triangle(t.v0, t.v1, t.v2, t.color));
     return (true);
@@ -36,6 +37,7 @@ bool            create_pyramid(t_scene *s, t_obj *obj, t_py py)
     if (!(sq = rt_new_obj(SQUARE)))
         return (false);
     *sq = *obj;
+	sq->cmp = PYRAMID;
     ft_objadd_back(&s->objs, sq);
     pos = vec_add(py.pos, rotv(vec3(0, -py.base_height / 2, 0), py.dir));
     rt_square_obj(sq, rt_new_square(pos, py.dir, py.base_height, py.color));

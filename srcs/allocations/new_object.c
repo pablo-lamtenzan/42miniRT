@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 17:40:23 by user42            #+#    #+#             */
-/*   Updated: 2020/06/30 15:16:07 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/02 18:48:35 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,13 @@ t_obj           *rt_new_obj(int type)
     new->collision = NULL;
     new->color = set_color_precision(0x0, 0x0, 0x0);
     new->color_damier = set_color_precision(0x0, 0x0, 0x0);
-    new->effect = 0;
+    new->effect = false;
     new->get_normal = NULL;
     new->mlx_ptr = NULL;
     new->next = NULL;
     new->rainbow = 0;
     new->rb = -1;
+	new->cmp = false;
     new->start = NULL;
     new->target = NULL;
     new->texture = set_color_precision(0x0, 0x0, 0x0);

@@ -83,6 +83,7 @@ BONUS:
 //16/05 -> All the rest (have to work)
 
 Debug:
+- when i minimize the image is del
 - can t read last line while parsing
 - error gestion in parse bonus nb of arg 
 - rainbow is ok but so linear lines
@@ -93,4 +94,5 @@ Debug:
 - color of squares and tri in test.rt
 - don't update well the zoom in/out in hook engine
 - cam rot works but lags a lot
+- cyl rot is weird thing in my project
 

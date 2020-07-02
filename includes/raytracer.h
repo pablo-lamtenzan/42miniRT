@@ -58,6 +58,7 @@ typedef struct              s_uvmap
 typedef struct              s_obj
 {
     char                    type;
+	char					cmp;
     void                    *target;
     void                    *start;
     bool				    (*collision)(t_ray r, void *obj, double *t);

@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 20:10:51 by user42            #+#    #+#             */
-/*   Updated: 2020/07/02 14:40:29 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/02 20:34:48 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,5 +130,7 @@ t_vec3                      normal_disk(void *s, t_ray r);
 bool                        create_pyramid(t_scene *s, t_obj *obj, t_py py);
 bool                        create_cube(t_scene *s, t_obj *obj, t_cu cu);
 void                        map_square(t_square *sq);
+void            			map_square_lr(t_square *sq);
+void            			map_square_fb(t_square *sq);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 21:03:08 by user42            #+#    #+#             */
-/*   Updated: 2020/07/01 21:26:05 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/02 22:04:33 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,20 @@ int             key_normal(int key, void *fill);
 void            key_translation(int key, t_obj *obj);
 void            key_rotation(int key, t_obj *obj);
 
-void            change_dir_sq(int key, t_square *w);
-void            change_dir_cy(int key, t_cyl *w);
+void            change_dir_sq(int key, t_square *w, int dir);
+void            change_dir_cy(int key, t_obj *obj);
 void            change_dir_pl(int key, t_plane *w);
 void            change_dir_co(int key, t_co *w);
 
-void            change_pos_sq(int key, t_square *w);
-void            change_pos_cy(int key, t_cyl *w);
+void            change_pos_sq(int key, t_square *w, int dir);
+void            change_pos_cy(int key, t_obj *s);
 void            change_pos_pl(int key, t_plane *w);
 void            change_pos_sp(int key, t_sphere *w);
 void            change_pos_co(int key, t_co *w);
 void            change_pos_tr(int key, t_tri *w);
+
+void			change_pos_py(int key, t_obj *py);
+void			change_pos_cu(int key , t_obj *cu);
+void			change_dir_cu(int key , t_obj *cu);
 
 #endif
