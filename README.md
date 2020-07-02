@@ -1,2 +1,2 @@
 # MiniRT
-A raytracer engine from scracth in C language using minilibX (42Paris lib) as graphic lib. 
+### A raytracer engine from scracth in C language using minilibX (42Paris lib) as graphic lib. 
