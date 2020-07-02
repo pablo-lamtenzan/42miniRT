@@ -18,14 +18,34 @@ The result of the raytracing will be printed in a window that the program will o
 
 ## II. Engine
 **Shapes**
-The engine suports first degree shapes:
-- Planes
-- Squares
-- Triangles
-- Spheres
-- Cylinders
-Second degree shapes:
-- 
+- Planes (1st degree)
+- Squares (1st degree)
+- Triangles (1st degree)
+- Spheres (1st degree)
+- Cylinders (1st degree) with disk in the sides (1 st degree)
+- Cones (2nd degree)
+- Cubes (1st degree and composed)
+- Pyramids (1st degree and composed)
+
+**Lights**
+- Multispots
+- Shadows
+- Ambient light
+- Colored ligth spots
+
+**Effects**
+- Mirror effect avalaible in all shapes
+- Textures avalaible in spheres
+- Color filters (r/g/b and sepia)
+- Checkerboard color distruption
+- Rainbow color distruption
+- Antialisaing (1 to 6)
+- Normal perturbation using the sin
+
+**Multiphreading**
+Uses 8 phreads to calculate the image reducing considerately the time for calculate a scene.
+
+
 
 
 
