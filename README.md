@@ -4,7 +4,8 @@
 ## Index
 ### I. Use
 ### II. Engine
-### III. Input
+### III. Interactions
+### IV. Input
 
 ## I. Use
 ### Specifications
@@ -14,6 +15,17 @@ For run the program you need to clone this git repository `git clone https://git
 Then if you did correctly the specifications part use the command `make` , this will compile the project sources into relecatable objects files (*.o) and then link this objects making an image of that as an executable file named "miniRT".
 When you have your executale file you need a *.rt file as argument, this file contains the scene you want to raytrace `./miniRT <filename.rt>` (see later in Input part).
 The result of the raytracing will be printed in a window that the program will open, but if you want to save the result as an image (*.bmp) you just have to add as second argument `--safe`, so the long command will be `./miniRT <filename.rt> --save`. The name of the *.bmp file will be the same than the filename.
+
+## II. Engine
+**Shapes**
+The engine suports first degree shapes:
+- Planes
+- Squares
+- Triangles
+- Spheres
+- Cylinders
+Second degree shapes:
+- 
 
 
 
