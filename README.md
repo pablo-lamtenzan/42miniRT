@@ -3,6 +3,7 @@
 
 ## Index
 ### I. Use
+  ## test
 ### II. Engine
 ### III. Interactions
 ### IV. Input
@@ -60,7 +61,7 @@ For change the camera direction you have to able the the camera direction moveme
 ### Keys
 If you have more than 1 camera you can switch infinitely between them using `+` for go the right or `ivert pontuation:`\` for go to the left.
 You can swicth into the shapes in the scene using `p` for going to the next and `o` for going back. The id of the shape will apear on the terminal (stdout) when you switch.
-When you have a shape sellected (swicthed), you can effectuate a translation of the shape using `the directional arrows` and `n m` or a rotation using `w a s d`.
+When you have a shape sellected (swicthed), you can effectuate a translation of the shape using `the directional arrows` and `n m` or a rotation using `w a s d z x`.
 
 ### Input 
 > to do 
