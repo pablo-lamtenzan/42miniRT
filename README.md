@@ -7,6 +7,8 @@
 ### III. Interactions
 ### IV. Input
 
+<Put Here an pretty image
+
 ## I. Use
 ### Specifications
 This program works in MacOS and Linux, however the graphic lib (minilibX) doesn't work in all the linux architectures. I hardly recommend to run it into Ubunti/Xubuntu OS. Its doesn't work on Manjaro arch. If you want to run this program in a Darwin arch (MacOs) you need to use version of the graph lib for MacOS (avalaible in minilibX_MacOS dir) and change the value of the variable "LIBX" in the Makefile to minilibX_MacOS.
