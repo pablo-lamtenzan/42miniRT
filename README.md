@@ -14,7 +14,7 @@
   #### d) Multithread
 ### III. Interactions
   #### a) Mouse
-  #### b) Keys
+  #### b) Keyboard
 ### IV. Input
   #### a) Shapes
   #### b) Unique parameters
@@ -70,7 +70,7 @@ When you execute an acccion a charge bar will apear in the terminal (stdout). Th
 You can modify the position of your current camera using `scroll whell`, `scroll whell up` will zoom in, vice versa `scroll well down` will zoom out.
 For change the camera direction you have to able the the camera direction movement pushing into the scroll whell `scroll well push`, then clicking on `mouse left button` you will increase the change of the direction or `mouse mouse button` for decraese. For exit the camera direction mode push `scroll whell` again. The camera dirrection mode will change the camera dirrection to where the mouse is pointing.
 
-### c) Keys
+### c) Keysboard
 If you have more than 1 camera you can switch infinitely between them using `+` for go the right or `ivert pontuation:`\` for go to the left.
 You can swicth into the shapes in the scene using `p` for going to the next and `o` for going back. The id of the shape will apear on the terminal (stdout) when you switch.
 When you have a shape sellected (swicthed), you can effectuate a translation of the shape using `the directional arrows` and `n m` or a rotation using `w a s d z x`.
