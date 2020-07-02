@@ -1,6 +1,8 @@
 # MiniRT
 ### A raytracer engine in C language coded from scracth using minilibX (42Paris's lib) as graphic lib.
 
+> This index sucks
+
 ## Index
 ### I. Use
   #### a) Specifications
