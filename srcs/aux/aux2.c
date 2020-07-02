@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 21:19:42 by user42            #+#    #+#             */
-/*   Updated: 2020/06/29 18:06:35 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/02 14:08:51 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void			ft_objadd_back(t_obj **alst, t_obj *nw)
 			while (last->next)
 				last = last->next;
 			last->next = nw;
+			nw->back = *alst;
 		}
 	}
 }

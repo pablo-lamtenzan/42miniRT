@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 20:10:51 by user42            #+#    #+#             */
-/*   Updated: 2020/06/29 13:27:28 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/02 14:40:29 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 
 #include <raytracer.h>
 
-#define SPHERE              16
-#define SQUARE              19
-#define CYLINDER            2
-#define TRIANGLE            3
-#define PLANE               4
-#define CUBE                5
-#define CONE                6
-#define PYRAMID             7
-#define DISK                8
+#define SPHERE              2
+#define SQUARE              3
+#define CYLINDER            4
+#define TRIANGLE            5
+#define PLANE               6
+#define CUBE                7
+#define CONE                8
+#define PYRAMID             9
+#define DISK                10
 
 typedef struct				s_sphere
 {

@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/12 21:23:09 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/01 14:10:02 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/02 14:22:11 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ bool                check_obj_collision(t_scene *s, t_obj **near, t_ray ray)
     t_obj	*start;
     
     start = s->objs->start;
+	s->objs = start;
     min = INFINITY;
     col = false;
     while (s->objs)

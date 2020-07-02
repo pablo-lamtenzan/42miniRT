@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 20:25:25 by user42            #+#    #+#             */
-/*   Updated: 2020/07/02 00:25:53 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/02 13:40:45 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void            resize_dir(double *point, double resize) // good
 {
     if (*point + resize > 1)
         *point = -1;
-    else if (*point + resize < 1)
+    else if (*point + resize < -1)
         *point = 1;
     else
         *point += resize;
@@ -29,7 +29,7 @@ int             motion_hook(int x, int y, void *fill) // good
 {
     t_scene *s;
 
-	printf("[%d][%d]\n", x, y);
+	//printf("[%d][%d]\n", x, y);
     s = (t_scene *)fill;
     if (s->mouse < 0)
         return (-1);
@@ -42,7 +42,7 @@ int             motion_hook(int x, int y, void *fill) // good
     else if (y < s->image->max_h / 2 / 3)
         resize_dir(&s->cams->dir.x, 0.01 * s->mouse);
     mlx_destroy_image(s->image->mlx, s->image->img);
-	printf("[%f][%f][%f]\n", s->cams->dir.x, s->cams->dir.y, s->cams->dir.z);
+	//printf("[%f][%f][%f]\n", s->cams->dir.x, s->cams->dir.y, s->cams->dir.z);
     s->image->img = NULL;
     calc_image_hooks(s);
     return (0);
@@ -80,9 +80,9 @@ int             mouse_hook(int key, int x, int y, void *fill)
 	{
         s->mouse = -s->mouse;
 		if (s->mouse > 0)
-			ft_putstr_fd("\033[35m ROT CAM FACTOT UP\033[0m\n", 1);
+			ft_putstr_fd("\033[35m CAM ROTATION UP\033[0m\n", 1);
 		else
-			ft_putstr_fd("\033[35m ROT CAM FACTOT DOWN\033[0m\n", 1);
+			ft_putstr_fd("\033[35m CAM ROTATION DOWN\033[0m\n", 1);
 	}
     else if (key == 3 && s->mouse > 0 && (update = true)) // mouse left
 	{
@@ -96,6 +96,7 @@ int             mouse_hook(int key, int x, int y, void *fill)
 	}
     if (update)
     {
+		// printf("U P D A T E\n");
         mlx_destroy_image(s->image->mlx, s->image->img);
         s->image->img = NULL;
         calc_image_hooks(s);

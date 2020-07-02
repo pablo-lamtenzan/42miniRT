@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 02:04:19 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/06/30 22:00:56 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/02 14:15:38 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ bool			rt_parse_line(t_scene *scene, char *line)
 void			rt_parse(int fd, t_scene *scene)
 {
 	char		*line;
+	void		*aux;
 
 	while (get_next_line(fd, &line) > 0)
 	{
@@ -69,9 +70,12 @@ void			rt_parse(int fd, t_scene *scene)
 	{
 		while (scene->cams->next)
 			scene->cams = scene->cams->next;
+		aux = scene->cams;
+		scene->cams->next = scene->cams->start;
+		((t_cam *)scene->cams->next)->back = aux;
 		scene->cams = scene->cams->start;
 	}
-	/* obj don t have to be circular
+	/*
 	if (scene->objs)
 	{
 		while (scene->objs->next)
