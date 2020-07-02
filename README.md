@@ -3,10 +3,20 @@
 
 ## Index
 ### I. Use
-  ## test
+  #### a) Specifications
+  #### b) Run
 ### II. Engine
+  #### a) Shapes
+  #### b) Lights
+  #### c) Effects
+  #### d) Multithread
 ### III. Interactions
+  #### a) Mouse
+  #### b) Keys
 ### IV. Input
+  #### Shapes
+  #### Unique parameters
+  #### Extras
 
 > Put Here an pretty image
 
@@ -45,7 +55,7 @@ The result of the raytracing will be printed in a window that the program will o
 - Antialisaing (1 to 6)
 - Normal perturbation using the sin
 
-**Multiphreading**
+**Multihreading**
 - Uses 8 phreads to calculate the image reducing considerately the time for calculate a scene.
 
 ## III. Interactions
