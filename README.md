@@ -88,6 +88,7 @@ Other shapes will need the `direction`, the `height` or the `diameter` too. The 
 - height: `float` only positive values
 - diameter: `float` only positive values
 - base height: `float` only positive values
+
 For define a camera or a light the same `position`, `direction`, `color` format must be used. However for define lights or cameras we need the `intensity` and the `field of view`.
 
 ***The sintax is:***
