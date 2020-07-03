@@ -20,7 +20,7 @@
   #### b) Unique parameters
   #### c) Extras
 
-> Put Here an pretty image
+![sc5](https://github.com/pablo-lamtenzan/42miniRT/_test.png)
 
 ## I. Use
 ### a) Specifications
