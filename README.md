@@ -131,7 +131,9 @@ At the end of the definition of a shape you can add extra values, this extra val
 - Textures: `tx path` only work in spheres with xmp extension textures files
 - Normal perturbation: `Uppercasse alphabetical char`
 
-
+Example: `sp 0,0,0 50 255,0,255 m` will define a mirror in the sphere
+          `sp 0,0,0 50 255,0,255 M` will define a mirror in the sphere + normal perturbation
+          `sp 0,0,0 50 255,0,255 H` will define a sphere with normal perturbation
 
 
 
