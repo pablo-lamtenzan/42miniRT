@@ -124,6 +124,7 @@ This parameters define properties about the scene. They can only be denifed one 
 
 ### Extras
 At the end of the definition of a shape you can add extra values, this extra values will modify the shape color.
+
 ***Defined as***
 - Mirror: `m` works in all the shapes and put effect mirror in the current shape
 - Rainbow: `r intensity` replace color by a degraded
