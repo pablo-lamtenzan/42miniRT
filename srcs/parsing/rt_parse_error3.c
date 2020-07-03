@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 09:39:18 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/06/30 13:47:23 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/03 14:20:22 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ bool				rt_parse_error_square(t_obj *obj, char *line)
 		return (ft_error_free(OBJ_PARAMS, values));
 	s.color.a = 0;
 	rt_square_obj(obj, rt_new_square(s.pos, s.dir,  s.height, s.color));
-	free(values);
+	free_values(values);
 	return (true);
 }
 
@@ -65,6 +65,6 @@ bool				rt_parse_error_triangle(t_obj *obj, char *line)
 		return (ft_error_free(OBJ_PARAMS, values));
 	t.color.a = 0;
 	rt_triangle_obj(obj, rt_new_triangle(t.v0, t.v1, t.v2, t.color));
-	free(values);
+	free_values(values);
 	return (true);
 }

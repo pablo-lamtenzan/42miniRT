@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 14:54:26 by user42            #+#    #+#             */
-/*   Updated: 2020/07/02 00:08:26 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/03 14:05:30 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ t_color_precision       get_color_hooks(t_scene *s, t_ray r)
 t_color_precision   set_ray_hooks(t_scene *s, t_color_precision c, int x, int y)
 {
     t_ray           r;
+	r.pos = s->cams->pos;
     
     r.dir.x = (double)x - s->image->max_w / 2;
     r.dir.y = (double)y - s->image->max_h / 2;
@@ -101,7 +102,7 @@ void                *engine_hooks(void *fill)
             color = set_color_precision(0x0, 0x0, 0x0);
             s->image->buff[(s->image->max_h - y - 1) * s->image->max_w + x] = set_ray_hooks(s, color, x, y);
             pixelize(s, x, y);
-            x += NB_PTHREADS;
+            x += s->threads;
         }
         y += 4;
     }

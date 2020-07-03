@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 21:07:30 by user42            #+#    #+#             */
-/*   Updated: 2020/07/02 23:03:02 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/03 14:35:35 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char		*get_obj_type(int id)
 	return (types[id]);
 }
 
-int         switch_cam_or_obj(int key, t_scene *s) // good
+int         switch_cam_or_obj(int key, t_scene *s)
 {
     if (key == XK_plus)
 	{
@@ -171,7 +171,6 @@ int         key_normal(int key, void *fill)
         s->image->img = NULL;
         mlx_clear_window(s->image->mlx, s->image->win);
 		calc_image(s);
-		printf("%p\n", s->image->img);
         (void)mlx_put_image_to_window(s->image->mlx, s->image->win, s->image->img, 0, 0);
         return (-1);
     }
@@ -212,22 +211,16 @@ int         key_hook(int key, void *fill)
 {
     t_scene *s;
 
-	printf("[keyhook: %d]\n", key);
     s = (t_scene *)fill;
 	if (is_usseful_key(key) == false)
 		return (key);
-    if (key == XK_Escape) // ESC
+    if (key == XK_Escape)
         free_all(s);
     switch_cam_or_obj(key, s);
     key_rotation(key, s->objs);
-    // key_rotaion_bis(key, s->objs);
-    // key atribute (no need i think)
     key_translation(key, s->objs);
-    // key effect (no needed)
 	if (key == 32)
-	{
 		s->threads = s->threads != 1 ? 1 : 8;
-	}
     if (key_normal(key, s) == -1)
         return (key);
     mlx_destroy_image(s->image->mlx, s->image->img);

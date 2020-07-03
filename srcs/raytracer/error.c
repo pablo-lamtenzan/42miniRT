@@ -6,13 +6,13 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/15 18:58:02 by user42            #+#    #+#             */
-/*   Updated: 2020/06/30 21:23:51 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/03 14:24:19 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
 #include <stdlib.h>
-#include <aux.h>
+#include <parsing.h>
 
 char        *error_mesages(int error_code)
 {
@@ -44,7 +44,7 @@ bool        ft_error(int error_code)
 bool        ft_error_free(int error_code, void *addr)
 {
     if (addr)
-        free(addr);
+        free_values(addr);
     ft_putstr_fd(error_mesages(error_code), 1);
     return (false);
 }
@@ -53,7 +53,7 @@ bool        ft_error_free(int error_code, void *addr)
 bool        ft_error_free2(int error_code, void *addr1, void *addr2)
 {
     if (addr1)
-        free(addr1);
+        free_values(addr1);
     if (addr2)
         free(addr1);
     ft_putstr_fd(error_mesages(error_code), 1);

@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 07:18:15 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/06/30 22:09:58 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/03 14:20:15 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ bool				rt_parse_error_plane(t_obj *obj, char *line)
 		return (ft_error_free(OBJ_PARAMS, values));
 	p.color.a = 0;
 	rt_plane_obj(obj, rt_new_plane(p.pos, p.dir, p.color));
-	free(values);
+	free_values(values);
 	return (true);
 }
 
@@ -67,7 +67,7 @@ bool				rt_parse_error_sphere(t_obj *obj, char *line)
 		return (ft_error_free(OBJ_PARAMS, values));
 	sp.color.a = 0;
 	rt_sphere_obj(obj, rt_new_sphere(sp.pos, sp.d, sp.color));
-	free(values);
+	free_values(values);
 	return (true);
 }
 static bool		rt_parse_cylinder_help(t_scene *s, t_obj *obj, t_cyl cy, char **values)
@@ -87,7 +87,7 @@ static bool		rt_parse_cylinder_help(t_scene *s, t_obj *obj, t_cyl cy, char **val
 	(void)s;
 	if (!create_disks(s, cy, obj))
 		return (ft_error_free(HEAP_ALLOC, values));
-	free(values);
+	free_values(values);
 	return (true);
 }
 

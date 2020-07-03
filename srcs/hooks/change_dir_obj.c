@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 14:11:13 by user42            #+#    #+#             */
-/*   Updated: 2020/07/02 22:42:34 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/03 13:43:42 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,9 @@ void            change_dir_cy(int key, t_obj *obj)
 	{
         resize_dir(&((t_cyl *)obj->target)->dir.z, -0.05);
 	}
-	//printf("[%f][%f][%f][h: %f][d: %f]\n", ((t_cyl *)obj->target)->dir.x, ((t_cyl *)obj->target)->dir.y, ((t_cyl *)obj->target)->dir.z, ((t_cyl *)obj->target)->height, ((t_cyl *)obj->target)->d);
 	if (update)
 	{
-		(void)pos;
+		((t_cyl *)obj->target)->dir = normalise(((t_cyl *)obj->target)->dir);
 		pos = vec_scale(((t_cyl *)obj->target)->dir, ((t_cyl *)obj->target)->height / 2);
 		((t_disk *)((t_obj *)obj->next)->target)->dir = ((t_cyl *)obj->target)->dir;
 		((t_disk *)((t_obj *)((t_obj *)obj->next)->next)->target)->dir = ((t_cyl *)obj->target)->dir;

@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/16 21:17:41 by user42            #+#    #+#             */
-/*   Updated: 2020/06/30 13:47:43 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/03 14:20:34 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ bool        rt_parse_error_cube(t_scene *s, t_obj *obj, char *line)
 	cu.color.a = 0;
     if (!create_cube(s, obj, cu))
         return (ft_error_free2(HEAP_ALLOC, values, obj));
-    free(values);
+    free_values(values);
     free(obj);
     return (true);
 }
@@ -119,7 +119,7 @@ bool        rt_parse_error_cone(t_obj *obj, char *line)
 	if ((co.color.b = ft_atoi(values[11])) < 0x0 || co.color.b > 0xFF)
 		return (ft_error_free(OBJ_PARAMS, values));
     rt_cone_obj(obj, rt_new_cone(ray2(co.pos, co.dir), co.curve, co.height, co.color));
-    free(values);
+    free_values(values);
     return (true);
 }
 
@@ -154,6 +154,6 @@ bool        rt_parse_error_pyramid(t_scene *s, t_obj *obj, char *line)
     if (!create_pyramid(s, obj, py))
         return (ft_error_free2(HEAP_ALLOC, values, obj));
     free(obj);
-    free(values);
+    free_values(values);
 	return (true);
 }

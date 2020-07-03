@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 03:02:03 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/06/30 22:04:58 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/03 14:19:43 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ bool			rt_parse_error_res(t_scene *scene, char *line)
 		return (ft_error_free(INV_INPUT, values));
 	scene->image->max_w = scene->image->max_w > 5120 ? 5120 : scene->image->max_w;
 	scene->flags |= RT_RES;
-	free(values);
+	free_values(values);
 	return (true);
 }
 
@@ -57,7 +57,7 @@ bool			rt_parse_error_amb(t_scene *scene, char *line)
 			scene->amb_color.b > 0xff)
 		return (ft_error_free(AMB_PARAMS, values));
 	scene->amb_color.a = 0;
-	free(values);
+	free_values(values);
 	return (true);
 }
 
@@ -86,7 +86,7 @@ bool			rt_parse_error_point(t_light *light, char *line)
 		return (ft_error_free(LIGHT_PARAMS, values));
 	light->color.a = 0;
 	light->color = minmax_simple(color_preci_to_vec3(light->color));
-	free(values);
+	free_values(values);
 	return (true);
 }
 
@@ -109,6 +109,6 @@ bool			rt_parse_error_cam(t_cam *cam, char *line)
 	if ((cam->fov = ft_atod(values[7])) <=  0 || cam->fov > 180)
 		return (ft_error_free(CAM_PARAMS, values));
 	cam->fov = cam->fov * M_PI / 180;
-	free(values);
+	free_values(values);
 	return (true);
 }

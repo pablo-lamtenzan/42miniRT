@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 06:02:13 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/06/30 14:16:38 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/03 14:28:23 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,7 @@ bool				rt_parse_obj_bonus(t_scene *s, char *line)
 bool			rt_parse_cam(t_scene *scene, char *line)
 {
 	t_cam			*cam;
-	//int				res;
 
-	//res = scene->cams ? scene->cams->num + 1 : 1;
 	cam = rt_new_cam();
 	ft_camadd_back(&scene->cams, cam);
 	if ((rt_parse_error_cam(cam, line)) > 0)

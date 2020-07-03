@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 20:25:25 by user42            #+#    #+#             */
-/*   Updated: 2020/07/02 20:54:27 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/03 14:07:18 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,28 +27,33 @@ void            resize_dir(double *point, double resize)
 
 int             motion_hook(int x, int y, void *fill)
 {
-    t_scene *s;
-
-	//printf("[%d][%d]\n", x, y);
+    t_scene 	*s;
+	bool		update;
+	
     s = (t_scene *)fill;
+	update = false;
     if (s->mouse < 0)
         return (-1);
-    if (x > s->image->max_w / 3 && x < s->image->max_w / 2)
+    if (x > s->image->max_w / 3 && x < s->image->max_w / 2 && (update = true))
         resize_dir(&s->cams->dir.y, -0.01 * s->mouse);
-    else if (x < s->image->max_w / 2 / 3)
+    else if (x < s->image->max_w / 2 / 3 && (update = true))
         resize_dir(&s->cams->dir.y, 0.01 * s->mouse);
-    if (y > s->image->max_h / 3 && y < s->image->max_h / 2)
+    if (y > s->image->max_h / 3 && y < s->image->max_h / 2 && (update = true))
         resize_dir(&s->cams->dir.x, -0.01 * s->mouse);
-    else if (y < s->image->max_h / 2 / 3)
+    else if (y < s->image->max_h / 2 / 3 && (update = true))
+	{
         resize_dir(&s->cams->dir.x, 0.01 * s->mouse);
-    mlx_destroy_image(s->image->mlx, s->image->img);
-	//printf("[%f][%f][%f]\n", s->cams->dir.x, s->cams->dir.y, s->cams->dir.z);
-    s->image->img = NULL;
-    calc_image_hooks(s);
+	}
+	if (update)
+	{
+    	mlx_destroy_image(s->image->mlx, s->image->img);
+    	s->image->img = NULL;
+    	calc_image_hooks(s);
+	}
     return (0);
 }
 
-int             motion_end(void *fill) // good
+int             motion_end(void *fill)
 {
     t_scene *s;
 
@@ -96,7 +101,6 @@ int             mouse_hook(int key, int x, int y, void *fill)
 	}
     if (update)
     {
-		// printf("U P D A T E\n");
         mlx_destroy_image(s->image->mlx, s->image->img);
         s->image->img = NULL;
         calc_image_hooks(s);

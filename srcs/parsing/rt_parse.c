@@ -6,13 +6,23 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 02:04:19 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/02 14:15:38 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/03 14:25:16 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <parsing.h>
 #include <stdlib.h>
 #include <get_next_line.h>
+
+void			free_values(char **values)
+{
+	int 		i;
+
+	i = -1;
+	while (values[++i])
+		free(values[i]);
+	free(values);
+}
 
 bool			rt_parse_line_bonus(t_scene *s, char *line)
 {
@@ -61,6 +71,7 @@ void			rt_parse(int fd, t_scene *scene)
 		}
 		free(line);
 	}
+	free(line);
 	if (close(fd) < 0)
 	{
 		free_all(scene);
