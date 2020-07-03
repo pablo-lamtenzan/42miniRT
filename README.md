@@ -68,15 +68,74 @@ When you execute an acccion a charge bar will apear in the terminal (stdout). Th
 
 ### b) Mouse
 You can modify the position of your current camera using `scroll whell`, `scroll whell up` will zoom in, vice versa `scroll well down` will zoom out.
-For change the camera direction you have to able the the camera direction movement pushing into the scroll whell `scroll well push`, then clicking on `mouse left button` you will increase the change of the direction or `mouse mouse button` for decraese. For exit the camera direction mode push `scroll whell` again. The camera dirrection mode will change the camera dirrection to where the mouse is pointing.
+For change the camera direction you have to able the the camera direction movement pushing into the scroll whell `scroll well push`, then clicking on `mouse left button` you will increase the change of the direction or `mouse mouse button` for decrease. For exit the camera direction mode push `scroll whell` again. The camera dirrection mode will change the camera dirrection to where the mouse is pointing.
 
 ### c) Keysboard
 If you have more than 1 camera you can switch infinitely between them using `+` for go the right or `ivert pontuation:`\` for go to the left.
 You can swicth into the shapes in the scene using `p` for going to the next and `o` for going back. The id of the shape will apear on the terminal (stdout) when you switch.
 When you have a shape sellected (swicthed), you can effectuate a translation of the shape using `the directional arrows` and `n m` or a rotation using `w a s d z x`.
 
-### Input 
-> to do 
+## IV. Input 
+The program is only able to read with the rt extension (*.rt), this files should follow an specific sintax, this sintax will be explained in this part. All errors is the sintax are correctly handled so the program will just return an error mesage.
+### Shapes
+For define a shape you must know at least the `position` and the `color`, both parameters are global for all the shapes.
+Other shapes will need the `direction`, the `height` or the `diameter` too. The sintax of this properties depend of the type of the value `,` separator will be used for separete the `values` and `.` will be used to define a float.
+The `espace` will be used for separate the parameters as `position` `esp` `direction` for example.
+
+***The sintax is:***
+- position: `float, float, float` (x, y, z)
+- direction: `float, float, float` between -1 and 1 (x, y, z)
+- color: `int, int, int` from 0 to 255 (r/g/b)
+- height: `float` only positive values
+- diameter: `float` only positive values
+- base height: `float` only positive values
+- curvature: `float` only positive values
+
+For define a camera or a light the same `position`, `direction`, `color` format must be used. However for define lights or cameras we need the `intensitespacey` and the `field of view`.
+
+***The sintax is:***
+- intensity: `float` between 0 and 1
+- field of view (fov): `int` between 0 and 180
+
+Each shape, camera or light has an identifier this id will be the first element of the line. One parameter per line is handled only.
+
+***Camera and lights***
+- Camera: `c position direction fov`
+- Light: `l position intensity color`
+
+***Shapes***
+- Sphere: `sp position diameter color`
+- Plane: `pl position direction color`
+- Square: `sq position direction height color`
+- Triangle: `postion` `position` `position` (position of the 3 corners)
+- Cylinder: `position direction diameter height color`
+- Cone: `position direction curvature height color`
+- Cube: `position direction base_height color`
+- Pyramid: `position direction base_height height color`
+
+### Unique parameters
+This parameters define properties about the scene. They can only be denifed one time each one per input file.
+
+***Defined as:***
+- Resolution: `R int int` (weight and height, the size of the output window)
+- Ambient light: `A intensity color`
+- Antialisaing: `aa int` (1 to 6)
+- Filter: `f value` (value coulb be r/g/b/s, red, green, blue, sepia)
+
+### Extras
+At the end of the definition of a shape you can add extra values, this extra values will modify the shape color.
+
+***Defined as***
+- Mirror: `m` works in all the shapes and put effect mirror in the current shape
+- Rainbow: `r intensity` replace color by a degraded
+- Checkerboard: `d color height` create squares using the color value and the given color, the height is the side of the squares
+- Textures: `tx path` only work in spheres with xmp extension textures files
+- Normal perturbation: `Uppercasse alphabetical char`
+
+Example: `sp 0,0,0 50 255,0,255 m` will define a mirror in the sphere,
+          `sp 0,0,0 50 255,0,255 M` will define a mirror in the sphere + normal perturbation,
+          `sp 0,0,0 50 255,0,255 H` will define a sphere with normal perturbation.
+
 
 
 
