@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/12 18:53:16 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/01 22:37:46 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/03 22:42:36 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ t_scene      *copy_structure(t_scene *s)
 
 static bool			start_multithreading(t_scene *s)
 {
-	pthread_t  		threads[NB_PTHREADS];
-    t_scene     	*instances[NB_PTHREADS];
+	pthread_t  		threads[s->threads];
+    t_scene     	*instances[s->threads];
     int             i;
     
     i = -1;
@@ -80,9 +80,9 @@ int 				load_image(void *x)
 
 	s = (t_scene *)x;
     if (!(s->image->win = mlx_new_window(s->image->mlx, s->image->max_w, s->image->max_h,
-            "plamtenz's miniRT")))
+            "plamtenz's miniRT")) || calc_image(s) == false)
         return (false);
-    if (!(s->flags & SAVE || calc_image(s) == false))
+    if (!(s->flags & SAVE))
     {
 		//mlx_loop_hook(s->image->mlx, calc_image, s);
 		//printf("[%p]\n", s->image->img);

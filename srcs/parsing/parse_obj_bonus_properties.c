@@ -6,15 +6,18 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/16 22:08:35 by user42            #+#    #+#             */
-/*   Updated: 2020/06/30 22:08:50 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/03 19:59:05 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <parsing.h>
 #include <stdlib.h>
+#include <ft_error.h>
 
 bool            parse_damier(t_obj *obj, char **values)
 {
+	if (!frmt(&values[1], 4) || values[5])
+		return (false);
     if ((obj->color_damier.r = (double)ft_atoi(values[1])) < 0x0 || obj->color_damier.r > 0xff)
 		return (false);
 	if ((obj->color_damier.g = (double)ft_atoi(values[2])) < 0x0 || obj->color_damier.r > 0xff)
@@ -31,6 +34,8 @@ bool            parse_damier(t_obj *obj, char **values)
 
 bool            parse_rainbow(t_obj *obj, char **values)
 {
+	if (!frmt(&values[1], 1) || values[2])
+		return (false);
     if ((obj->rainbow = ft_atod(values[1])) < 0.000 || obj->rainbow > 1.000)
         return (false);
     obj->effect |= RAINBOW;
@@ -45,6 +50,8 @@ bool            parse_textures(t_obj *obj, char **values)
 	char		s[255];
 
     i = 0;
+	if (values[2])
+		return (false);
     if (values[1][i] == '"')
         i++;
     else
@@ -71,7 +78,7 @@ bool            parse_textures(t_obj *obj, char **values)
 	return (false);
 }
 
-bool            parse_obj_bonus_properties(t_obj *obj, char **values, int id) // send addr of values at the end (where they sould not have values if isnt bonus)
+bool            parse_obj_bonus_properties(t_obj *obj, char **values, int id)
 {
     if (!values || !values[0])
         return (true);
@@ -82,10 +89,18 @@ bool            parse_obj_bonus_properties(t_obj *obj, char **values, int id) //
         return (parse_rainbow(obj, values));
     else if ((!ft_strncmp(values[0], "tx", 3) || !ft_strncmp(values[0], "TX", 3)) && id == SPHERE)
         return (parse_textures(obj, values));
-    else if (!ft_strncmp(values[0], "m", 2) || !ft_strncmp(values[0], "M", 2))
+    else if (!ft_strncmp(values[0], "m", 1) || !ft_strncmp(values[0], "M", 1))
+	{
         obj->effect |= MIRROR;
+		if (values[1] || values[0][1])
+			return (false);
+	}
     else if (values[0][0] >= 'A' && values[0][0] <= 'Z')
+	{
         obj->effect |= NORMAL_DIST;
+		if (values[1]  || values[0][1])
+			return (false);
+	}
 	else
 		return (true);
 	return (true);

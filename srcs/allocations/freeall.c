@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 21:11:03 by user42            #+#    #+#             */
-/*   Updated: 2020/07/03 14:32:28 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/03 22:02:12 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,12 @@ void                free_cams(t_cam *start)
     t_cam           *tmp;
     
 	tmp = NULL;
-    while (start && tmp != start->start)
+    while (start && tmp != start)
     {
         tmp = start;
         start = start->next;
         free(tmp);
+		tmp = NULL;
     }
 }
 
@@ -69,11 +70,11 @@ void                free_all(t_scene *s)
         free_objs(s->objs->start);
     if (s->lights)
         free_lights(s->lights->start);
-    if (s->cams)
-        free_cams(s->cams->start);
+    //if (s->cams)
+    //    free_cams(s->cams->start);
     if (s->image)
         free_mlx(s->image);
     free(s);
-	ft_putstr_fd("\033[31m[MINIRT EXIT WITH SUCCESS]\033[0m\n", 1);
+	ft_putstr_fd("\033[32m[MINIRT EXIT WITH SUCCESS]\033[0m\n", 1);
     exit(EXIT_SUCCESS);
 }

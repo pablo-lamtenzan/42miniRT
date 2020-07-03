@@ -6,13 +6,14 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 02:04:19 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/03 14:25:16 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/03 20:50:44 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <parsing.h>
 #include <stdlib.h>
 #include <get_next_line.h>
+#include <ft_error.h>
 
 void			free_values(char **values)
 {
@@ -26,7 +27,7 @@ void			free_values(char **values)
 
 bool			rt_parse_line_bonus(t_scene *s, char *line)
 {
-	if (!ft_strncmp(line, "\n", 2)) // usefull ?? have to lldb not line jump parse
+	if (*line == '\0')
 		return (true);
 	if (!ft_strncmp(line, "cu ", 3) || !ft_strncmp(line, "co ", 3) || !ft_strncmp(line, "py ", 3))
 		return (rt_parse_obj_bonus(s, line));
@@ -35,7 +36,7 @@ bool			rt_parse_line_bonus(t_scene *s, char *line)
 	else if (!ft_strncmp(line, "f ", 2))
 		return (rt_parse_error_filter(s, line));
 	else
-		return (false);
+		return (ft_error(INV_INPUT));
 }
 
 bool			rt_parse_line(t_scene *scene, char *line)
@@ -63,20 +64,21 @@ void			rt_parse(int fd, t_scene *scene)
 
 	while (get_next_line(fd, &line) > 0)
 	{
-		if (!rt_parse_line(scene, line))
+		if (!frmt2(line) || !rt_parse_line(scene, line))
 		{
 			free(line);
 			free_all(scene);
-			exit(EXIT_FAILURE);
 		}
 		free(line);
 	}
+	if (!frmt2(line) || (!rt_parse_line(scene, line)))
+	{
+		free(line);
+		free_all(scene);
+	}
 	free(line);
 	if (close(fd) < 0)
-	{
 		free_all(scene);
-		return ;
-	}
 	if (scene->cams)
 	{
 		while (scene->cams->next)
@@ -86,20 +88,4 @@ void			rt_parse(int fd, t_scene *scene)
 		((t_cam *)scene->cams->next)->back = aux;
 		scene->cams = scene->cams->start;
 	}
-	/*
-	if (scene->objs)
-	{
-		while (scene->objs->next)
-			scene->objs = scene->objs->next;
-	scene->objs->next = scene->objs->start;
-	}
-	*/
-	/* light don t have to be circular
-	if (scene->lights)
-	{
-		while (scene->lights->next)
-			scene->lights = scene->lights->next;
-	scene->lights->next = scene->lights->start;
-	}
-	*/
 }

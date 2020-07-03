@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/15 18:58:02 by user42            #+#    #+#             */
-/*   Updated: 2020/07/03 14:24:19 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/03 20:42:54 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ char        *error_mesages(int error_code)
     msg[5] = "\033[31mError code [06]:\n\033[0m > Only 1 ambient light is supported\n";
     msg[6] = "\033[31mError code [07]:\n\033[0m > Light params aren't supported\n";
     msg[7] = "\033[31mError code [08]:\n\033[0m > Camera params aren't supported\n";
-    msg[8] = "\033[31mError code [09]:\n\033[0m > Ambiental light params aren't supported\n";
-    msg[9] = "\033[31mError code [10]:\n\033[0m > Object params aren't suported\n";
-    msg[10] = "\033[31mError code [11]:\n\033[0m > Antialiasing just can be defined 1 time. Why more ? Is dumb\n";
+    msg[8] = "\033[31mError code [09]:\n\033[0m > Double ambiental light definitions aren't allowed\n";
+    msg[9] = "\033[31mError code [10]:\n\033[0m > Shape parameters are bad formated\n";
+    msg[10] = "\033[31mError code [11]:\n\033[0m > Antialiasing just can be defined 1 time\n";
     msg[11] = "\033[31mError code [12]:\n\033[0m > Antialiasing param must be only 1 and an integer\n";
-    msg[12] = "\033[31mError code [13]:\n\033[0m > Only 1 filter is suported choose (r/g/b/w/s)\n";
-    msg[13] = "\033[31mError code [14]:\n\033[0m > Resolution can be defined only 1 time (logic)\n";
+    msg[12] = "\033[31mError code [13]:\n\033[0m > Only 1 filter is suported choose (r/g/b/s)\n";
+    msg[13] = "\033[31mError code [14]:\n\033[0m > Resolution can be defined only 1 time\n";
     return (msg[error_code - 1]);
 }
 

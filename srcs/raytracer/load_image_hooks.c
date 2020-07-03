@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 14:53:35 by user42            #+#    #+#             */
-/*   Updated: 2020/07/01 22:01:50 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/03 20:25:40 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 bool			start_multithreading_hooks(t_scene *s)
 {
-	pthread_t  		threads[NB_PTHREADS];
-    t_scene     	*instances[NB_PTHREADS];
+	pthread_t  		threads[s->threads];
+    t_scene     	*instances[s->threads];
     int             i;
     
     i = -1;

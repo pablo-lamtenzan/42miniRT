@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 22:22:41 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/01 19:55:32 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/03 21:02:20 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ int         main(int ac, char **argv)
 		ft_putstr_fd("\033[1m\033[32m Input parsed succesfully \033[0m\n", 1);
         load_image(scene);
 	}
+	else
+		free_all(scene);
     return (0);
 }

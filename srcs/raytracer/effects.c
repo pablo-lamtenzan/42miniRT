@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 20:02:03 by user42            #+#    #+#             */
-/*   Updated: 2020/07/01 14:04:08 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/03 16:55:13 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,6 @@ t_color         filter(t_scene *s, t_color c)
         c.chanel.g = 0x0;
     if (s->filter == GREEN || s->filter == BLUE)
         c.chanel.r = 0x0;
-    if (s->filter == BLACK_AND_WHITE)
-    {
-        tmp = (c.chanel.r + c.chanel.g + c.chanel.b) / 3;
-        c = set_color(tmp, tmp, tmp);
-    }
     if (s->filter == SEPIA)
     {
         tmp = c.chanel.r + c.chanel.g + c.chanel.b;

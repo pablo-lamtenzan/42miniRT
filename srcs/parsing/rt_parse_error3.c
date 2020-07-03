@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 09:39:18 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/03 14:20:22 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/03 18:54:11 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ bool				rt_parse_error_square(t_obj *obj, char *line)
 	t_square		s;
 	char			**values;
 
-	if (!(values = split_multicharset(line, " ,")))
-		return (ft_error(HEAP_ALLOC));
+	if (!(values = split_multicharset(line, " ,")) || !frmt(&values[1], 10))
+		return (values ? ft_error_free(OBJ_PARAMS, values) : ft_error(HEAP_ALLOC));
 	if (!values[10] || !parse_obj_bonus_properties(obj, &values[11], SQUARE))
 		return (ft_error_free(OBJ_PARAMS, values));
 	s.pos = vec3(ft_atod(values[1]), ft_atod(values[2]), ft_atod(values[3]));
@@ -50,8 +50,8 @@ bool				rt_parse_error_triangle(t_obj *obj, char *line)
 	t_tri			t;
 	char			**values;
 
-	if (!(values = split_multicharset(line, " ,")))
-		return (ft_error(HEAP_ALLOC));
+	if (!(values = split_multicharset(line, " ,")) || !frmt(&values[1], 12))
+		return (values ? ft_error_free(OBJ_PARAMS, values) : ft_error(HEAP_ALLOC));
 	if (!values[12] || !parse_obj_bonus_properties(obj, &values[13], TRIANGLE))
 		return (ft_error_free(OBJ_PARAMS, values));
 	t.v0 = vec3(ft_atod(values[1]), ft_atod(values[2]), ft_atod(values[3]));

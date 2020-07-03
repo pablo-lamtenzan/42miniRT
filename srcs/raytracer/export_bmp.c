@@ -60,6 +60,7 @@ void                    write_bmp(t_scene *s, unsigned char *header, unsigned ch
         (void)write (fd, &__data[0] + (s->image->max_w * (s->image->max_h - i - 1) * 3), 3 * s->image->max_w);
         (void)write (fd, padding, (4 - (s->image->max_w * 3) % 4) % 4);
     }
+	free(__data);
     (void)close(fd);
 }
 
@@ -85,5 +86,6 @@ void                    export_bmp(t_scene *s)
     data[10] = (unsigned char)s->image->max_h >> 16;
     data[11] = (unsigned char)s->image->max_h >> 24;
     write_bmp(s, header, data, padding);
+	//printf("[]")
 	free_all(s);
 }

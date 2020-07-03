@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 06:50:44 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/01 21:42:05 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/03 21:39:13 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,9 @@ char			*get_filename(char *namepath)
 	int				i;
 
 	i = 0;
-	if (!(aux = malloc(sizeof(char) * ft_strlen(namepath))))
+	if (!(aux = ft_strdup(namepath)))
 		return (NULL);
-	ft_strlcpy(aux, namepath, ft_strlen(namepath));
-	while (aux && aux[i] != '/')
+	while (aux[i] && aux[i] != '/')
 		i++;
 	free(aux);
 	if (i >= ft_strlen(namepath) && check_file_name(namepath))
@@ -58,12 +57,14 @@ bool				check_file(int arc, char **argv, int *fd, t_scene *scene)
 	if (arc >= 2 && check_file_name(argv[1]))
 	{
 		if (arc >= 2 && arc <= 3)
-			*fd = open(argv[1], O_RDONLY);
+		{
+			if ((*fd = open(argv[1], O_RDONLY)) < 0)
+				return (ft_error(INV_INPUT));
+		}
 		else
 			return (ft_error(INV_NB_ARGS));
-		//ft_strlcpy(scene->filename, argv[1], ft_strlen(argv[1]) - 3);
-		scene->filename = NULL;//get_filename(argv[1]);
-		//ft_strlcpy(scene->filename, scene->filename, ft_strlen(scene->filename) - 2);
+		scene->filename = get_filename(argv[1]);
+		ft_strlcpy(scene->filename, scene->filename, ft_strlen(scene->filename) - 2);
 		return (true);
 	}
 	return (ft_error(INV_FILENAME));

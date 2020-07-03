@@ -7,7 +7,6 @@
 
 #include <stdio.h>
 
-#define NB_PTHREADS         8
 #define REBOUNDS_MIRROR		10
 
 #define SAVE                1
@@ -15,6 +14,9 @@
 #define RT_RES              4
 #define RT_AA               8
 #define RT_FILTER           16
+#define RT_CAM				32
+#define RT_LIGHT			64
+#define RT_OBJ				128
 
 #define DAMIER              1
 #define RAINBOW             2

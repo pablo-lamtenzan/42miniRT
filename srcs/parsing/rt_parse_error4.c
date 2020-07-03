@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/16 21:17:41 by user42            #+#    #+#             */
-/*   Updated: 2020/07/03 14:20:34 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/03 18:54:31 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ bool        rt_parse_error_aa(t_scene *s, char *line)
 
     if (s->flags & RT_AA)
         return (ft_error(MANY_AA));
-    if (!(values = split_multicharset(line, " ,")))
-        return (ft_error(HEAP_ALLOC));
+    if (!(values = split_multicharset(line, " ,")) || !frmt(&values[1], 1))
+        return (values ? ft_error_free(OBJ_PARAMS, values) : ft_error(HEAP_ALLOC));
     if (!values[1] || values[2])
         return (ft_error_free(AA_PARAMS, values));
     s->aa = ft_atoi(values[1]);
@@ -50,8 +50,6 @@ bool        rt_parse_error_filter(t_scene *s, char *line)
         s->filter = BLUE;
     else if (*values[1] == 's')
         s->filter = SEPIA;
-    else if (*values[1] == 'w')
-        s->filter = BLACK_AND_WHITE;
     else
         return (ft_error_free(INV_INPUT, values));
     s->flags |= RT_FILTER;
@@ -64,8 +62,8 @@ bool        rt_parse_error_cube(t_scene *s, t_obj *obj, char *line)
     t_cu    cu;
     char    **values;
     
-    if (!(values = split_multicharset(line, " ,")))
-        return (ft_error(HEAP_ALLOC));
+    if (!(values = split_multicharset(line, " ,")) || !frmt(&values[1], 10))
+        return (values ? ft_error_free(OBJ_PARAMS, values) : ft_error(HEAP_ALLOC));
     if (!values[10] || !parse_obj_bonus_properties(obj, &values[11], CUBE))
         return (ft_error_free(OBJ_PARAMS, values));
     cu.pos = vec3(ft_atod(values[1]), ft_atod(values[2]), ft_atod(values[3]));
@@ -96,8 +94,8 @@ bool        rt_parse_error_cone(t_obj *obj, char *line)
     t_co    co;
     char    **values;
 
-    if (!(values = split_multicharset(line, " ,")))
-    	return (ft_error(HEAP_ALLOC));
+    if (!(values = split_multicharset(line, " ,")) || !frmt(&values[1], 11))
+    	return (values ? ft_error_free(OBJ_PARAMS, values) : ft_error(HEAP_ALLOC));
     if (!values[11] || !parse_obj_bonus_properties(obj, &values[12], CONE))
         return (ft_error_free(OBJ_PARAMS, values));
     co.pos = vec3(ft_atod(values[1]), ft_atod(values[2]), ft_atod(values[3]));
@@ -128,9 +126,8 @@ bool        rt_parse_error_pyramid(t_scene *s, t_obj *obj, char *line)
     t_py    py;
     char    **values;
     
-    if (!(values = split_multicharset(line, " ,")))
-        
-		return (ft_error_free(HEAP_ALLOC, obj));
+    if (!(values = split_multicharset(line, " ,")) || !frmt(&values[1], 11))
+		return (values ? ft_error_free(OBJ_PARAMS, values) : ft_error(HEAP_ALLOC));
     if (!values[11] || !parse_obj_bonus_properties(obj ,&values[12] ,PYRAMID))
         return (ft_error_free2(OBJ_PARAMS, values, obj));
     py.pos = vec3(ft_atod(values[1]), ft_atod(values[2]), ft_atod(values[3]));

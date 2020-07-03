@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/12 18:40:34 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/03 14:18:03 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/03 19:24:00 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,7 @@ bool            rt_parse_error_filter(t_scene *s, char *line);
 bool            parse_obj_bonus_properties(t_obj *obj, char **values, int id);
 bool	        check_file(int arc, char **argv, int *fd, t_scene *scene);
 void			free_values(char **values);
+bool			frmt(char **start, int size);
+bool 			frmt2(char *line);
 
 #endif
