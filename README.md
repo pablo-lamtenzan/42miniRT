@@ -48,7 +48,7 @@ The result of the raytracing will be printed in a window that the program will o
 - Ambient light
 - Colored ligth spots
 
-**c) Effects**
+**c) Effects**espace
 - Mirror effect avalaible in all shapes
 - Textures avalaible in spheres
 - Color filters (r/g/b and sepia)
@@ -89,15 +89,48 @@ The `espace` will be used for separate the parameters as `position` `esp` `direc
 - height: `float` only positive values
 - diameter: `float` only positive values
 - base height: `float` only positive values
+- curvature: `float` only positive values
 
-For define a camera or a light the same `position`, `direction`, `color` format must be used. However for define lights or cameras we need the `intensity` and the `field of view`.
+For define a camera or a light the same `position`, `direction`, `color` format must be used. However for define lights or cameras we need the `intensitespacey` and the `field of view`.
 
 ***The sintax is:***
 - intensity: `float` between 0 and 1
 - field of view (fov): `int` between 0 and 180
 
+Each shape, camera or light has an identifier this id will be the first element of the line. One parameter per line is handled only.
+
 ***Camera and lights***
-- Camera: `pos` `dir` 
+- Camera: `c position direction fov`
+- Light: `l position intensity color`
+
+***Shapes***
+- Sphere: `sp position diameter color`
+- Plane: `pl position direction color`
+- Square: `sq position direction height color`
+- Triangle: `postion` `position` `position` (position of the 3 corners)
+- Cylinder: `position direction diameter height color`
+- Cone: `position direction curvature height color`
+- Cube: `position direction base_height color`
+- Pyramid: `position direction base_height height color`
+
+### Unique parameters
+This parameters define properties about the scene. They can only be denifed one time each one per input file.
+
+***Defined as:***
+- Resolution: `R int int` (weight and height, the size of the output window)
+- Ambient light: `A intensity color`
+- Antialisaing: `aa int` (1 to 6)
+- Filter: `f value` (value coulb be r/g/b/s, red, green, blue, sepia)
+
+### Extras
+At the end of the definition of a shape you can add extra values, this extra values will modify the shape color.
+***Defined as***
+- Mirror: `m` works in all the shapes and put effect mirror in the current shape
+- Rainbow: `r intensity` replace color by a degraded
+- Checkerboard: `d color height` create squares using the color value and the given color, the height is the side of the squares
+- Textures: `tx path` only work in spheres with xmp extension textures files
+- Normal perturbation: `Uppercasse alphabetical char`
+
 
 
 
