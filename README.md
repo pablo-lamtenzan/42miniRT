@@ -80,6 +80,7 @@ The program is only able to read with the rt extension (*.rt), this files should
 ### Shapes
 For define a shape you must know at least the `position` and the `color`, both parameters are global for all the shapes.
 Other shapes will need the `direction`, the `height` or the `diameter` too. The sintax of this properties depend of the type of the value `,` separator will be used for separete the `values` and `.` will be used to define a float.
+The `espace` will be used for separate the parameters as `position` `esp` `direction` for example.
 
 ***The sintax is:***
 - position: `float, float, float` (x, y, z)
@@ -94,6 +95,9 @@ For define a camera or a light the same `position`, `direction`, `color` format 
 ***The sintax is:***
 - intensity: `float` between 0 and 1
 - field of view (fov): `int` between 0 and 180
+
+***Camera and lights***
+- Camera: `pos` `dir` 
 
 
 
