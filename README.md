@@ -48,7 +48,7 @@ The result of the raytracing will be printed in a window that the program will o
 - Ambient light
 - Colored ligth spots
 
-**c) Effects**espace
+**c) Effects**
 - Mirror effect avalaible in all shapes
 - Textures avalaible in spheres
 - Color filters (r/g/b and sepia)
