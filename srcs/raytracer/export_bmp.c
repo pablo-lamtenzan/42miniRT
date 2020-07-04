@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 15:50:43 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 21:32:16 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 00:18:11 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void					init_bmp(unsigned char *header, unsigned char *data,
 	while (++i < 14)
 		header[i] = 0;
 	i = 0;
+	data[0] = 40;
 	while (++i < 40)
 		data[i] = 0;
 	data[12] = 1;
@@ -37,6 +38,7 @@ void					init_bmp(unsigned char *header, unsigned char *data,
 	i = -1;
 	while (++i < 3)
 		padding[i] = 0;
+
 }
 
 void					write_bmp(t_scene *s, unsigned char *header,
@@ -91,19 +93,19 @@ void					export_bmp(t_scene *s)
 	int					total_bytes;
 
 	init_bmp(header, data, padding);
-	total_bytes = 54 + 3 * s->image->max_h * s->image->max_w;
+	total_bytes = 54 + 3 * s->image->max_w * s->image->max_h;
 	header[2] = (unsigned char)total_bytes;
-	header[3] = (unsigned char)total_bytes >> 8;
-	header[4] = (unsigned char)total_bytes >> 16;
-	header[5] = (unsigned char)total_bytes >> 24;
+	header[3] = (unsigned char)(total_bytes >> 8);
+	header[4] = (unsigned char)(total_bytes >> 16);
+	header[5] = (unsigned char)(total_bytes >> 24);
 	data[4] = (unsigned char)s->image->max_w;
-	data[5] = (unsigned char)s->image->max_w >> 8;
-	data[6] = (unsigned char)s->image->max_w >> 16;
-	data[7] = (unsigned char)s->image->max_w >> 24;
+	data[5] = (unsigned char)(s->image->max_w >> 8);
+	data[6] = (unsigned char)(s->image->max_w >> 16);
+	data[7] = (unsigned char)(s->image->max_w >> 24);
 	data[8] = (unsigned char)s->image->max_h;
-	data[9] = (unsigned char)s->image->max_h >> 8;
-	data[10] = (unsigned char)s->image->max_h >> 16;
-	data[11] = (unsigned char)s->image->max_h >> 24;
+	data[9] = (unsigned char)(s->image->max_h >> 8);
+	data[10] = (unsigned char)(s->image->max_h >> 16);
+	data[11] = (unsigned char)(s->image->max_h >> 24);
 	write_bmp(s, header, data, padding);
 	free_all(s);
 }
