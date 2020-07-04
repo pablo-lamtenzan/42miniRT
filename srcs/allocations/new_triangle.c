@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 14:29:31 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/06/26 18:27:07 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/04 14:30:32 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ t_tri			*rt_new_triangle(t_vec3 v0, t_vec3 v1, t_vec3 v2,
 
 	if (!(tri = ft_calloc(sizeof(t_tri), 1)))
 		return (NULL);
-	tri->v0 = v0, 
-	tri->v1 = v1; 
+	tri->v0 = v0;
+	tri->v1 = v1;
 	tri->v2 = v2;
 	tri->color = color;
 	return (tri);

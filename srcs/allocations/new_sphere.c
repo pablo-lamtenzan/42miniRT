@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/26 14:29:02 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/06/28 17:10:08 by plamtenz         ###   ########.fr       */
+/*   Created: 2020/07/04 14:29:20 by plamtenz          #+#    #+#             */
+/*   Updated: 2020/07/04 14:29:43 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_sphere		*rt_new_sphere(t_vec3 pos, double d, t_color_precision color)
 	return (s);
 }
 
-void		rt_sphere_obj(t_obj *obj, t_sphere *s)
+void			rt_sphere_obj(t_obj *obj, t_sphere *s)
 {
 	obj->type = SPHERE;
 	obj->collision = collisions_sphere;
