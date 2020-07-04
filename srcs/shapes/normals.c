@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 15:05:55 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 15:08:00 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/04 15:22:53 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ t_vec3			normal_sphere(void *x, t_ray r)
 {
 	t_vec3		n;
 	t_scene		*s;
+	(void)r;
 
 	s = (t_scene *)x;
 	n = vec_sub(s->p, ((t_sphere *)s->objs->target)->pos);
@@ -92,6 +93,7 @@ t_vec3			normal_plane(void *x, t_ray r)
 {
 	t_vec3		n;
 	t_scene		*s;
+	(void)r;
 
 	s = (t_scene *)x;
 	n = vec_sub(((t_plane *)s->objs->target)->dir, \
