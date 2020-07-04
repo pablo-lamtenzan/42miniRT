@@ -35,12 +35,13 @@ SRCS	= $(addprefix $(SRCDIR)/, \
 			$(addprefix allocations/, create_cube.c create_pyramid.c freeall.c new_cone.c \
 				new_cube.c new_cylinder.c new_disk.c new_object.c new_plane.c new_pyramid.c \
 				new_scene.c new_sphere.c new_square.c new_triangle.c) \
-			$(addprefix aux/, aux1.c aux2.c aux3.c split_multicharset.c) \
+			$(addprefix aux/, aux1.c aux2.c aux3.c aux4.c split_multicharset.c) \
 			$(addprefix color/, color1.c color2.c) \
 			$(addprefix gnl/, get_next_line_utils.c get_next_line.c) \
-			$(addprefix hooks/, change_dir_obj.c change_pos_obj.c fill.c keys.c mouse.c) \
+			$(addprefix hooks/, change_dir_obj.c change_dir_pos_obj2.c change_pos_obj.c fill.c keys.c mouse.c \
+				obj_next.c obj_back.c) \
 			$(addprefix parsing/, parse_obj_bonus_properties.c rt_check_file.c rt_parse_error1.c \
-				rt_parse_error2.c rt_parse_error3.c rt_parse_error4.c rt_parse_in_lst.c rt_parse.c) \
+				rt_parse_error2.c rt_parse_error3.c rt_parse_error4.c rt_parse_error5.c rt_parse_in_lst.c rt_parse.c) \
 			$(addprefix raytracer/, collisions.c effects.c engine_hooks.c engine.c error.c export_bmp.c \
 				load_image_hooks.c load_image.c parser.c uvmapping.c) \
 			$(addprefix shapes/, cone.c cylinder_collisions.c normals.c plane_collisions.c sphere_collisions.c \
