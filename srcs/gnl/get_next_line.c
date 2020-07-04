@@ -6,10 +6,9 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 16:55:34 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/03 18:08:31 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/04 14:58:28 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "get_next_line.h"
 
@@ -22,8 +21,6 @@ static void		*ft_calloc(size_t nitems, size_t n)
 	f_bzero(p, nitems * n);
 	return (p);
 }
-
-#include <stdio.h>
 
 static int		gnl_check_line(char **stack, char **line)
 {
