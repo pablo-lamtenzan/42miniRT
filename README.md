@@ -20,7 +20,7 @@
   #### b) Unique parameters
   #### c) Extras
 
-![sc5](https://github.com/pablo-lamtenzan/42miniRT/_test.png)
+![sc5](https://github.com/pablo-lamtenzan/42miniRT/blob/master/test.png)
 
 ## I. Use
 ### a) Specifications
