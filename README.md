@@ -4,9 +4,9 @@
 > This index sucks
 
 ## Index
-***I. Use***
-  #### a. [Specifications]
-  #### b. [Run]
+***## I. Use***
+- #### a. Specifications
+- #### b. Run
 ### II. Engine
   #### a) Shapes
   #### b) Lights
