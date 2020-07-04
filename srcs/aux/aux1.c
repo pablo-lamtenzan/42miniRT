@@ -6,25 +6,25 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 21:18:27 by user42            #+#    #+#             */
-/*   Updated: 2020/06/26 14:23:30 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/04 14:40:46 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <aux.h>
 #include <stdlib.h>
 
-static void			ft_bzero(void *str, t_size n)
+static void				ft_bzero(void *str, t_size n)
 {
-	unsigned char *start;
+	unsigned char		*start;
 
 	start = str;
 	while (n-- > 0)
 		*start++ = 0;
 }
 
-void			*ft_calloc(t_size nitems, t_size n)
+void					*ft_calloc(t_size nitems, t_size n)
 {
-	void *p;
+	void				*p;
 
 	if (!(p = malloc(nitems * n)))
 		return (NULL);
@@ -32,9 +32,9 @@ void			*ft_calloc(t_size nitems, t_size n)
 	return (p);
 }
 
-int				ft_strncmp(const char *s1, const char *s2, t_size n)
+int						ft_strncmp(const char *s1, const char *s2, t_size n)
 {
-	t_size i;
+	t_size				i;
 
 	i = 0;
 	if (n == 0)
@@ -44,7 +44,7 @@ int				ft_strncmp(const char *s1, const char *s2, t_size n)
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
-int				ft_atoi(const char *str)
+int						ft_atoi(const char *str)
 {
 	int					i;
 	unsigned long int	nb;
@@ -69,7 +69,7 @@ int				ft_atoi(const char *str)
 	return (sing < 0 ? 0 : -1);
 }
 
-double			ft_atod(char *str)
+double					ft_atod(char *str)
 {
 	int					i;
 	int					sign;

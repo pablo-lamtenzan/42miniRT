@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 12:34:00 by user42            #+#    #+#             */
-/*   Updated: 2020/07/01 14:51:48 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/04 14:46:54 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 #include <aux.h>
 #include <stdlib.h>
 
-int             ft_strlen(char *str)
+int				ft_strlen(char *str)
 {
-    char        *addr;
+	char		*addr;
 
-    addr = str;
-    while (*str)
-        str++;
-    return (str - addr);
+	addr = str;
+	while (*str)
+		str++;
+	return (str - addr);
 }
 
-char	*ft_strdup(const char *src)
+char			*ft_strdup(const char *src)
 {
 	char		*s;
 	int			src_size;
@@ -50,10 +50,10 @@ char	*ft_strdup(const char *src)
 	return (start);
 }
 
-char	*ft_strjoin(const char *s1, const char *s2)
+char			*ft_strjoin(const char *s1, const char *s2)
 {
-	char	*res;
-	int		i;
+	char		*res;
+	int			i;
 
 	i = 0;
 	if (s1 == NULL || s2 == NULL)
@@ -69,10 +69,10 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	return (res);
 }
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+size_t			ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t	count;
-	size_t	size;
+	size_t		count;
+	size_t		size;
 
 	count = 0;
 	size = 0;
@@ -89,22 +89,4 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	}
 	dst[count] = '\0';
 	return (size);
-}
-
-void	*ft_memcpy(void *dst, const void *src, size_t n)
-{
-	char *temp;
-
-	if (!dst && !src)
-		return (0);
-	temp = dst;
-	while (n--)
-		*temp++ = *(char *)src++;
-	return (dst);
-}
-
-void	ft_putstr_fd(char *s, int fd)
-{
-	if (s != NULL)
-		write(fd, s, ft_strlen(s));
 }

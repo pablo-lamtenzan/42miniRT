@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 21:19:42 by user42            #+#    #+#             */
-/*   Updated: 2020/07/03 19:50:59 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/04 14:46:09 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,78 +14,12 @@
 #include <aux.h>
 #include <stdlib.h>
 
-int				ft_isdigit(int c)
+int					ft_isdigit(int c)
 {
 	if (c <= '9' && c >= '0')
 		return (1);
 	else
 		return (0);
-}
-
-void			ft_objadd_back(t_obj **alst, t_obj *nw)
-{
-	t_obj		*last;
-	if (alst)
-	{
-		if (!*alst)
-		{
-			*alst = nw;
-			(*alst)->start = nw;
-		}
-		else
-		{
-			nw->start = (*alst)->start;
-			last = (*alst);
-			while (last->next)
-				last = last->next;
-			last->next = nw;
-			nw->back = last;
-			nw->next = NULL;
-		}
-	}
-}
-
-void			ft_lightadd_back(t_light **alst, t_light *nw)
-{
-	t_light		*last;
-	if (alst)
-	{
-		if (!*alst)
-		{
-			*alst = nw;
-			(*alst)->start = nw;
-		}
-		else
-		{
-			nw->start = (*alst)->start;
-			last = *alst;
-			while (last->next)
-				last = last->next;
-			last->next = nw;
-		}
-	}
-}
-
-void			ft_camadd_back(t_cam **alst, t_cam *nw)
-{
-	t_cam 		*last;
-	if (alst)
-	{
-		if (!*alst)
-		{
-			*alst = nw;
-			(*alst)->start = nw;
-		}
-		else
-		{
-			nw->start = (*alst)->start;
-			last = *alst;
-			while (last->next)
-				last = last->next;
-			last->next = nw;
-			nw->back = *alst;
-		}
-	}
 }
 
 static unsigned int	ft_getlen(unsigned int n)
@@ -122,12 +56,12 @@ char				*ft_itoa(int n)
 	return (res);
 }
 
-char    *ft_dtoa(double n, int precision)
+char				*ft_dtoa(double n, int precision)
 {
-	char    *s;
-	long    tmp;
-	long    t;
-	int        length;
+	char			*s;
+	long			tmp;
+	long			t;
+	int				length;
 
 	if (!precision)
 		return (ft_itoa((int)n));
@@ -148,4 +82,3 @@ char    *ft_dtoa(double n, int precision)
 	}
 	return (s);
 }
-
