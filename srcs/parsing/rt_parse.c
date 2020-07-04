@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 02:04:19 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 17:53:47 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/04 23:33:50 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ bool			rt_parse_line_bonus(t_scene *s, char *line)
 
 bool			rt_parse_line(t_scene *scene, char *line)
 {
-	while (*line == ' ')
+	while (*line == ' ' && *(line + 1))
 		line++;
 	if (!ft_strncmp(line, "R ", 2))
 		return (rt_parse_error_res(scene, line));

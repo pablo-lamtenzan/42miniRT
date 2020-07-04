@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 09:39:18 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 17:54:25 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/04 23:15:09 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ bool				rt_parse_error_pyramid(t_scene *s, t_obj *obj, char *line)
 	if (!(values = split_multicharset(line, " ,")) || !frmt(&values[1], 11))
 		return (values ? ft_error_free(OBJ_PARAMS, values) : ft_error(4));
 	if (!values[11] || !parse_obj_bonus_properties(obj, &values[12], PYRAMID))
-		return (ft_error_free2(OBJ_PARAMS, values, obj));
+		return (ft_error_free(OBJ_PARAMS, values));
 	py.pos = vec3(ft_atod(values[1]), ft_atod(values[2]), ft_atod(values[3]));
 	if ((py.dir.x = ft_atod(values[4])) < -1 || py.dir.x > 1)
 		return (ft_error_free2(OBJ_PARAMS, values, obj));

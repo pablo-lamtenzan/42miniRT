@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 15:50:43 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 15:54:08 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/04 21:32:16 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,16 @@ void					write_bmp(t_scene *s, unsigned char *header,
 {
 	int					fd;
 	unsigned char		*data__;
-	char				*extension;
+	char				*extension[2];
 	int					i;
 
 	i = -1;
-	extension = ft_strdup(".bmp");
-	if ((fd = open(ft_strjoin(s->filename, extension), O_CREAT | \
+	extension[0] = ft_strdup(".bmp");
+	if ((fd = open((extension[1] = ft_strjoin(s->filename, extension[0])), O_CREAT | \
 			O_RDWR, 0666)) < 0)
 	{
-		free(extension);
+		free(extension[0]);
+		free(extension[1]);
 		return ;
 	}
 	(void)write(fd, header, 14);
@@ -77,6 +78,8 @@ void					write_bmp(t_scene *s, unsigned char *header,
 		(void)write(fd, padding, (4 - (s->image->max_w * 3) % 4) % 4);
 	}
 	free(data__);
+	free(extension[0]);
+	free(extension[1]);
 	(void)close(fd);
 }
 

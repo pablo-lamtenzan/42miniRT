@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 14:19:04 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 21:25:15 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/04 22:59:48 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,21 +45,29 @@ void				free_lights(t_light *start)
 	}
 }
 
+#include <stdio.h>
+
 void				free_cams(t_cam *start)
 {
 	t_cam			*tmp;
+	t_cam			*tmp2;
 
 	if (start->next && start->next != start)
 	{
 		start = start->next;
-		while (start != start->start)
+		tmp2 = start->start;
+		while (start && start != start->start)
 		{
 			tmp = start;
 			start = start->next;
 			free(tmp);
 		}
 	}
-	free(start->start);
+	if (start == NULL && tmp2)
+		free(tmp2);
+	if (start && start->start)
+		free(start->start);
+	
 }
 
 void				free_mlx(t_mlx *i)
@@ -76,7 +84,9 @@ void				free_mlx(t_mlx *i)
 
 void				free_all(t_scene *s)
 {
-	if (s->objs)
+	if (!s)
+		return ;
+	if (s->objs && s->objs->start)
 		free_objs(s->objs->start);
 	if (s->lights)
 		free_lights(s->lights->start);

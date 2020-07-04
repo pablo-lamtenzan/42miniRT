@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 16:55:52 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 17:08:28 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/04 22:39:50 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,6 @@ bool			parse_obj_bonus_properties(t_obj *obj, char **values, int id)
 			return (false);
 	}
 	else
-		return (true);
+		return (false);
 	return (true);
 }

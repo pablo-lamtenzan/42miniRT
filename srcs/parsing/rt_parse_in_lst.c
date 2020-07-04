@@ -6,11 +6,12 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 06:02:13 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 17:49:33 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/04 23:15:22 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <parsing.h>
+#include <stdlib.h>
 
 bool				rt_parse_light(t_scene *scene, char *line)
 {
@@ -57,7 +58,7 @@ bool				rt_parse_obj(t_scene *scene, char *line)
 	if (!id)
 		return (false);
 	scene->flags |= RT_OBJ;
-	return (true);
+	return (id == true);
 }
 
 bool				rt_parse_obj_bonus(t_scene *s, char *line)
@@ -78,7 +79,11 @@ bool				rt_parse_obj_bonus(t_scene *s, char *line)
 	id == CONE ? id = rt_parse_error_cone(obj, line) : 0;
 	id == PYRAMID ? id = rt_parse_error_pyramid(s, obj, line) : 0;
 	if (!id)
+	{
+		if (obj)
+			free(obj);
 		return (false);
+	}
 	s->flags |= RT_OBJ;
 	return (true);
 }

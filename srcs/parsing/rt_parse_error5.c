@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 17:15:08 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 18:05:19 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/04 22:34:25 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,40 @@
 #include <stdlib.h>
 #include <aux.h>
 
+static bool		frmt3(char c, int *bools)
+{
+	if (c == '.')
+		bools[0]++;
+	if (c == '-')
+		bools[1]++;
+	if (bools[0] > 1 || bools[1] > 1)
+		return (false);
+	return (true);
+}
+
 bool			frmt(char **start, int size)
 {
 	int			i;
 	int			y;
+	int			bools[2];
 
 	i = -1;
 	while (start[i] && ++i < size)
 	{
 		y = -1;
+		bools[0] = 0;
+		bools[1] = 0;
 		while (start[i][++y])
 		{
-			if (!ft_isdigit(start[i][y]) &&
+			if ((!ft_isdigit(start[i][y]) &&
 					start[i][y] != '-' && start[i][y] != '.')
-				return (false);
-			if (start[i][y] == '.'
+				|| (start[i][y] == '.'
 					&& start[i][y + 1] && (start[i][y + 1] == '.' ||
 					start[i][y + 1] == '-'))
-				return (false);
-			if (start[i][y] == '-' && start[i][y + 1] &&
+				|| (start[i][y] == '-' && start[i][y + 1] &&
 					(start[i][y + 1] == '-' || start[i][y + 1] == '.'))
+				|| !frmt3(start[i][y], bools) || (start[i][y] == '-' && y != 0)
+				|| (start[i][y] == '.' && y == 0))
 				return (false);
 		}
 	}

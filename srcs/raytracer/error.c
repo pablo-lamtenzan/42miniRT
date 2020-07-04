@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 15:50:09 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 15:50:12 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/04 22:51:25 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char		*error_mesages(int error_code)
 {
 	char	*msg[14] = {};
 
+	if (error_code == -1)
+		return (" ");
 	msg[0] = "\033[31mError code [01]:\n\033[0m > No valid input file\n";
 	msg[1] = "\033[31mError code [02]:\n\033[0m > Invalid filename or \
 		extension\n > Valid format : <filename>.rt\n";
