@@ -1,30 +1,32 @@
 # MiniRT
 ### A raytracer engine in C language coded from scracth using minilibX (42Paris's lib) as graphic lib.
 
-> This index sucks
+[42 Subject of the project](https://cdn.intra.42.fr/pdf/pdf/10458/en.subject.pdf)
 
 ## Index
 ### I. Use
-  #### a. [Specifications]
-  #### b. [Run]
+- #### a. Specifications
+- #### b. Run
 ### II. Engine
-  #### a) Shapes
-  #### b) Lights
-  #### c) Effects
-  #### d) Multithread
+- #### a) Shapes
+- #### b) Lights
+- #### c) Effects
+- #### d) Multithread
 ### III. Interactions
-  #### a) Mouse
-  #### b) Keyboard
+- #### a) Mouse
+- #### b) Keyboard
 ### IV. Input
-  #### a) Shapes
-  #### b) Unique parameters
-  #### c) Extras
+- #### a) Shapes
+- #### b) Unique parameters
+- #### c) Extras
 
 ![sc5](https://github.com/pablo-lamtenzan/42miniRT/blob/master/test.png)
 
 ## I. Use
 ### a) Specifications
 This program works in MacOS and Linux, however the graphic lib (minilibX) doesn't work in all the linux architectures. I hardly recommend to run it into Ubunti/Xubuntu OS. The Linux minibibX doesn't work on Manjaro arch. If you want to run this program in a Darwin arch (MacOs) you need to use version of the graph lib for MacOS (avalaible in minilibX_MacOS dir) and change the value of the variable "LIBX" in the Makefile to "minilibX_MacOS".
+
+[Oficial repository minilibX-Linux](https://github.com/42Paris/minilibx-linux)
 ### b) Run
 For run the program you need to clone this git repository `git clone https://github/pablo-lamtenzan/42miniRT`.
 Then if you did correctly the specifications part use the command `make` , this will compile the project sources converting them to relecatable objects files (*.o) and then, link this objects making an image as an executable file named "miniRT".
