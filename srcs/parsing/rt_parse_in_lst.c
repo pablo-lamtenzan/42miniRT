@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 06:02:13 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/03 21:17:18 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/04 17:49:33 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ bool				rt_parse_obj(t_scene *scene, char *line)
 	id == CYLINDER ? id = rt_parse_error_cylinder(scene, obj, line) : 0;
 	id == TRIANGLE ? id = rt_parse_error_triangle(obj, line) : 0;
 	if (!id)
-		return(false);
+		return (false);
 	scene->flags |= RT_OBJ;
 	return (true);
 }
@@ -83,7 +83,7 @@ bool				rt_parse_obj_bonus(t_scene *s, char *line)
 	return (true);
 }
 
-bool			rt_parse_cam(t_scene *scene, char *line)
+bool				rt_parse_cam(t_scene *scene, char *line)
 {
 	t_cam			*cam;
 

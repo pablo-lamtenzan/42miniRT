@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 06:50:44 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/03 21:39:13 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/04 17:14:04 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 static bool			check_file_name(char *fn)
 {
-	int i;
+	int				i;
 
 	i = 0;
 	if (*fn == ' ')
@@ -35,9 +35,8 @@ static bool			check_file_name(char *fn)
 	return (false);
 }
 
-char			*get_filename(char *namepath)
+char				*get_filename(char *namepath)
 {
-	//char			*r;
 	char			*aux;
 	int				i;
 
@@ -64,7 +63,8 @@ bool				check_file(int arc, char **argv, int *fd, t_scene *scene)
 		else
 			return (ft_error(INV_NB_ARGS));
 		scene->filename = get_filename(argv[1]);
-		ft_strlcpy(scene->filename, scene->filename, ft_strlen(scene->filename) - 2);
+		ft_strlcpy(scene->filename, scene->filename, \
+				ft_strlen(scene->filename) - 2);
 		return (true);
 	}
 	return (ft_error(INV_FILENAME));

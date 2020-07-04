@@ -6,10 +6,9 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 07:18:15 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/03 18:54:05 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/04 17:27:06 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <parsing.h>
 #include <ft_error.h>
@@ -21,7 +20,7 @@ bool				rt_parse_error_plane(t_obj *obj, char *line)
 	char			**values;
 
 	if (!(values = split_multicharset(line, " ,")) || !frmt(&values[1], 9))
-		return (values ? ft_error_free(OBJ_PARAMS, values) : ft_error(HEAP_ALLOC));
+		return (values ? ft_error_free(OBJ_PARAMS, values) : ft_error(4));
 	if (!values[9] || !parse_obj_bonus_properties(obj, &values[10], PLANE))
 		return (ft_error_free(OBJ_PARAMS, values));
 	p.pos = vec3(ft_atod(values[1]), ft_atod(values[2]), ft_atod(values[3]));
@@ -50,7 +49,7 @@ bool				rt_parse_error_sphere(t_obj *obj, char *line)
 	char			**values;
 
 	if (!(values = split_multicharset(line, " ,")) || !frmt(&values[1], 7))
-		return (values ? ft_error_free(OBJ_PARAMS, values) : ft_error(HEAP_ALLOC));
+		return (values ? ft_error_free(OBJ_PARAMS, values) : ft_error(4));
 	if (!values[7] || !parse_obj_bonus_properties(obj, &values[8], SPHERE))
 		return (ft_error_free(OBJ_PARAMS, values));
 	sp.pos = vec3(ft_atod(values[1]), ft_atod(values[2]), ft_atod(values[3]));
@@ -70,7 +69,9 @@ bool				rt_parse_error_sphere(t_obj *obj, char *line)
 	free_values(values);
 	return (true);
 }
-static bool		rt_parse_cylinder_help(t_scene *s, t_obj *obj, t_cyl cy, char **values)
+
+static bool			rt_parse_cylinder_help(t_scene *s, t_obj *obj,
+		t_cyl cy, char **values)
 {
 	if ((cy.color.r = (double)ft_atoi(values[9])) < 0x0
 			|| cy.color.r > 0xFF)
@@ -97,7 +98,7 @@ bool				rt_parse_error_cylinder(t_scene *s, t_obj *obj, char *line)
 	char			**values;
 
 	if (!(values = split_multicharset(line, " ,")) || !frmt(&values[1], 11))
-		return (values ? ft_error_free(OBJ_PARAMS, values) : ft_error(HEAP_ALLOC));
+		return (values ? ft_error_free(OBJ_PARAMS, values) : ft_error(4));
 	if (!values[11] || !parse_obj_bonus_properties(obj, &values[12], CYLINDER))
 		return (ft_error_free(OBJ_PARAMS, values));
 	cy.pos = vec3(ft_atod(values[1]), ft_atod(values[2]), ft_atod(values[3]));

@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 02:04:19 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/03 20:50:44 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/04 17:53:47 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 void			free_values(char **values)
 {
-	int 		i;
+	int			i;
 
 	i = -1;
 	while (values[++i])
@@ -29,7 +29,8 @@ bool			rt_parse_line_bonus(t_scene *s, char *line)
 {
 	if (*line == '\0')
 		return (true);
-	if (!ft_strncmp(line, "cu ", 3) || !ft_strncmp(line, "co ", 3) || !ft_strncmp(line, "py ", 3))
+	if (!ft_strncmp(line, "cu ", 3) || !ft_strncmp(line, "co ", 3)
+			|| !ft_strncmp(line, "py ", 3))
 		return (rt_parse_obj_bonus(s, line));
 	else if (!ft_strncmp(line, "aa ", 3))
 		return (rt_parse_error_aa(s, line));
@@ -48,7 +49,7 @@ bool			rt_parse_line(t_scene *scene, char *line)
 	else if (!ft_strncmp(line, "A ", 2) || !ft_strncmp(line, "l ", 2))
 		return (rt_parse_light(scene, line));
 	else if (!ft_strncmp(line, "pl ", 3) || !ft_strncmp(line, "sq ", 3) ||
-			!ft_strncmp(line, "cy ", 3) || !ft_strncmp(line ,"tr ", 3) ||
+			!ft_strncmp(line, "cy ", 3) || !ft_strncmp(line, "tr ", 3) ||
 			!ft_strncmp(line, "sp ", 3))
 		return (rt_parse_obj(scene, line));
 	else if (!ft_strncmp(line, "c ", 2))
@@ -57,10 +58,24 @@ bool			rt_parse_line(t_scene *scene, char *line)
 		return (rt_parse_line_bonus(scene, line));
 }
 
+static void		make_cams_circular(t_scene *scene)
+{
+	void		*aux;
+
+	if (scene->cams)
+	{
+		while (scene->cams->next)
+			scene->cams = scene->cams->next;
+		aux = scene->cams;
+		scene->cams->next = scene->cams->start;
+		((t_cam *)scene->cams->next)->back = aux;
+		scene->cams = scene->cams->start;
+	}
+}
+
 void			rt_parse(int fd, t_scene *scene)
 {
 	char		*line;
-	void		*aux;
 
 	while (get_next_line(fd, &line) > 0)
 	{
@@ -79,13 +94,5 @@ void			rt_parse(int fd, t_scene *scene)
 	free(line);
 	if (close(fd) < 0)
 		free_all(scene);
-	if (scene->cams)
-	{
-		while (scene->cams->next)
-			scene->cams = scene->cams->next;
-		aux = scene->cams;
-		scene->cams->next = scene->cams->start;
-		((t_cam *)scene->cams->next)->back = aux;
-		scene->cams = scene->cams->start;
-	}
+	make_cams_circular(scene);
 }
