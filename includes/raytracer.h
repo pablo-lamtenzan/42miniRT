@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 20:41:45 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 20:48:56 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/04 21:02:28 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,8 @@ typedef struct					s_obj
 	char						effect;
 	double						rainbow;
 	int							rb;
-	int							uvmap;
+	int							ch;
+	t_uvmap						*uvmap;
 }								t_obj;
 
 typedef struct					s_mlx
