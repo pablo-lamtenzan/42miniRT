@@ -8,17 +8,17 @@
 - #### a. Specifications
 - #### b. Run
 ### II. Engine
-  #### a) Shapes
-  #### b) Lights
-  #### c) Effects
-  #### d) Multithread
+- #### a) Shapes
+- #### b) Lights
+- #### c) Effects
+- #### d) Multithread
 ### III. Interactions
-  #### a) Mouse
-  #### b) Keyboard
+- #### a) Mouse
+- #### b) Keyboard
 ### IV. Input
-  #### a) Shapes
-  #### b) Unique parameters
-  #### c) Extras
+- #### a) Shapes
+- #### b) Unique parameters
+- #### c) Extras
 
 ![sc5](https://github.com/pablo-lamtenzan/42miniRT/blob/master/test.png)
 
