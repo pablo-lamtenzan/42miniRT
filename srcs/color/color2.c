@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 14:54:34 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 14:56:26 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/04 17:20:21 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ t_color_precision		minmax_simple(t_vec3 v)
 	c.r = fmax(0x0, fmin(0xff, v.z));
 	c.g = fmax(0x0, fmin(0xff, v.y));
 	c.b = fmax(0x0, fmin(0xff, v.x));
+	c.a = 0x0;
 	return (c);
 }
 

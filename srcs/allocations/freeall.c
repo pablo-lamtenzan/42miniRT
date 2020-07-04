@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 14:19:04 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 14:20:38 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/04 17:11:03 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ void				free_objs(t_obj *start)
 		tmp = start;
 		start = start->next;
 		if (tmp->uvmap)
+		{
 			mlx_destroy_image(tmp->mlx_ptr, tmp->uvmap->addr);
+			free(tmp->uvmap);
+		}
 		if (tmp->target)
 			free(tmp->target);
 		free(tmp);
