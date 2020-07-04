@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 14:19:04 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 17:11:03 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/04 21:25:15 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,11 @@ void				free_mlx(t_mlx *i)
 		mlx_destroy_image(i->mlx, i->img);
 	if (i->win && i->mlx)
 		mlx_destroy_window(i->mlx, i->win);
+	free(i->mlx);
+	free(i);
 }
+
+#include <stdio.h>
 
 void				free_all(t_scene *s)
 {

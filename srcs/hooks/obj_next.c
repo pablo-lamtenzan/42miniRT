@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 19:52:37 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 20:04:25 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/04 21:05:48 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,10 @@ static int		swicth_cam_or_obj_fill4(int key, t_scene *s)
 			ft_putstr_fd("\033[35m SWICHING TO NEXT \
 					SHAPE\033[0m\n", 1);
 			ft_putstr_fd(get_obj_type(s->objs->type), 1);
-			ft_putstr_fd("\033[35m THERE'S NO MORE NEXT \
-					SHAPES\033[0m\n", 1);
 		}
+		else
+			ft_putstr_fd("\033[35m THERE'S NO MORE NEXT \
+				SHAPES\033[0m\n", 1);
 	}
 	return (key);
 }

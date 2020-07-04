@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 15:57:25 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 16:02:02 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/04 21:02:50 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ int					calc_image(t_scene *x)
 	copy_buff(s);
 	return (true);
 }
+
+#include <stdio.h>
 
 int					test(void *fill)
 {
