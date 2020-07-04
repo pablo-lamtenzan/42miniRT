@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/11 22:10:26 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/01 14:53:57 by plamtenz         ###   ########.fr       */
+/*   Created: 2020/07/04 15:15:38 by plamtenz          #+#    #+#             */
+/*   Updated: 2020/07/04 15:17:53 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vec3.h"
+#include <vec3.h>
 
-t_vec3		vec3(double x, double y, double z)
+t_vec3			vec3(double x, double y, double z)
 {
 	t_vec3 vec;
 
@@ -31,9 +31,9 @@ t_ray			ray2(t_vec3 pos, t_vec3 dir)
 	return (ray);
 }
 
-t_vec3		get_rad(t_vec3 ang)
+t_vec3			get_rad(t_vec3 ang)
 {
-	t_vec3	rad;
+	t_vec3		rad;
 
 	rad.x = M_PI * ang.x / 180;
 	rad.y = M_PI * ang.y / 180;

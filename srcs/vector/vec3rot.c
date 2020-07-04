@@ -6,15 +6,15 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 20:19:24 by user42            #+#    #+#             */
-/*   Updated: 2020/07/01 14:53:48 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/04 15:19:35 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vec3.h"
+#include <vec3.h>
 
-t_vec3		vec_rotation(t_vec3 dir, t_vec3 rad)
+t_vec3			vec_rotation(t_vec3 dir, t_vec3 rad)
 {
-	t_vec3	res;
+	t_vec3		res;
 
 	res.x = (((dir.x * cos(rad.y)) - (dir.z * cos(rad.x)) -
 				(dir.y * sin(rad.x)) * sin(rad.y) * cos(rad.z)) +
@@ -27,9 +27,9 @@ t_vec3		vec_rotation(t_vec3 dir, t_vec3 rad)
 	return (res);
 }
 
-t_vec3	rot_x(t_vec3 v, double r)
+t_vec3			rot_x(t_vec3 v, double r)
 {
-	t_vec3	result;
+	t_vec3		result;
 
 	result.x = v.x;
 	result.y = v.y * cos(r) - v.z * sin(r);
@@ -37,9 +37,9 @@ t_vec3	rot_x(t_vec3 v, double r)
 	return (result);
 }
 
-t_vec3	rot_y(t_vec3 v, double r)
+t_vec3			rot_y(t_vec3 v, double r)
 {
-	t_vec3	result;
+	t_vec3		result;
 
 	result.y = v.y;
 	result.x = v.x * cos(r) + v.z * sin(r);
@@ -47,9 +47,9 @@ t_vec3	rot_y(t_vec3 v, double r)
 	return (result);
 }
 
-t_vec3	rot_z(t_vec3 v, double r)
+t_vec3			rot_z(t_vec3 v, double r)
 {
-	t_vec3	result;
+	t_vec3		result;
 
 	result.z = v.z;
 	result.x = v.x * cos(r) - v.y * sin(r);
@@ -57,9 +57,9 @@ t_vec3	rot_z(t_vec3 v, double r)
 	return (result);
 }
 
-t_vec3	rotv(t_vec3 v, t_vec3 r)
+t_vec3			rotv(t_vec3 v, t_vec3 r)
 {
-	t_vec3	result;
+	t_vec3		result;
 
 	result = v;
 	result = rot_x(result, r.x * M_PI);
