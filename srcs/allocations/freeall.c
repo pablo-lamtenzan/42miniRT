@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 14:19:04 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 15:44:35 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 18:27:41 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ static void			free_cams(t_cam *start)
 		free(tmp2);
 	if (start && start->start)
 		free(start->start);
-	
 }
 
 static void			free_mlx(t_mlx *i)

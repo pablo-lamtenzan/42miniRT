@@ -6,12 +6,14 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 20:33:00 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 16:30:58 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 19:43:55 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_ERROR_H
 # define FT_ERROR_H
+
+# include <data.h>
 
 # define INV_INPUT		1
 # define INV_FILENAME	2

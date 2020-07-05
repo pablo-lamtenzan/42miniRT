@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 20:49:14 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 16:38:25 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 19:47:49 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,17 +99,21 @@ typedef struct				s_py
 	t_color_precision		color;
 }							t_py;
 
-/*
-** ---------------------------- MANDATORY PART ------------------------------ **
-*/
-bool						collisions_cylinder(const t_ray r, void *cy, double *t);
-bool						collisions_plane(const t_ray r, void *pl, double *t);
-bool						collisions_sphere(const t_ray r, void *sp, double *t);
-bool						collisions_square(const t_ray r, void *sq, double *t);
-bool						collisions_triangle(const t_ray r, void *tr, double *t);
-bool						collisions_cone(const t_ray r, void *co, double *t);
+bool						collisions_cylinder(const t_ray r,
+		void *cy, double *t);
+bool						collisions_plane(const t_ray r, void *pl,
+		double *t);
+bool						collisions_sphere(const t_ray r, void *sp,
+		double *t);
+bool						collisions_square(const t_ray r, void *sq,
+		double *t);
+bool						collisions_triangle(const t_ray r, void *tr,
+		double *t);
+bool						collisions_cone(const t_ray r, void *co,
+		double *t);
 
-bool						collisions_disk(const t_ray r, void *d, double *t);
+bool						collisions_disk(const t_ray r, void *d,
+		double *t);
 
 t_vec3						normal_triangle(void *s, const t_ray r);
 t_vec3						normal_cylinder(void *s, const t_ray r);
@@ -118,9 +122,11 @@ t_vec3						normal_sphere(void *s, const t_ray r);
 t_vec3						normal_plane(void *s, const t_ray r);
 t_vec3						normal_cone(void *s, const t_ray r);
 
-bool						create_disks(t_scene *s, const t_cyl cyl, t_obj *obj);
+bool						create_disks(t_scene *s, const t_cyl cyl,
+		t_obj *obj);
 t_vec3						normal_disk(void *s, const t_ray r);
-bool						create_pyramid(t_scene *s, t_obj *obj, const t_py py);
+bool						create_pyramid(t_scene *s, t_obj *obj,
+		const t_py py);
 bool						create_cube(t_scene *s, t_obj *obj, const t_cu cu);
 void						map_square(t_square *sq);
 void						map_square_lr(t_square *sq);

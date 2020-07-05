@@ -6,13 +6,14 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 15:21:57 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 16:26:14 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 18:29:57 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <raytracer.h>
 
-bool				check_obj_collision(t_scene *s, t_obj **near, const t_ray ray)
+bool				check_obj_collision(t_scene *s, t_obj **near,
+		const t_ray ray)
 {
 	double			t;
 	double			min;

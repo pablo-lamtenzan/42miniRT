@@ -53,7 +53,7 @@ OBJS	= $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS) $(MAIN))
 OBJDS	= $(addprefix $(OBJDIR)/, allocations aux color gnl hooks parsing raytracer shapes vector)
 
 HDRS	= $(addprefix $(INCDIR)/, allocations.h aux.h ft_error.h ft_color.h get_next_line.h hooks.h raytracer.h \
-			parsing.h shape.h vec3.h)
+			parsing.h shape.h vec3.h data.h)
 
 # ifeq ($(DIST), debug)
 #	CFLAGS += -g -DDIST_DEBUG

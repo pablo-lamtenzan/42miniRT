@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 20:38:10 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 16:17:24 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 19:43:30 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int				motion_hook(int x, int y, void *fill);
 int				motion_end(void *fill);
 int				mouse_hook(const int key, int x, int y, void *fill);
 int				key_hook(const int key, void *fill);
-//int				key_normal(int key, void *fill);
 void			key_translation(const int key, t_obj *obj);
 void			key_rotation(const int key, t_obj *obj);
 int				swicth_cam_or_obj_fill5(const int key, t_scene *s);

@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 15:50:43 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 15:18:47 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 18:10:14 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,51 +38,58 @@ static void				init_bmp(unsigned char *header, unsigned char *data,
 	i = -1;
 	while (++i < 3)
 		padding[i] = 0;
-
 }
 
-static void				write_bmp(t_scene *s, unsigned char *header,
-		unsigned char *data, unsigned char *padding)
+static void				write_bmp_fill(t_scene *s, t_bmp b,
+		const unsigned char *padding)
 {
-	int					fd;
-	unsigned char		*data__;
-	char				*extension[2];
-	int					i;
-
-	i = -1;
-	extension[0] = ft_strdup(".bmp");
-	if ((fd = open((extension[1] = ft_strjoin(s->filename, extension[0])), O_CREAT | \
-			O_RDWR, 0666)) < 0)
+	while (++b.i < s->image->max_w * s->image->max_h)
 	{
-		free(extension[0]);
-		free(extension[1]);
+		b.data__[b.i * 3] = s->image->end_buff[b.i].chanel.b;
+		b.data__[b.i * 3 + 1] = s->image->end_buff[b.i].chanel.g;
+		b.data__[b.i * 3 + 2] = s->image->end_buff[b.i].chanel.r;
+	}
+	b.i = -1;
+	while (++b.i < s->image->max_h)
+	{
+		(void)write(b.fd, &b.data__[0] + (s->image->max_w * \
+				(s->image->max_h - b.i - 1) * 3), 3 * s->image->max_w);
+		(void)write(b.fd, padding, (4 - (s->image->max_w * 3) % 4) % 4);
+	}
+	free(b.data__);
+	free(b.extension[0]);
+	free(b.extension[1]);
+	free(b.extension[2]);
+	free(b.extension[3]);
+	(void)close(b.fd);
+}
+
+static void				write_bmp(t_scene *s, const unsigned char *header,
+		const unsigned char *data, const unsigned char *padding)
+{
+	t_bmp b;
+
+	b.i = -1;
+	b.extension[0] = ft_strdup(".bmp");
+	b.extension[2] = ft_strdup("images/");
+	if ((b.fd = open(\
+			(b.extension[3] = ft_strjoin(b.extension[2], \
+			(b.extension[1] = ft_strjoin(s->filename, b.extension[0])))), \
+				O_CREAT | O_RDWR, 0666)) < 0)
+	{
+		free(b.extension[0]);
+		free(b.extension[1]);
 		return ;
 	}
-	(void)write(fd, header, 14);
-	(void)write(fd, data, 40);
-	if (!(data__ = malloc(s->image->max_w * s->image->max_h * 3 * \
+	(void)write(b.fd, header, 14);
+	(void)write(b.fd, data, 40);
+	if (!(b.data__ = malloc(s->image->max_w * s->image->max_h * 3 * \
 			sizeof(unsigned char))))
 	{
-		(void)close(fd);
+		(void)close(b.fd);
 		return ;
 	}
-	while (++i < s->image->max_w * s->image->max_h)
-	{
-		data__[i * 3] = s->image->end_buff[i].chanel.b;
-		data__[i * 3 + 1] = s->image->end_buff[i].chanel.g;
-		data__[i * 3 + 2] = s->image->end_buff[i].chanel.r;
-	}
-	i = -1;
-	while (++i < s->image->max_h)
-	{
-		(void)write(fd, &data__[0] + (s->image->max_w * \
-				(s->image->max_h - i - 1) * 3), 3 * s->image->max_w);
-		(void)write(fd, padding, (4 - (s->image->max_w * 3) % 4) % 4);
-	}
-	free(data__);
-	free(extension[0]);
-	free(extension[1]);
-	(void)close(fd);
+	write_bmp_fill(s, b, padding);
 }
 
 void					export_bmp(t_scene *s)

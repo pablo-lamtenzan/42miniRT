@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 14:22:20 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 15:46:46 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 18:28:06 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #include <stdlib.h>
 #include <aux.h>
 
-t_cu			*rt_new_cube(const t_vec3 pos, const t_vec3 dir, const double height,
-		const t_color_precision color)
+t_cu			*rt_new_cube(const t_vec3 pos, const t_vec3 dir,
+		const double height, const t_color_precision color)
 {
 	t_cu		*cu;
 

@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 20:25:49 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 15:58:02 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 19:51:15 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ t_cyl						*rt_new_cyl(const t_ray posdir, const double height,
 		const double d, const t_color_precision color);
 t_co						*rt_new_cone(const t_ray posdir, const double curve,
 		const double height, const t_color_precision color);
-t_py						*rt_new_pyramid(const t_ray posdir, const double base_height,
-		const double height, const t_color_precision color);
+t_py						*rt_new_pyramid(const t_ray posdir,
+		const double base_height, const double height,
+		const t_color_precision color);
 t_py						*rt_new_cube(const t_vec3 pos, const t_vec3 dir,
 		const double height, const t_color_precision color);
-
 
 #endif

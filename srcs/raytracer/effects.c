@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 15:27:51 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 15:24:16 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 18:17:54 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void			effect(t_scene *s, t_obj *obj)
 		obj->color = uvmapping(s, obj);
 }
 
-void			pixelize(t_scene *s, int x, int y)
+void			pixelize(t_scene *s, const int x, const int y)
 {
 	if ((s->image->max_h - y) * s->image->max_w + x < s->image->max_w * \
 			s->image->max_h)

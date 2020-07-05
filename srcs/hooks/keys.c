@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 19:13:39 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 16:14:39 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 19:42:01 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,28 @@
 #include <stdio.h>
 #include <hooks.h>
 #include <aux.h>
-
+#include <data.h>
 
 char			*get_obj_type(const int id)
 {
-	char		*types[11] = {};
-
-	types[0] = "";
-	types[1] = "";
-	types[2] = "TYPE = SPHERE\n";
-	types[3] = "TYPE = SQUARE\n";
-	types[4] = "TYPE = CYLINDER\n";
-	types[5] = "TYPE = TRIANGLE\n";
-	types[6] = "TYPE = PLANE\n";
-	types[7] = "TYPE = CUBE\n";
-	types[8] = "TYPE = CONE\n";
-	types[9] = "TYPE = PYRAMID\n";
-	types[10] = "";
-	return (types[id]);
+	if (id == 2)
+		return (O);
+	else if (id == 3)
+		return (P);
+	else if (id == 4)
+		return (Q);
+	else if (id == 5)
+		return (R);
+	else if (id == 6)
+		return (S);
+	else if (id == 7)
+		return (T);
+	else if (id == 8)
+		return (U);
+	else if (id == 9)
+		return (V);
+	return (NULL);
 }
-
 
 static int		key_normal(const int key, void *fill)
 {
@@ -54,37 +56,15 @@ static int		key_normal(const int key, void *fill)
 	return (key);
 }
 
-
 static bool		is_usseful_key(const int key)
 {
-	int			keylist[18] = {};
-	int			i;
-
-	keylist[0] = XK_Escape;
-	keylist[1] = XK_space;
-	keylist[2] = XK_plus;
-	keylist[3] = XK_dead_grave;
-	keylist[4] = XK_p;
-	keylist[5] = XK_o;
-	keylist[6] = XK_a;
-	keylist[7] = XK_s;
-	keylist[8] = XK_w;
-	keylist[9] = XK_d;
-	keylist[10] = XK_Up;
-	keylist[11] = XK_Down;
-	keylist[12] = XK_Right;
-	keylist[13] = XK_Left;
-	keylist[14] = XK_m;
-	keylist[15] = XK_n;
-	keylist[16] = XK_x;
-	keylist[17] = XK_z;
-	i = -1;
-	while(++i < 18)
-		if (key == keylist[i])
-			return (true);
-	return (false);
+	return (key == XK_Escape || key == XK_space || key == XK_plus ||
+			key == XK_dead_grave || key == XK_p || key == XK_o ||
+			key == XK_a || key == XK_s || key == XK_w ||
+			key == XK_d || key == XK_Up || key == XK_Down ||
+			key == XK_Right || key == XK_Left || key == XK_m ||
+			key == XK_n || key == XK_x || key == XK_z);
 }
-
 
 static int		switch_cam_or_obj(const int key, t_scene *s)
 {

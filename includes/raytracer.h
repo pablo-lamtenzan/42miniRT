@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 20:41:45 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 16:34:45 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 19:43:08 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@
 # define RED					10
 # define GREEN					11
 # define BLUE					12
-# define BLACK_AND_WHITE		13
 # define SEPIA					14
 
 typedef struct					s_light
@@ -120,6 +119,14 @@ typedef struct					s_scene
 	char						flags;
 }								t_scene;
 
+typedef struct					s_bmp
+{
+	int							fd;
+	unsigned char				*data__;
+	char						*extension[4];
+	int							i;
+}								t_bmp;
+
 bool							parser(const int ac, char **argv, t_scene *s);
 int								load_image(void *s);
 void							*engine(void *fill);
@@ -132,7 +139,7 @@ void							export_bmp(t_scene *s);
 bool							calc_image_hooks(t_scene *s);
 int								calc_image(t_scene *s);
 t_scene							*copy_structure(t_scene *s);
-void							pixelize(t_scene *s, int x, int y);
+void							pixelize(t_scene *s, const int x, const int y);
 
 t_color							filter(t_scene *s, t_color c);
 void							effect(t_scene *s, t_obj *obj);
