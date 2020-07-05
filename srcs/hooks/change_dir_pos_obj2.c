@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 18:46:45 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 16:13:07 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 23:14:06 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void			change_pos_tr(int key, t_tri *w)
 	w->v1 = vec_add(w->v1, vec_sub(w->v0, pos));
 	w->v2 = vec_add(w->v2, vec_sub(w->v0, pos));
 	if (update)
-		ft_putstr_fd("\033[35m TRAINGLE TRANSLATION\033[0m\n", 1);
+		ft_putstr_fd("\033[35m TRIANGLE TRANSLATION\033[0m\n", 1);
 }
 
 void			change_dir_co(const int key, t_co *w)

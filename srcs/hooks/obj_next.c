@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 19:52:37 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 23:10:10 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 23:18:31 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,6 +156,7 @@ int				swicth_cam_or_obj_back(const int key, t_scene *s)
 		{
 			// interaction cube cyl works bad
 			// cube + pyramid fails too
+			// inf loop last cyls
 			printf("[%d]\n",((t_obj *)s->objs->back)->cmp);
 			if (((t_obj *)s->objs->back)->type != DISK
 					&& ((t_obj *)s->objs->back)->cmp != CUBE
