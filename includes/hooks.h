@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 20:38:10 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 19:43:30 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 21:53:01 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,8 @@ void			change_pos_cu(const int key, t_obj *cu);
 void			change_dir_cu(const int key, t_obj *cu);
 
 char			*get_obj_type(const int id);
+
+int				swicth_cam_or_obj_next(const int key, t_scene *s);
+int				swicth_cam_or_obj_back(const int key, t_scene *s);
 
 #endif

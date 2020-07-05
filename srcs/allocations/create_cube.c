@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 14:03:15 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 15:38:37 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 22:06:04 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static bool		put_square(t_scene *s, t_obj *obj, const t_square sq,
 {
 	t_obj		*new;
 
-	if (!(new = rt_new_obj(SQUARE)))
+	if (!(new = rt_new_obj(CUBE)))
 		return (false);
 	*new = *obj;
 	new->cmp = CUBE;

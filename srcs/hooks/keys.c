@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 19:13:39 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 19:42:01 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 21:54:51 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,9 @@ static int		switch_cam_or_obj(const int key, t_scene *s)
 		s->cams = s->cams->back;
 		ft_putstr_fd("\033[35m SWICHING TO BACK CAM\033[0m\n", 1);
 	}
-	return (swicth_cam_or_obj_fill1(key, s));
+	swicth_cam_or_obj_next(key, s);
+	swicth_cam_or_obj_back(key, s);
+	return (key);
 }
 
 int				key_hook(const int key, void *fill)
