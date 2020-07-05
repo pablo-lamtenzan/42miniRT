@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 15:27:51 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 15:35:36 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 15:24:16 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_color			filter(t_scene *s, t_color c)
 	return (c);
 }
 
-void			damier(t_scene *s, t_obj *obj)
+void			checkerboard(t_scene *s, t_obj *obj)
 {
 	int			i;
 
@@ -73,14 +73,14 @@ void			rainbow(t_scene *s, t_obj *obj)
 void			effect(t_scene *s, t_obj *obj)
 {
 	if (obj->effect & DAMIER)
-		damier(s, obj);
+		checkerboard(s, obj);
 	if (obj->effect & RAINBOW)
 		rainbow(s, obj);
 	if (obj->type == SPHERE && obj->effect & UVMAPPING)
 		obj->color = uvmapping(s, obj);
 }
 
-void					pixelize(t_scene *s, int x, int y)
+void			pixelize(t_scene *s, int x, int y)
 {
 	if ((s->image->max_h - y) * s->image->max_w + x < s->image->max_w * \
 			s->image->max_h)

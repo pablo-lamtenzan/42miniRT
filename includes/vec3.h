@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 19:48:42 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 20:55:43 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:44:29 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,26 +37,23 @@ typedef struct				s_ray
 	t_vec3					dir;
 }							t_ray;
 
-t_vec3						vec3(double x, double y, double z);
-t_ray						ray2(t_vec3 pos, t_vec3 dir);
+t_vec3						vec3(const double x, const double y,
+		const double z);
+t_ray						ray2(const t_vec3 pos, const t_vec3 dir);
 
-double						quad_equ_d(double a, double b, double c);
-int							v_quad_equ(double a, double b,
-		double c, t_vec2 *res);
-
-t_vec3						vec_sub(t_vec3 v1, t_vec3 v2);
-t_vec3						vec_add(t_vec3 v1, t_vec3 v2);
-t_vec3						vec_scale(t_vec3 v, double c);
-t_vec3						vec_div(t_vec3 v, double c);
-double						vec_len(t_vec3 a);
-double						dot(t_vec3 v1, t_vec3 v2);
-t_vec3						normalise(t_vec3 v);
-t_vec3						cross_product(t_vec3 v1, t_vec3 v2);
+t_vec3						vec_sub(const t_vec3 v1, const t_vec3 v2);
+t_vec3						vec_add(const t_vec3 v1, const t_vec3 v2);
+t_vec3						vec_scale(const t_vec3 v, const double c);
+t_vec3						vec_div(const t_vec3 v, const double c);
+double						vec_len(const t_vec3 a);
+double						dot(const t_vec3 v1, const t_vec3 v2);
+t_vec3						normalise(const t_vec3 v);
+t_vec3						cross_product(const t_vec3 v1, const t_vec3 v2);
 
 t_vec3						vec_rotation(t_vec3 dir, t_vec3 rad);
-t_vec3						get_rad(t_vec3 ang);
-t_vec3						rotv(t_vec3 v, t_vec3 r);
+t_vec3						get_rad(const t_vec3 ang);
+t_vec3						rotv(const t_vec3 v, const t_vec3 r);
 
-double						norm_vec3(t_vec3 v);
+double						norm_vec3(const t_vec3 v);
 
 #endif

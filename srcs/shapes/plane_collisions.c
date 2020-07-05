@@ -6,13 +6,13 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 15:08:24 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 15:09:01 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:37:16 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <shape.h>
 
-bool		collisions_plane(t_ray r, void *pl, double *t)
+bool		collisions_plane(const t_ray r, void *pl, double *t)
 {
 	t_vec2	d;
 

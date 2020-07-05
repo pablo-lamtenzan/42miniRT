@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 07:18:15 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 17:27:06 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:24:01 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ bool				rt_parse_error_sphere(t_obj *obj, char *line)
 	return (true);
 }
 
-static bool			rt_parse_cylinder_help(t_scene *s, t_obj *obj,
+static bool			rt_parse_cylinder_fill(t_scene *s, t_obj *obj,
 		t_cyl cy, char **values)
 {
 	if ((cy.color.r = (double)ft_atoi(values[9])) < 0x0
@@ -113,5 +113,5 @@ bool				rt_parse_error_cylinder(t_scene *s, t_obj *obj, char *line)
 		return (ft_error_free(OBJ_PARAMS, values));
 	if ((cy.height = ft_atod(values[8])) < 0 || cy.height == INFINITY)
 		return (ft_error_free(OBJ_PARAMS, values));
-	return (rt_parse_cylinder_help(s, obj, cy, values));
+	return (rt_parse_cylinder_fill(s, obj, cy, values));
 }

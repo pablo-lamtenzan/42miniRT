@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 14:29:31 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 14:30:32 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 15:58:30 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #include <stdlib.h>
 #include <aux.h>
 
-t_tri			*rt_new_triangle(t_vec3 v0, t_vec3 v1, t_vec3 v2,
-		t_color_precision color)
+t_tri			*rt_new_triangle(const t_vec3 v0, const t_vec3 v1,
+		const t_vec3 v2, const t_color_precision color)
 {
 	t_tri		*tri;
 

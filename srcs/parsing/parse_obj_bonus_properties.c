@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 16:55:52 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 22:39:50 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:22:01 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <ft_error.h>
 
-bool			parse_damier(t_obj *obj, char **values)
+static bool		parse_damier(t_obj *obj, char **values)
 {
 	if (!frmt(&values[1], 4) || values[5])
 		return (false);
@@ -35,7 +35,7 @@ bool			parse_damier(t_obj *obj, char **values)
 	return (true);
 }
 
-bool			parse_rainbow(t_obj *obj, char **values)
+static bool		parse_rainbow(t_obj *obj, char **values)
 {
 	if (!frmt(&values[1], 1) || values[2])
 		return (false);
@@ -46,7 +46,7 @@ bool			parse_rainbow(t_obj *obj, char **values)
 }
 
 static bool		parse_textures_fill(t_obj *obj, t_uvmap *map,
-		char **values, int i)
+		char **values, const int i)
 {
 	int			aux;
 	char		s[255];
@@ -57,13 +57,12 @@ static bool		parse_textures_fill(t_obj *obj, t_uvmap *map,
 				|| !(map->img = (t_color *)mlx_get_data_addr(map->addr, \
 						&aux, &aux, &aux)))
 		return (false);
-	// nb of thread = 1 ? 
 	obj->uvmap = map;
 	obj->effect |= UVMAPPING;
 	return (true);
 }
 
-bool			parse_textures(t_obj *obj, char **values)
+static bool		parse_textures(t_obj *obj, char **values)
 {
 	int			i;
 	t_uvmap		*map;

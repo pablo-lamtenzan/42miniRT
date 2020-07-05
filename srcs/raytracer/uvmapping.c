@@ -6,13 +6,13 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 16:05:42 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 16:06:42 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:35:08 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <shape.h>
 
-t_color_precision				calc_pixel(int x, int y, t_obj *obj)
+static t_color_precision		calc_pixel(const int x, const int y, t_obj *obj)
 {
 	int							nb;
 	t_color						c;

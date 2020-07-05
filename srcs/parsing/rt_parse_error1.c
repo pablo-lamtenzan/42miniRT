@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 03:02:03 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 17:24:58 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:23:21 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ bool			rt_parse_error_point(t_light *light, char *line)
 	if ((light->color.b = (double)ft_atoi(values[7])) < 0x0 ||
 			light->color.b > 0xff)
 		return (ft_error_free(LIGHT_PARAMS, values));
-	light->color = minmax_simple(color_preci_to_vec3(light->color));
 	free_values(values);
 	return (true);
 }

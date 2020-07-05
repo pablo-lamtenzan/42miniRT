@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 15:41:10 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 15:41:12 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:30:09 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 #include <pthread.h>
 #include <aux.h>
 
-t_vec3						pixel_add(t_scene *s, double t, t_obj near,
-		t_light l)
+static t_vec3				pixel_add(t_scene *s, const double t,
+		t_obj near, const t_light l)
 {
 	t_vec3					x;
 	t_vec3					y;
 	t_vec3					z;
 
 	if (near.effect & DAMIER)
-		damier(s, &near);
+		checkerboard(s, &near);
 	x = scale_color_vec3(l.color, color_preci_to_vec3(near.color));
 	y = vec_scale(x, l.intensity);
 	z = normalise(vec_sub(l.pos, s->p));
@@ -31,7 +31,7 @@ t_vec3						pixel_add(t_scene *s, double t, t_obj near,
 	return (vec_div(x, t));
 }
 
-t_color_precision			calc_light(t_scene *s, t_obj *near, t_ray ray)
+static t_color_precision	calc_light(t_scene *s, t_obj *near, t_ray ray)
 {
 	t_vec3					pixel;
 	t_light					*light[2];
@@ -60,7 +60,8 @@ t_color_precision			calc_light(t_scene *s, t_obj *near, t_ray ray)
 	return (minmax(pixel, s->aa));
 }
 
-t_color_precision			get_color(t_scene *s, t_ray ray, int total_rebound)
+static t_color_precision	get_color(t_scene *s, const t_ray ray,
+		int total_rebound)
 {
 	t_color_precision		color;
 	t_obj					*near;
@@ -81,8 +82,8 @@ t_color_precision			get_color(t_scene *s, t_ray ray, int total_rebound)
 	return (color);
 }
 
-t_color_precision			set_ray(t_scene *s, t_color_precision c, int x,
-		int y)
+static t_color_precision	set_ray(t_scene *s, t_color_precision c,
+		const int x, const int y)
 {
 	t_ray					r;
 	double					k;

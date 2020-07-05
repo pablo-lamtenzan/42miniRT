@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 18:28:22 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 18:37:36 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:12:47 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <hooks.h>
 #include <aux.h>
 
-void			change_dir_sq(int key, t_square *w, int dir)
+void			change_dir_sq(const int key, t_square *w, int dir)
 {
 	bool		update;
 
@@ -43,7 +43,7 @@ void			change_dir_sq(int key, t_square *w, int dir)
 		map_square_lr(w);
 }
 
-void			change_dir_cu(int key, t_obj *cu)
+void			change_dir_cu(const int key, t_obj *cu)
 {
 	change_dir_sq(key, (t_square *)cu->target, 0);
 	change_dir_sq(key, (t_square *)((t_obj *)cu->next)->target, 0);
@@ -75,7 +75,7 @@ static void		change_dir_cy_fill(t_obj *obj)
 	ft_putstr_fd("\033[35m CYLINDER ROTATION\033[0m\n", 1);
 }
 
-void			change_dir_cy(int key, t_obj *obj)
+void			change_dir_cy(const int key, t_obj *obj)
 {
 	bool		update;
 
@@ -98,7 +98,7 @@ void			change_dir_cy(int key, t_obj *obj)
 		change_dir_cy_fill(obj);
 }
 
-void			change_dir_pl(int key, t_plane *w)
+void			change_dir_pl(const int key, t_plane *w)
 {
 	bool		update;
 

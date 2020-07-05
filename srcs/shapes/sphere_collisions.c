@@ -6,13 +6,13 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 15:09:41 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 15:10:50 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:37:22 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <shape.h>
 
-bool		collisions_sphere(t_ray r, void *sp, double *t)
+bool		collisions_sphere(const t_ray r, void *sp, double *t)
 {
 	t_vec3	abc;
 	double	delta;

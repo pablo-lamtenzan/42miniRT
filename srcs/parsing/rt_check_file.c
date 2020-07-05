@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 06:50:44 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 17:14:04 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:22:47 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 #include <fcntl.h>
 #include <aux.h>
 #include <stdlib.h>
-
-#include <stdio.h>
 
 static bool			check_file_name(char *fn)
 {
@@ -35,7 +33,7 @@ static bool			check_file_name(char *fn)
 	return (false);
 }
 
-char				*get_filename(char *namepath)
+static char			*get_filename(char *namepath)
 {
 	char			*aux;
 	int				i;

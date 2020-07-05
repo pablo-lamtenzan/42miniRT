@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 16:04:05 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 16:05:24 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:33:55 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <parsing.h>
 #include <ft_error.h>
 
-bool			parser(int ac, char **argv, t_scene *s)
+bool			parser(const int ac, char **argv, t_scene *s)
 {
 	int			fd;
 

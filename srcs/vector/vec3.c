@@ -6,13 +6,13 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 15:15:38 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 15:17:53 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:39:57 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <vec3.h>
 
-t_vec3			vec3(double x, double y, double z)
+t_vec3			vec3(const double x, const double y, const double z)
 {
 	t_vec3 vec;
 
@@ -22,7 +22,7 @@ t_vec3			vec3(double x, double y, double z)
 	return (vec);
 }
 
-t_ray			ray2(t_vec3 pos, t_vec3 dir)
+t_ray			ray2(const t_vec3 pos, const t_vec3 dir)
 {
 	t_ray ray;
 
@@ -31,7 +31,7 @@ t_ray			ray2(t_vec3 pos, t_vec3 dir)
 	return (ray);
 }
 
-t_vec3			get_rad(t_vec3 ang)
+t_vec3			get_rad(const t_vec3 ang)
 {
 	t_vec3		rad;
 

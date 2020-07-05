@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 14:19:04 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 22:59:48 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 15:44:35 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <aux.h>
 
-void				free_objs(t_obj *start)
+static void			free_objs(t_obj *start)
 {
 	t_obj			*tmp;
 
@@ -33,7 +33,7 @@ void				free_objs(t_obj *start)
 	}
 }
 
-void				free_lights(t_light *start)
+static void			free_lights(t_light *start)
 {
 	t_light			*tmp;
 
@@ -45,9 +45,7 @@ void				free_lights(t_light *start)
 	}
 }
 
-#include <stdio.h>
-
-void				free_cams(t_cam *start)
+static void			free_cams(t_cam *start)
 {
 	t_cam			*tmp;
 	t_cam			*tmp2;
@@ -70,7 +68,7 @@ void				free_cams(t_cam *start)
 	
 }
 
-void				free_mlx(t_mlx *i)
+static void			free_mlx(t_mlx *i)
 {
 	if (i->img && i->mlx)
 		mlx_destroy_image(i->mlx, i->img);
@@ -79,8 +77,6 @@ void				free_mlx(t_mlx *i)
 	free(i->mlx);
 	free(i);
 }
-
-#include <stdio.h>
 
 void				free_all(t_scene *s)
 {

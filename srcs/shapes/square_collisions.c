@@ -6,13 +6,13 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 15:11:14 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 15:12:52 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:37:27 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <shape.h>
 
-bool			collisions_square_bis(t_ray r, void *sq, double *t)
+static bool		collisions_square_bis(const t_ray r, void *sq, double *t)
 {
 	t_vec3		d;
 	t_vec3		v[5];
@@ -40,7 +40,7 @@ bool			collisions_square_bis(t_ray r, void *sq, double *t)
 	return (false);
 }
 
-bool			collisions_square_bis_bis(t_ray r, void *sq, double *t)
+static bool		collisions_square_bis_bis(t_ray r, void *sq, double *t)
 {
 	t_vec3		d;
 	t_vec3		v[5];

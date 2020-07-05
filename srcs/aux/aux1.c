@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 21:18:27 by user42            #+#    #+#             */
-/*   Updated: 2020/07/04 14:40:46 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 15:58:45 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int						ft_atoi(const char *str)
 	return (sing < 0 ? 0 : -1);
 }
 
-double					ft_atod(char *str)
+double					ft_atod(const char *str)
 {
 	int					i;
 	int					sign;

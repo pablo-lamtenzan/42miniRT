@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 20:30:45 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 20:30:47 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:02:54 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ typedef unsigned int	t_size;
 void					*ft_calloc(t_size nitems, t_size n);
 int						ft_strncmp(const char *s1, const char *s2, t_size n);
 int						ft_atoi(const char *str);
-double					ft_atod(char *str);
-int						ft_isdigit(int c);
+double					ft_atod(const char *str);
+int						ft_isdigit(const int c);
 void					ft_objadd_back(t_obj **alst, t_obj *nw);
 void					ft_lightadd_back(t_light **alst, t_light *nw);
 void					ft_camadd_back(t_cam **alst, t_cam *nw);

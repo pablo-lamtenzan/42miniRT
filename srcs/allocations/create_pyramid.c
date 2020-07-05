@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 14:10:27 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 14:15:44 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 15:42:29 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <aux.h>
 #include <stdlib.h>
 
-bool			put_triangle(t_scene *s, t_obj *obj, t_tri t)
+static bool		put_triangle(t_scene *s, t_obj *obj, const t_tri t)
 {
 	t_obj		*tr;
 
@@ -27,7 +27,7 @@ bool			put_triangle(t_scene *s, t_obj *obj, t_tri t)
 	return (true);
 }
 
-bool			create_pyramid_fill(t_scene *s, t_obj *obj, t_obj *sq, t_tri t)
+static bool		create_pyramid_fill(t_scene *s, t_obj *obj, t_obj *sq, t_tri t)
 {
 	t.v1 = ((t_square *)sq->target)->map[2];
 	t.v2 = ((t_square *)sq->target)->map[1];
@@ -44,7 +44,7 @@ bool			create_pyramid_fill(t_scene *s, t_obj *obj, t_obj *sq, t_tri t)
 	return (true);
 }
 
-bool			create_pyramid(t_scene *s, t_obj *obj, t_py py)
+bool			create_pyramid(t_scene *s, t_obj *obj, const t_py py)
 {
 	t_tri		t;
 	t_vec3		pos;

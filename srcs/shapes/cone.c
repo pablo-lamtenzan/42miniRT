@@ -6,13 +6,13 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 15:01:17 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 15:03:16 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:36:23 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <shape.h>
 
-double				quadracone(t_ray r, void *co, double *a)
+static double		quadracone(const t_ray r, void *co, double *a)
 {
 	t_vec3			v;
 	double			s;
@@ -41,7 +41,7 @@ double				quadracone(t_ray r, void *co, double *a)
 	return (-1);
 }
 
-bool				collisions_cone(t_ray r, void *co, double *t)
+bool				collisions_cone(const t_ray r, void *co, double *t)
 {
 	double			a[4];
 	double			abc[3];
@@ -69,7 +69,7 @@ bool				collisions_cone(t_ray r, void *co, double *t)
 	return (true);
 }
 
-t_vec3				normal_cone(void *x, t_ray r)
+t_vec3				normal_cone(void *x, const t_ray r)
 {
 	t_vec3			n;
 	double			tmp;

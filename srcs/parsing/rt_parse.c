@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 02:04:19 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 23:33:50 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:24:48 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void			free_values(char **values)
 	free(values);
 }
 
-bool			rt_parse_line_bonus(t_scene *s, char *line)
+static bool		rt_parse_line_bonus(t_scene *s, char *line)
 {
 	if (*line == '\0')
 		return (true);
@@ -40,7 +40,7 @@ bool			rt_parse_line_bonus(t_scene *s, char *line)
 		return (ft_error(INV_INPUT));
 }
 
-bool			rt_parse_line(t_scene *scene, char *line)
+static bool		rt_parse_line(t_scene *scene, char *line)
 {
 	while (*line == ' ' && *(line + 1))
 		line++;
@@ -73,7 +73,7 @@ static void		make_cams_circular(t_scene *scene)
 	}
 }
 
-void			rt_parse(int fd, t_scene *scene)
+void			rt_parse(const int fd, t_scene *scene)
 {
 	char		*line;
 

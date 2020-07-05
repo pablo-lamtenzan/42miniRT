@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 15:50:43 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 00:18:11 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 15:18:47 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <aux.h>
 #include <stdlib.h>
 
-void					init_bmp(unsigned char *header, unsigned char *data,
+static void				init_bmp(unsigned char *header, unsigned char *data,
 		unsigned char *padding)
 {
 	int					i;
@@ -41,7 +41,7 @@ void					init_bmp(unsigned char *header, unsigned char *data,
 
 }
 
-void					write_bmp(t_scene *s, unsigned char *header,
+static void				write_bmp(t_scene *s, unsigned char *header,
 		unsigned char *data, unsigned char *padding)
 {
 	int					fd;

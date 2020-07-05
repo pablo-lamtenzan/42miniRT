@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 20:31:05 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 20:32:44 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:10:42 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,18 @@ typedef struct				s_color_precision
 	double a;
 }							t_color_precision;
 
-t_color_precision			minmax(t_vec3 v, double aa);
-t_color_precision			minmax_simple(t_vec3 v);
-t_vec3						color_preci_to_vec3(t_color_precision c);
-t_color_precision			set_color_precision(double b, double g, double r);
-t_vec3						scale_color_vec3(t_color_precision c, t_vec3 v);
-t_vec3						set_color_vec3(double r, double g, double b);
+t_color_precision			minmax(const t_vec3 v, const double aa);
+t_color_precision			minmax_simple(const t_vec3 v);
+t_vec3						color_preci_to_vec3(t_color_precision const c);
+t_color_precision			set_color_precision(const double b, const double g,
+		const double r);
+t_vec3						scale_color_vec3(t_color_precision const c,
+		t_vec3 v);
+t_vec3						set_color_vec3(const double r, const double g,
+		const double b);
 t_color_precision			add_colors(t_color_precision c1,
-		t_color_precision c2);
-t_color						set_color(double b, double g, double r);
+		const t_color_precision c2);
+t_color						set_color(const double b, const double g,
+		const double r);
 
 #endif

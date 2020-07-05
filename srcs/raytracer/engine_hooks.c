@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 15:29:08 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 15:40:17 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:28:35 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 #include <pthread.h>
 #include <aux.h>
 
-t_vec3					pixel_add_hooks(t_scene *s, double t, t_obj near,
-		t_light l)
+static t_vec3				pixel_add_hooks(t_scene *s, const double t,
+	t_obj const near, const t_light l)
 {
-	t_vec3				x;
-	t_vec3				y;
-	t_vec3				z;
+	t_vec3					x;
+	t_vec3					y;
+	t_vec3					z;
 
 	x = scale_color_vec3(l.color, color_preci_to_vec3(near.color));
 	y = vec_scale(x, l.intensity);
@@ -29,11 +29,11 @@ t_vec3					pixel_add_hooks(t_scene *s, double t, t_obj near,
 	return (vec_div(x, t));
 }
 
-t_color_precision		calc_light_hooks(t_scene *s, t_obj *near, t_ray r)
+static t_color_precision	calc_light_hooks(t_scene *s, t_obj *near, t_ray r)
 {
-	t_vec3				pixel;
-	t_light				*light[2];
-	double				t2;
+	t_vec3					pixel;
+	t_light					*light[2];
+	double					t2;
 
 	light[1] = s->lights->start;
 	pixel = vec_scale(vec_div(vec_add(color_preci_to_vec3(near->color), \
@@ -51,19 +51,19 @@ t_color_precision		calc_light_hooks(t_scene *s, t_obj *near, t_ray r)
 	return (minmax_simple(pixel));
 }
 
-t_color_precision		get_color_hooks(t_scene *s, t_ray r)
+static t_color_precision	get_color_hooks(t_scene *s, const t_ray r)
 {
-	t_obj				*near;
+	t_obj					*near;
 
 	if (check_obj_collision(s, &near, r) == true)
 		return (calc_light_hooks(s, near, r));
 	return (set_color_precision(0x0, 0x0, 0x0));
 }
 
-t_color_precision		set_ray_hooks(t_scene *s, t_color_precision c, int x,
-		int y)
+static t_color_precision	set_ray_hooks(t_scene *s, t_color_precision c,
+		const int x, const int y)
 {
-	t_ray				r;
+	t_ray					r;
 
 	r.pos = s->cams->pos;
 	r.dir.x = (double)x - s->image->max_w / 2;
@@ -74,13 +74,13 @@ t_color_precision		set_ray_hooks(t_scene *s, t_color_precision c, int x,
 	return (c);
 }
 
-void					*engine_hooks(void *fill)
+void						*engine_hooks(void *fill)
 {
-	register int		x;
-	register int		y;
-	t_color_precision	color;
-	t_scene				*s;
-	int					it;
+	register int			x;
+	register int			y;
+	t_color_precision		color;
+	t_scene					*s;
+	int						it;
 
 	s = (t_scene *)fill;
 	y = 0;

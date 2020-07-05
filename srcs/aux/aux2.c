@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 21:19:42 by user42            #+#    #+#             */
-/*   Updated: 2020/07/04 14:46:09 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:02:24 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <aux.h>
 #include <stdlib.h>
 
-int					ft_isdigit(int c)
+int					ft_isdigit(const int c)
 {
 	if (c <= '9' && c >= '0')
 		return (1);

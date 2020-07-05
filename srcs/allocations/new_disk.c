@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 14:23:39 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 14:24:51 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 15:51:18 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <aux.h>
 
-t_disk			*rt_new_disk(t_cyl cyl, bool side)
+static t_disk	*rt_new_disk(const t_cyl cyl, bool side)
 {
 	t_disk		*new;
 
@@ -31,7 +31,7 @@ t_disk			*rt_new_disk(t_cyl cyl, bool side)
 	return (new);
 }
 
-void			rt_disk_obj(t_obj *obj, t_disk *d)
+static void		rt_disk_obj(t_obj *obj, t_disk *d)
 {
 	obj->type = DISK;
 	obj->collision = collisions_disk;
@@ -40,7 +40,7 @@ void			rt_disk_obj(t_obj *obj, t_disk *d)
 	obj->color = d->color;
 }
 
-bool			create_disks(t_scene *s, t_cyl cyl, t_obj *obj)
+bool			create_disks(t_scene *s, const t_cyl cyl, t_obj *obj)
 {
 	t_obj		*disk1;
 	t_obj		*disk2;

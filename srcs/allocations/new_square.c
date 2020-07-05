@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 13:44:01 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 13:59:18 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 15:56:47 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #include <stdlib.h>
 #include <aux.h>
 
-t_square			*rt_new_square(t_vec3 pos, t_vec3 dir, double height,
-		t_color_precision color)
+t_square			*rt_new_square(const t_vec3 pos, const t_vec3 dir,
+		const double height, const t_color_precision color)
 {
 	t_square		*sq;
 

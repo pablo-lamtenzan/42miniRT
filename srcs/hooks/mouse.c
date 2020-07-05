@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 19:02:50 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 19:11:05 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:15:50 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void			resize_dir(double *point, double resize)
 		*point += resize;
 }
 
-int				motion_hook(int x, int y, void *fill)
+int				motion_hook(const int x, const int y, void *fill)
 {
 	t_scene		*s;
 	bool		update;
@@ -41,13 +41,12 @@ int				motion_hook(int x, int y, void *fill)
 	if (y > s->image->max_h / 3 && y < s->image->max_h / 2 && (update = true))
 		resize_dir(&s->cams->dir.x, -0.01 * s->mouse);
 	else if (y < s->image->max_h / 2 / 3 && (update = true))
-	{
 		resize_dir(&s->cams->dir.x, 0.01 * s->mouse);
-	}
-	if (update)
+	if (update == true)
 	{
 		mlx_destroy_image(s->image->mlx, s->image->img);
 		s->image->img = NULL;
+		ft_putstr_fd("ROTATING CAM\n", 1);
 		calc_image_hooks(s);
 	}
 	return (0);
@@ -62,7 +61,7 @@ int				motion_end(void *fill)
 	return (0);
 }
 
-static int		mouse_hook_fill(int key, t_scene *s, bool update)
+static int		mouse_hook_fill(const int key, t_scene *s, bool update)
 {
 	if (key == 2 && (update = true))
 	{
@@ -91,7 +90,7 @@ static int		mouse_hook_fill(int key, t_scene *s, bool update)
 	return (key);
 }
 
-int				mouse_hook(int key, int x, int y, void *fill)
+int				mouse_hook(const int key, int x, int y, void *fill)
 {
 	t_scene		*s;
 	bool		update;

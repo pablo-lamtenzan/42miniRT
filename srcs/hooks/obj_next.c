@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 19:52:37 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 21:05:48 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:16:31 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <hooks.h>
 #include <aux.h>
 
-static int		swicth_cam_or_obj_fill2(int key, t_scene *s)
+static int		swicth_cam_or_obj_fill2(const int key, t_scene *s)
 {
 	if (s->objs->type == CUBE)
 	{
@@ -41,7 +41,7 @@ static int		swicth_cam_or_obj_fill2(int key, t_scene *s)
 	return (key);
 }
 
-static int		swicth_cam_or_obj_fill3(int key, t_scene *s)
+static int		swicth_cam_or_obj_fill3(const int key, t_scene *s)
 {
 	if (s->objs->cmp == PYRAMID)
 	{
@@ -66,7 +66,7 @@ static int		swicth_cam_or_obj_fill3(int key, t_scene *s)
 	return (key);
 }
 
-static int		swicth_cam_or_obj_fill4(int key, t_scene *s)
+static int		swicth_cam_or_obj_fill4(const int key, t_scene *s)
 {
 	if (s->objs->type == CYLINDER)
 	{
@@ -88,7 +88,7 @@ static int		swicth_cam_or_obj_fill4(int key, t_scene *s)
 	return (key);
 }
 
-int				swicth_cam_or_obj_fill1(int key, t_scene *s)
+int				swicth_cam_or_obj_fill1(const int key, t_scene *s)
 {
 	if (key == XK_p)
 	{

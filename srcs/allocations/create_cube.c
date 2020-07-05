@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 14:03:15 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 14:06:52 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 15:38:37 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void			map_square_lr(t_square *sq)
 			-sq->height / 2, 0), sq->dir));
 }
 
-t_square		*alloc_sq_bonus(t_square sq, void (*square_put)(t_square *sq))
+static t_square	*alloc_sq_bonus(const t_square sq,
+		void (*square_put)(t_square *sq))
 {
 	t_square	*new;
 
@@ -52,7 +53,7 @@ t_square		*alloc_sq_bonus(t_square sq, void (*square_put)(t_square *sq))
 	return (new);
 }
 
-bool			put_square(t_scene *s, t_obj *obj, t_square sq,
+static bool		put_square(t_scene *s, t_obj *obj, const t_square sq,
 	void (*square_put)(t_square *w))
 {
 	t_obj		*new;
@@ -66,7 +67,7 @@ bool			put_square(t_scene *s, t_obj *obj, t_square sq,
 	return (true);
 }
 
-bool			create_cube(t_scene *s, t_obj *obj, t_cu cu)
+bool			create_cube(t_scene *s, t_obj *obj, const t_cu cu)
 {
 	t_square	sq;
 

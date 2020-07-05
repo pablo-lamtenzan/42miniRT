@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 14:21:51 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 14:21:55 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 15:46:25 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #include <stdlib.h>
 #include <aux.h>
 
-t_co			*rt_new_cone(t_ray posdir, double curve, double height,
-		t_color_precision color)
+t_co			*rt_new_cone(const t_ray posdir, const double curve,
+		const double height, const t_color_precision color)
 {
 	t_co		*co;
 

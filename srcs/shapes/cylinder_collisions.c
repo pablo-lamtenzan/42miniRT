@@ -6,14 +6,14 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 15:03:38 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 15:05:25 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:36:46 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <shape.h>
 #include <stdlib.h>
 
-bool			collisions_disk(t_ray r, void *d, double *t)
+bool			collisions_disk(const t_ray r, void *d, double *t)
 {
 	t_vec3		p;
 	double		dist;
@@ -38,7 +38,7 @@ bool			collisions_disk(t_ray r, void *d, double *t)
 	return (false);
 }
 
-t_vec3			normal_disk(void *x, t_ray r)
+t_vec3			normal_disk(void *x, const t_ray r)
 {
 	t_vec3		n;
 	t_scene		*s;
@@ -54,7 +54,7 @@ t_vec3			normal_disk(void *x, t_ray r)
 	return (normalise(n));
 }
 
-bool			cyl_cols_fill(t_ray r, void *cy, double *abcd, double *t)
+static bool		cyl_cols_fill(const t_ray r, void *cy, double *abcd, double *t)
 {
 	t_vec3		v;
 
@@ -77,7 +77,7 @@ bool			cyl_cols_fill(t_ray r, void *cy, double *abcd, double *t)
 	return (false);
 }
 
-bool			collisions_cylinder(t_ray r, void *cy, double *t)
+bool			collisions_cylinder(const t_ray r, void *cy, double *t)
 {
 	double		abcd[4];
 	t_vec3		v[3];

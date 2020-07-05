@@ -84,10 +84,7 @@ BONUS:
 
 Debug:
 - when i minimize the image is del
-- can t read last line while parsing
-- error gestion in parse bonus nb of arg 
 - rainbow is ok but so linear lines
 - damier bug too (size)
 - pyramid base seems smaller
-- parse line is too long doesnt ret false
 - color of squares and tri in test.rt

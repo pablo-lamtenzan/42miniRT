@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 18:50:11 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 18:58:03 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:13:33 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <hooks.h>
 #include <aux.h>
 
-void			change_pos_sq(int key, t_square *w, int dir)
+void			change_pos_sq(const int key, t_square *w, int dir)
 {
 	bool		update;
 
@@ -43,7 +43,7 @@ void			change_pos_sq(int key, t_square *w, int dir)
 		map_square_lr(w);
 }
 
-void			change_pos_py(int key, t_obj *py)
+void			change_pos_py(const int key, t_obj *py)
 {
 	change_pos_sq(key, (t_square *)py->target, 0);
 	change_pos_tr(key, (t_tri *)((t_obj *)py->next)->target);
@@ -54,7 +54,7 @@ void			change_pos_py(int key, t_obj *py)
 			(t_obj *)py->next)->next)->next)->next)->target);
 }
 
-void			change_pos_cu(int key, t_obj *cu)
+void			change_pos_cu(const int key, t_obj *cu)
 {
 	change_pos_sq(key, (t_square *)cu->target, 0);
 	change_pos_sq(key, (t_square *)((t_obj *)cu->next)->target, 0);
@@ -77,7 +77,7 @@ static void		change_pos_cy_fill(t_obj *obj, t_vec3 pos)
 	ft_putstr_fd("\033[35m CYLINDER TRANSLATION\033[0m\n", 1);
 }
 
-void			change_pos_cy(int key, t_obj *obj)
+void			change_pos_cy(const int key, t_obj *obj)
 {
 	bool		update;
 	t_vec3		pos;

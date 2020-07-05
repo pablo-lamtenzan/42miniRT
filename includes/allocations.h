@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 20:25:49 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 20:28:19 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 15:58:02 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,28 +32,22 @@ t_obj						*rt_new_obj(int type);
 t_light						*rt_new_light(void);
 t_cam						*rt_new_cam(void);
 t_mlx						*rt_new_image(void);
-t_plane						*rt_new_plane(t_vec3 pos, t_vec3 dir,
-		t_color_precision color);
-t_sphere					*rt_new_sphere(t_vec3 pos, double d,
-		t_color_precision color);
-t_square					*rt_new_square(t_vec3 pos, t_vec3 dir,
-		double height,
-							t_color_precision color);
-t_tri						*rt_new_triangle(t_vec3 v0, t_vec3 v1,
-		t_vec3 v2,
-							t_color_precision color);
-t_cyl						*rt_new_cyl(t_ray posdir, double height,
-		double d,
-							t_color_precision color);
+t_plane						*rt_new_plane(const t_vec3 pos, const t_vec3 dir,
+		const t_color_precision color);
+t_sphere					*rt_new_sphere(const t_vec3 pos, const double d,
+		const t_color_precision color);
+t_square					*rt_new_square(const t_vec3 pos, const t_vec3 dir,
+		const double height, const t_color_precision color);
+t_tri						*rt_new_triangle(const t_vec3 v0, const t_vec3 v1,
+		const t_vec3 v2, const t_color_precision color);
+t_cyl						*rt_new_cyl(const t_ray posdir, const double height,
+		const double d, const t_color_precision color);
+t_co						*rt_new_cone(const t_ray posdir, const double curve,
+		const double height, const t_color_precision color);
+t_py						*rt_new_pyramid(const t_ray posdir, const double base_height,
+		const double height, const t_color_precision color);
+t_py						*rt_new_cube(const t_vec3 pos, const t_vec3 dir,
+		const double height, const t_color_precision color);
 
-t_co						*rt_new_cone(t_ray posdir, double curve,
-		double height,
-							t_color_precision color);
-t_py						*rt_new_pyramid(t_ray posdir, double base_height,
-		double height, t_color_precision color);
-t_py						*rt_new_cube(t_vec3 pos, t_vec3 dir, double height,
-							t_color_precision color);
-
-void						free_all(t_scene *s);
 
 #endif

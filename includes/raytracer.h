@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 20:41:45 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 21:02:28 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:34:45 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,14 +120,14 @@ typedef struct					s_scene
 	char						flags;
 }								t_scene;
 
-bool							parser(int ac, char **argv, t_scene *s);
+bool							parser(const int ac, char **argv, t_scene *s);
 int								load_image(void *s);
 void							*engine(void *fill);
 void							*engine_hooks(void *fill);
 bool							check_obj_collision(t_scene *s,
-		t_obj **near, t_ray ray);
+		t_obj **near, const t_ray ray);
 bool							check_light_collision(t_scene *s,
-		double *min, t_ray ray);
+		double *min, const t_ray ray);
 void							export_bmp(t_scene *s);
 bool							calc_image_hooks(t_scene *s);
 int								calc_image(t_scene *s);
@@ -136,12 +136,12 @@ void							pixelize(t_scene *s, int x, int y);
 
 t_color							filter(t_scene *s, t_color c);
 void							effect(t_scene *s, t_obj *obj);
-void							damier(t_scene *s, t_obj *obj);
+void							checkerboard(t_scene *s, t_obj *obj);
 void							rainbow(t_scene *s, t_obj *obj);
 t_color_precision				uvmapping(t_scene *s, t_obj *obj);
 
 t_color							precision_to_rgb(t_scene *s,
-		t_color_precision c);
+		const t_color_precision c);
 void							copy_buff(t_scene *s);
 
 #endif

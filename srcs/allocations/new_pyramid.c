@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 14:27:20 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 14:27:22 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 15:54:14 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #include <stdlib.h>
 #include <aux.h>
 
-t_py			*rt_new_pyramid(t_ray posdir, double base_height, double height,
-		t_color_precision color)
+t_py			*rt_new_pyramid(const t_ray posdir, const double base_height,
+		const double height, const t_color_precision color)
 {
 	t_py		*py;
 

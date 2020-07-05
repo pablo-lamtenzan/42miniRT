@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 18:58:52 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 19:00:17 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:13:45 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <hooks.h>
 #include <aux.h>
 
-void			key_rotation(int key, t_obj *obj)
+void			key_rotation(const int key, t_obj *obj)
 {
 	if (obj->type == SQUARE)
 		change_dir_sq(key, (t_square *)obj->target, 0);
@@ -33,7 +33,7 @@ void			key_rotation(int key, t_obj *obj)
 			ALLOW THIS SHAPE ROTATION\033[0m\n", 1);
 }
 
-void			key_translation(int key, t_obj *obj)
+void			key_translation(const int key, t_obj *obj)
 {
 	if (obj->type == SQUARE)
 		change_pos_sq(key, (t_square *)obj->target, 0);

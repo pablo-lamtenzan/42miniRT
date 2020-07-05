@@ -6,13 +6,13 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 15:13:14 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 15:13:40 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:37:32 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <shape.h>
 
-bool			collisions_triangle(t_ray r, void *tr, double *t)
+bool			collisions_triangle(const t_ray r, void *tr, double *t)
 {
 	t_vec3		d;
 	t_vec3		v[5];

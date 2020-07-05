@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 06:02:13 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 23:15:22 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 14:44:00 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ bool				rt_parse_obj(t_scene *scene, char *line)
 	if (!id)
 		return (false);
 	scene->flags |= RT_OBJ;
+	scene->threads = obj->effect & RAINBOW ? 1 : 8;
 	return (id == true);
 }
 

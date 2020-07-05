@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 14:26:31 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 14:26:57 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 15:52:50 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #include <stdlib.h>
 #include <aux.h>
 
-t_plane		*rt_new_plane(t_vec3 pos, t_vec3 dir, t_color_precision color)
+t_plane		*rt_new_plane(const t_vec3 pos, const t_vec3 dir,
+		const t_color_precision color)
 {
 	t_plane		*p;
 

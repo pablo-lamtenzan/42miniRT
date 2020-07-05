@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 14:29:20 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 14:29:43 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 15:55:37 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #include <stdlib.h>
 #include <aux.h>
 
-t_sphere		*rt_new_sphere(t_vec3 pos, double d, t_color_precision color)
+t_sphere		*rt_new_sphere(const t_vec3 pos, const double d,
+		const t_color_precision color)
 {
 	t_sphere	*s;
 

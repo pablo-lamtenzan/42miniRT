@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 15:50:09 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 22:51:25 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:30:41 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <parsing.h>
 
-char		*error_mesages(int error_code)
+static char	*error_mesages(const int error_code)
 {
 	char	*msg[14] = {};
 
@@ -50,13 +50,13 @@ char		*error_mesages(int error_code)
 	return (msg[error_code - 1]);
 }
 
-bool		ft_error(int error_code)
+bool		ft_error(const int error_code)
 {
 	ft_putstr_fd(error_mesages(error_code), 1);
 	return (false);
 }
 
-bool		ft_error_free(int error_code, void *addr)
+bool		ft_error_free(const int error_code, void *addr)
 {
 	if (addr)
 		free_values(addr);
@@ -64,7 +64,7 @@ bool		ft_error_free(int error_code, void *addr)
 	return (false);
 }
 
-bool		ft_error_free2(int error_code, void *addr1, void *addr2)
+bool		ft_error_free2(const int error_code, void *addr1, void *addr2)
 {
 	if (addr1)
 		free_values(addr1);

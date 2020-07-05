@@ -6,14 +6,14 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 14:54:34 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 17:20:21 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:10:26 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <raytracer.h>
 #include <stdlib.h>
 
-t_color					precision_to_rgb(t_scene *s, t_color_precision c)
+t_color					precision_to_rgb(t_scene *s, const t_color_precision c)
 {
 	t_color				col;
 
@@ -34,7 +34,7 @@ void					copy_buff(t_scene *s)
 	free(s->image->buff);
 }
 
-t_color_precision		minmax(t_vec3 v, double aa)
+t_color_precision		minmax(const t_vec3 v, const double aa)
 {
 	t_color_precision	c;
 
@@ -44,7 +44,7 @@ t_color_precision		minmax(t_vec3 v, double aa)
 	return (c);
 }
 
-t_color_precision		minmax_simple(t_vec3 v)
+t_color_precision		minmax_simple(const t_vec3 v)
 {
 	t_color_precision	c;
 
@@ -55,7 +55,8 @@ t_color_precision		minmax_simple(t_vec3 v)
 	return (c);
 }
 
-t_color					set_color(double b, double g, double r)
+t_color					set_color(const double b, const double g,
+		const double r)
 {
 	t_color				c;
 

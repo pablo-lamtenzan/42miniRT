@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 20:39:51 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 20:40:47 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:25:04 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include <allocations.h>
 # include <aux.h>
 
-void			rt_parse(int fd, t_scene *scene);
-bool			rt_parse_line(t_scene *scene, char *line);
+void			rt_parse(const int fd, t_scene *scene);
+//bool			rt_parse_line(t_scene *scene, char *line);
 bool			rt_parse_light(t_scene *scene, char *line);
 bool			rt_parse_obj(t_scene *scene, char *line);
 bool			rt_parse_obj_bonus(t_scene *s, char *line);

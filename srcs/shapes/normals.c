@@ -6,13 +6,13 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 15:05:55 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 15:22:53 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:37:11 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <shape.h>
 
-t_vec3			normal_triangle(void *x, t_ray r)
+t_vec3			normal_triangle(void *x, const t_ray r)
 {
 	t_scene		*s;
 	t_vec3		n;
@@ -33,7 +33,7 @@ t_vec3			normal_triangle(void *x, t_ray r)
 	return (normalise(n));
 }
 
-t_vec3			normal_cylinder(void *x, t_ray r)
+t_vec3			normal_cylinder(void *x, const t_ray r)
 {
 	t_vec3		n;
 	double		tmp;
@@ -54,7 +54,7 @@ t_vec3			normal_cylinder(void *x, t_ray r)
 	return (normalise(n));
 }
 
-t_vec3			normal_square(void *x, t_ray r)
+t_vec3			normal_square(void *x, const t_ray r)
 {
 	t_vec3		n;
 	t_scene		*s;
@@ -75,7 +75,7 @@ t_vec3			normal_square(void *x, t_ray r)
 	return (normalise(n));
 }
 
-t_vec3			normal_sphere(void *x, t_ray r)
+t_vec3			normal_sphere(void *x, const t_ray r)
 {
 	t_vec3		n;
 	t_scene		*s;
@@ -89,7 +89,7 @@ t_vec3			normal_sphere(void *x, t_ray r)
 	return (normalise(n));
 }
 
-t_vec3			normal_plane(void *x, t_ray r)
+t_vec3			normal_plane(void *x, const t_ray r)
 {
 	t_vec3		n;
 	t_scene		*s;

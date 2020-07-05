@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   change_dir_obj2.c                                  :+:      :+:    :+:   */
+/*   change_dir_pos_obj2.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 18:46:45 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 18:49:28 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:13:07 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <hooks.h>
 #include <aux.h>
 
-void			change_pos_pl(int key, t_plane *w)
+void			change_pos_pl(const int key, t_plane *w)
 {
 	bool		update;
 
@@ -37,7 +37,7 @@ void			change_pos_pl(int key, t_plane *w)
 		ft_putstr_fd("\033[35m PLANE TRANSLATION\033[0m\n", 1);
 }
 
-void			change_pos_sp(int key, t_sphere *w)
+void			change_pos_sp(const int key, t_sphere *w)
 {
 	bool		update;
 
@@ -60,7 +60,7 @@ void			change_pos_sp(int key, t_sphere *w)
 		ft_putstr_fd("\033[35m SPHERE TRANSLATION\033[0m\n", 1);
 }
 
-void			change_pos_co(int key, t_co *w)
+void			change_pos_co(const int key, t_co *w)
 {
 	bool		update;
 
@@ -108,7 +108,7 @@ void			change_pos_tr(int key, t_tri *w)
 		ft_putstr_fd("\033[35m TRAINGLE TRANSLATION\033[0m\n", 1);
 }
 
-void			change_dir_co(int key, t_co *w)
+void			change_dir_co(const int key, t_co *w)
 {
 	bool		update;
 

@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 19:13:39 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 20:16:51 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/05 16:14:39 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <aux.h>
 
 
-char			*get_obj_type(int id)
+char			*get_obj_type(const int id)
 {
 	char		*types[11] = {};
 
@@ -35,7 +35,7 @@ char			*get_obj_type(int id)
 }
 
 
-int				key_normal(int key, void *fill)
+static int		key_normal(const int key, void *fill)
 {
 	t_scene *s;
 
@@ -55,10 +55,10 @@ int				key_normal(int key, void *fill)
 }
 
 
-bool			is_usseful_key(int key)
+static bool		is_usseful_key(const int key)
 {
-	int		keylist[18] = {};
-	int		i;
+	int			keylist[18] = {};
+	int			i;
 
 	keylist[0] = XK_Escape;
 	keylist[1] = XK_space;
@@ -86,7 +86,7 @@ bool			is_usseful_key(int key)
 }
 
 
-int				switch_cam_or_obj(int key, t_scene *s)
+static int		switch_cam_or_obj(const int key, t_scene *s)
 {
 	if (key == XK_plus)
 	{
@@ -101,7 +101,7 @@ int				switch_cam_or_obj(int key, t_scene *s)
 	return (swicth_cam_or_obj_fill1(key, s));
 }
 
-int				key_hook(int key, void *fill)
+int				key_hook(const int key, void *fill)
 {
 	t_scene *s;
 
