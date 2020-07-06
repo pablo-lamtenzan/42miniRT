@@ -72,7 +72,7 @@ When you execute an acccion a charge bar will apear in the terminal (stdout). Th
 You can modify the position of your current camera using `scroll whell`, `scroll whell up` will zoom in, vice versa `scroll well down` will zoom out.
 For change the camera direction you have to able the the camera direction movement pushing into the scroll whell `scroll well push`, then clicking on `mouse left button` you will increase the change of the direction or `mouse mouse button` for decrease. For exit the camera direction mode push `scroll whell` again. The camera dirrection mode will change the camera dirrection to where the mouse is pointing.
 
-### c) Keysboard
+### c) Keyboard
 If you have more than 1 camera you can switch infinitely between them using `+` for go the right or `ivert pontuation:`\` for go to the left.
 You can swicth into the shapes in the scene using `p` for going to the next and `o` for going back. The id of the shape will apear on the terminal (stdout) when you switch.
 When you have a shape sellected (swicthed), you can effectuate a translation of the shape using `the directional arrows` and `n m` or a rotation using `w a s d z x`.
@@ -122,7 +122,7 @@ This parameters define properties about the scene. They can only be denifed one 
 - Resolution: `R int int` (weight and height, the size of the output window)
 - Ambient light: `A intensity color`
 - Antialisaing: `aa int` (1 to 6)
-- Filter: `f value` (value coulb be r/g/b/s, red, green, blue, sepia)
+- Filter: `f value` (value coulb be r/g/b/s, .red, green, blue, sepia)
 
 ### Extras
 At the end of the definition of a shape you can add extra values, this extra values will modify the shape color.
