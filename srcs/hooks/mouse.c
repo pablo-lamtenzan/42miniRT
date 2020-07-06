@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 19:02:50 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 16:15:50 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/06 16:13:39 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int				motion_end(void *fill)
 {
 	t_scene		*s;
 
+	ft_putstr_fd("\033[32m[HANDLING LEAKS]\033[0m\n", 1);
 	s = (t_scene *)fill;
 	free_all(s);
 	return (0);

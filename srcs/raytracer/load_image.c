@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 15:57:25 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 23:41:01 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/06 16:28:14 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,34 +77,23 @@ int					calc_image(t_scene *x)
 	return (true);
 }
 
-#include <stdio.h>
-
-int					test(void *fill)
-{
-	t_scene 	*s;
-
-	s = (t_scene *)fill;
-	(void)mlx_put_image_to_window(s->image->mlx, s->image->win, \
-				s->image->img, 0, 0);
-	return (true);
-}
-
 int					load_image(void *x)
 {
 	t_scene			*s;
 
 	s = (t_scene *)x;
-	if (!(s->image->win = mlx_new_window(s->image->mlx, s->image->max_w, \
-			s->image->max_h, "plamtenz's miniRT")) || calc_image(s) == false)
+	if ((!(s->flags & SAVE) && !(s->image->win = mlx_new_window(s->image->mlx, s->image->max_w, \
+			s->image->max_h, "plamtenz's miniRT"))) || calc_image(s) == false)
 		return (false);
 	if (!(s->flags & SAVE))
-	{		
+	{	
+		(void)mlx_loop_hook(s->image->mlx, persistent_image, s);
 		(void)mlx_key_hook(s->image->win, key_hook, s);
 		(void)mlx_mouse_hook(s->image->win, mouse_hook, s);
+		(void)mlx_hook(s->image->win, 6, (1L << 6), motion_hook, s);
 		(void)mlx_hook(s->image->win, DestroyNotify, StructureNotifyMask, \
 				motion_end, s);
-		mlx_loop_hook(s->image->mlx, test, s);
-		(void)mlx_hook(s->image->win, 6, (1L << 6), motion_hook, s);
+
 		(void)mlx_loop(s->image->mlx);
 	}
 	else

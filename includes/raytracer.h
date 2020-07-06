@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 20:41:45 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 19:43:08 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/06 15:20:19 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,5 +150,7 @@ t_color_precision				uvmapping(t_scene *s, t_obj *obj);
 t_color							precision_to_rgb(t_scene *s,
 		const t_color_precision c);
 void							copy_buff(t_scene *s);
+
+int								persistent_image(void *fill);
 
 #endif

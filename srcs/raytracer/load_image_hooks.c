@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 15:54:41 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 15:56:52 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/06 16:10:51 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,12 @@ bool				calc_image_hooks(t_scene *s)
 	s->image->max_w *= 2;
 	(void)mlx_put_image_to_window(s->image->mlx, s->image->win, \
 		s->image->img, 0, 0);
+	/*
 	mlx_key_hook(s->image->win, key_hook, s);
 	mlx_mouse_hook(s->image->win, mouse_hook, s);
 	mlx_hook(s->image->win, 6, (1L << 6), motion_hook, s);
 	mlx_hook(s->image->win, DestroyNotify, StructureNotifyMask, motion_end, s);
 	mlx_loop(s->image->mlx);
+	*/
 	return (true);
 }

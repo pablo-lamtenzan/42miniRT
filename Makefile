@@ -43,7 +43,7 @@ SRCS	= $(addprefix $(SRCDIR)/, \
 			$(addprefix parsing/, parse_obj_bonus_properties.c rt_check_file.c rt_parse_error1.c \
 				rt_parse_error2.c rt_parse_error3.c rt_parse_error4.c rt_parse_error5.c rt_parse_in_lst.c rt_parse.c) \
 			$(addprefix raytracer/, collisions.c effects.c engine_hooks.c engine.c error.c export_bmp.c \
-				load_image_hooks.c load_image.c parser.c uvmapping.c) \
+				load_image_hooks.c load_image.c parser.c uvmapping.c persistent_image.c) \
 			$(addprefix shapes/, cone.c cylinder_collisions.c normals.c plane_collisions.c sphere_collisions.c \
 				square_collisions.c triangle_collisions.c) \
 			$(addprefix vector/, vec3.c vec3basics1.c vec3basics2.c vec3rot.c) \
