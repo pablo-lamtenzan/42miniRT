@@ -83,8 +83,8 @@ BONUS:
 //16/05 -> All the rest (have to work)
 
 Debug:
-- when i minimize the image is del
-- rainbow is ok but so linear lines
+//- when i minimize the image is del
+//- rainbow is ok but so linear lines
 - damier bug too (size)
 - pyramid base seems smaller
 - color of squares and tri in test.rt

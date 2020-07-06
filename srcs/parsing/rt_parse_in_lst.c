@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 06:02:13 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 14:44:00 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/06 22:58:57 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,4 +101,31 @@ bool				rt_parse_cam(t_scene *scene, char *line)
 		return (true);
 	}
 	return (false);
+}
+
+void				put_cmp_types(t_obj *start)
+{
+	t_obj			*cpy;
+	int				i;
+
+	cpy = start;
+	while (cpy)
+	{
+		if (cpy->cmp == CUBE)
+		{
+			i = 0;
+			cpy->type = CUBE;
+			while (i++ < 6)
+				cpy = cpy->next;
+		}
+		else if (cpy->cmp == PYRAMID)
+		{
+			i = 0;
+			cpy->type = PYRAMID;
+			while (i++ < 5)
+				cpy = cpy->next;
+		}
+		else
+			cpy = cpy->next;
+	}
 }

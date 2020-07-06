@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 20:39:51 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 19:43:42 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/06 22:48:32 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ bool			check_file(int arc, char **argv, int *fd, t_scene *scene);
 void			free_values(char **values);
 bool			frmt(char **start, int size);
 bool			frmt2(char *line);
+void			put_cmp_types(t_obj *start);
 
 #endif

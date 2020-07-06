@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 15:50:09 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 19:20:35 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/06 22:54:12 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,19 @@
 #include <stdlib.h>
 #include <parsing.h>
 #include <data.h>
+#include <ft_error.h>
 
 static char		*error_mesages_fill(const int error_code)
 {
-	if (error_code == 9)
+	if (error_code == OBJ_PARAMS)
 		return (J);
-	else if (error_code == 10)
+	else if (error_code == MANY_AA)
 		return (K);
-	else if (error_code == 11)
+	else if (error_code == AA_PARAMS)
 		return (L);
-	else if (error_code == 12)
+	else if (error_code == MANY_FILTERS)
 		return (M);
-	else if (error_code == 13)
+	else if (error_code == MANY_RES)
 		return (N);
 	return (NULL);
 }
@@ -34,23 +35,23 @@ static char		*error_mesages(const int error_code)
 {
 	if (error_code == -1)
 		return (" ");
-	else if (error_code == 0)
+	else if (error_code == INV_INPUT)
 		return (A);
-	else if (error_code == 1)
+	else if (error_code == INV_FILENAME)
 		return (B);
-	else if (error_code == 2)
+	else if (error_code == INV_NB_ARGS)
 		return (C);
-	else if (error_code == 3)
+	else if (error_code == HEAP_ALLOC)
 		return (D);
-	else if (error_code == 4)
+	else if (error_code == NO_CAM)
 		return (E);
-	else if (error_code == 5)
+	else if (error_code == MANY_AMB)
 		return (F);
-	else if (error_code == 6)
+	else if (error_code == LIGHT_PARAMS)
 		return (G);
-	else if (error_code == 7)
+	else if (error_code == CAM_PARAMS)
 		return (H);
-	else if (error_code == 8)
+	else if (error_code == AMB_PARAMS)
 		return (I);
 	else
 		return (error_mesages_fill(error_code));

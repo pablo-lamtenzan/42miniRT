@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 02:04:19 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 16:24:48 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/06 22:47:39 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ static void		make_cams_circular(t_scene *scene)
 		((t_cam *)scene->cams->next)->back = aux;
 		scene->cams = scene->cams->start;
 	}
+	if (scene->objs)
+		put_cmp_types(scene->objs);
 }
 
 void			rt_parse(const int fd, t_scene *scene)

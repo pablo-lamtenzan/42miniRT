@@ -6,13 +6,23 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 16:04:05 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/06 13:54:47 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/06 23:34:41 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <raytracer.h>
 #include <parsing.h>
 #include <ft_error.h>
+
+static void		no_light(t_scene *s)
+{
+	s->lights = rt_new_light();
+	s->lights->color = set_color_precision(0x0, 0x0, 0x0);
+	s->lights->intensity = 0;
+	s->lights->pos = vec3(0, 0, 0);
+	s->lights->next = NULL;
+	s->lights->start = s->lights;
+}
 
 bool			parser(const int ac, char **argv, t_scene *s)
 {
@@ -24,7 +34,7 @@ bool			parser(const int ac, char **argv, t_scene *s)
 	if (!(s->flags & RT_CAM))
 		return (ft_error(NO_CAM));
 	if (!(s->flags & RT_LIGHT))
-		return (ft_error(INV_INPUT));
+		no_light(s);
 	if (!(s->flags & RT_OBJ))
 		return (ft_error(INV_INPUT));
 	if (ac == 3)

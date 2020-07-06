@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 14:19:04 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/06 14:44:31 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/06 21:18:33 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,6 @@ void				free_all(t_scene *s)
 	if (s->image)
 		free_mlx(s->image);
 	free(s);
-	ft_putstr_fd("\033[32m[MINIRT EXIT WITH SUCCESS]\033[0m\n", 1);
+	ft_putstr_fd("\n\033[32m[MINIRT EXIT WITH SUCCESS]\033[0m\n", 1);
 	exit(EXIT_SUCCESS);
 }

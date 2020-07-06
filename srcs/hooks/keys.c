@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 19:13:39 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 21:54:51 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/06 22:51:48 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,21 @@
 
 char			*get_obj_type(const int id)
 {
-	if (id == 2)
+	if (id == SPHERE)
 		return (O);
-	else if (id == 3)
+	else if (id == SQUARE)
 		return (P);
-	else if (id == 4)
+	else if (id == CYLINDER)
 		return (Q);
-	else if (id == 5)
+	else if (id == TRIANGLE)
 		return (R);
-	else if (id == 6)
+	else if (id == PLANE)
 		return (S);
-	else if (id == 7)
+	else if (id == CUBE)
 		return (T);
-	else if (id == 8)
+	else if (id == CONE)
 		return (U);
-	else if (id == 9)
+	else if (id == PYRAMID)
 		return (V);
 	return (NULL);
 }
@@ -95,8 +95,8 @@ int				key_hook(const int key, void *fill)
 	switch_cam_or_obj(key, s);
 	key_rotation(key, s->objs);
 	key_translation(key, s->objs);
-	if (key == 32)
-		s->threads = s->threads != 1 ? 1 : 8;
+	if (key == XK_space)
+		s->threads = 8;
 	if (key_normal(key, s) == -1)
 		return (key);
 	mlx_destroy_image(s->image->mlx, s->image->img);

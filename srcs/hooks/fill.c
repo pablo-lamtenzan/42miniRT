@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 18:58:52 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 22:19:10 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/06 20:54:58 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 void			key_rotation(const int key, t_obj *obj)
 {
-	if (obj->type == SQUARE)
+	if (obj->type == SQUARE && obj->cmp == 0)
 		change_dir_sq(key, (t_square *)obj->target, 0);
 	else if (obj->type == CYLINDER)
 		change_dir_cy(key, obj);
@@ -24,7 +24,7 @@ void			key_rotation(const int key, t_obj *obj)
 		change_dir_pl(key, (t_plane *)obj->target);
 	else if (obj->type == CONE)
 		change_dir_co(key, (t_co *)obj->target);
-	else if (obj->type == CUBE)
+	else if (obj->type == CUBE && obj->cmp == CUBE)
 		change_dir_cu(key, obj);
 	else if ((key == XK_w || key == XK_s || key == XK_a || key == XK_d
 			|| key == XK_x || key == XK_y) && (obj->type == TRIANGLE
@@ -35,7 +35,7 @@ void			key_rotation(const int key, t_obj *obj)
 
 void			key_translation(const int key, t_obj *obj)
 {
-	if (obj->type == SQUARE)
+	if (obj->type == SQUARE && obj->cmp == 0)
 		change_pos_sq(key, (t_square *)obj->target, 0);
 	else if (obj->type == CYLINDER)
 		change_pos_cy(key, obj);
@@ -47,7 +47,7 @@ void			key_translation(const int key, t_obj *obj)
 		change_pos_tr(key, (t_tri *)obj->target);
 	else if (obj->type == CONE)
 		change_pos_co(key, (t_co *)obj->target);
-	else if (obj->type == CUBE)
+	else if (obj->type == CUBE && obj->cmp == CUBE)
 		change_pos_cu(key, obj);
 	else if (obj->type == PYRAMID)
 		change_pos_py(key, obj);

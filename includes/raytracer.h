@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 20:41:45 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/06 15:20:19 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/06 20:16:11 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <../minilibX/mlx.h>
 
 # define REBOUNDS_MIRROR		10
+
+# define XFRAME					500000
 
 # define SAVE					1
 # define RT_AMB					2
@@ -151,6 +153,6 @@ t_color							precision_to_rgb(t_scene *s,
 		const t_color_precision c);
 void							copy_buff(t_scene *s);
 
-int								persistent_image(void *fill);
+int								draw_in_frames(void *fill);
 
 #endif
