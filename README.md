@@ -31,7 +31,7 @@ This program works in MacOS and Linux, however the graphic lib (minilibX) doesn'
 For run the program you need to clone this git repository `git clone https://github/pablo-lamtenzan/42miniRT`.
 Then if you did correctly the specifications part use the command `make` , this will compile the project sources converting them to relecatable objects files (*.o) and then, link this objects making an image as an executable file named "miniRT".
 When you have your executable file you need a *.rt file as argument, this file contains the scene you want to raytrace `./miniRT <filename.rt>` (see later in Input part).
-The result of the raytracing will be printed in a window that the program will open, but if you want to save the result as an image (*.bmp) you just have to add as second argument `--save`, so the long command will be `./miniRT <filename.rt> --save`. The name of the *.bmp file will be the same than the filename.
+The result of the raytracing will be printed in a window that the program will open, but if you want to save the result as an image (*.bmp) you just have to add as second argument `--save`, so the long command will be `./miniRT <filename.rt> --save`. The name of the *.bmp file will be the same than the filename and will be saved in images dirrectory.
 
 ## II. Engine
 **a) Shapes**
@@ -104,7 +104,7 @@ Each shape, camera or light has an identifier this id will be the first element 
 ***Camera and lights***
 - Camera: `c position direction fov`
 - Light: `l position intensity color`
-
+.
 ***Shapes***
 - Sphere: `sp position diameter color`
 - Plane: `pl position direction color`
