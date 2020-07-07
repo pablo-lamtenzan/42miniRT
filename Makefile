@@ -1,5 +1,5 @@
 NAME	= miniRT
-LIBX	= minilibX
+LIBX	= mlx
 
 CC		= /usr/bin/gcc
 DBG		= valgrind
