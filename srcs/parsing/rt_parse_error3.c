@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 09:39:18 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 23:15:09 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/07 18:55:52 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,14 +71,14 @@ static bool			rt_parse_error_pyramid_fill(t_scene *s, t_obj *obj,
 		char **values, t_py py)
 {
 	if ((py.color.r = ft_atoi(values[9])) < 0x0 || py.color.r > 0xFF)
-		return (ft_error_free2(OBJ_PARAMS, values, obj));
+		return (ft_error_free(OBJ_PARAMS, values));
 	if ((py.color.g = ft_atoi(values[10])) < 0x0 || py.color.g > 0xFF)
-		return (ft_error_free2(OBJ_PARAMS, values, obj));
+		return (ft_error_free(OBJ_PARAMS, values));
 	if ((py.color.b = ft_atoi(values[11])) < 0x0 || py.color.b > 0xFF)
-		return (ft_error_free2(OBJ_PARAMS, values, obj));
+		return (ft_error_free(OBJ_PARAMS, values));
 	py.color.a = 0;
 	if (!create_pyramid(s, obj, py))
-		return (ft_error_free2(HEAP_ALLOC, values, obj));
+		return (ft_error_free(OBJ_PARAMS, values));
 	free(obj);
 	free_values(values);
 	return (true);
@@ -95,14 +95,14 @@ bool				rt_parse_error_pyramid(t_scene *s, t_obj *obj, char *line)
 		return (ft_error_free(OBJ_PARAMS, values));
 	py.pos = vec3(ft_atod(values[1]), ft_atod(values[2]), ft_atod(values[3]));
 	if ((py.dir.x = ft_atod(values[4])) < -1 || py.dir.x > 1)
-		return (ft_error_free2(OBJ_PARAMS, values, obj));
+		return (ft_error_free(OBJ_PARAMS, values));
 	if ((py.dir.y = ft_atod(values[5])) < -1 || py.dir.y > 1)
-		return (ft_error_free2(OBJ_PARAMS, values, obj));
+		return (ft_error_free(OBJ_PARAMS, values));
 	if ((py.dir.z = ft_atod(values[6])) < -1 || py.dir.z > 1)
-		return (ft_error_free2(OBJ_PARAMS, values, obj));
+		return (ft_error_free(OBJ_PARAMS, values));
 	if ((py.base_height = ft_atod(values[7])) < 0 || py.base_height == INFINITY)
-		return (ft_error_free2(OBJ_PARAMS, values, obj));
+		return (ft_error_free(OBJ_PARAMS, values));
 	if ((py.height = ft_atod(values[8])) < 0 || py.height == INFINITY)
-		return (ft_error_free2(OBJ_PARAMS, values, obj));
+		return (ft_error_free(OBJ_PARAMS, values));
 	return (rt_parse_error_pyramid_fill(s, obj, values, py));
 }

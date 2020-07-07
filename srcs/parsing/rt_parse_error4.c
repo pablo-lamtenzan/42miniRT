@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 17:33:37 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 23:19:18 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/07 19:03:11 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ static bool		rt_parse_error_cone_fill(t_obj *obj, char **values, t_co co)
 
 bool			rt_parse_error_cone(t_obj *obj, char *line)
 {
-	t_co	co;
-	char	**values;
+	t_co		co;
+	char		**values;
 
 	if (!(values = split_multicharset(line, " ,")) || !frmt(&values[1], 11))
 		return (values ? ft_error_free(OBJ_PARAMS, values) : ft_error(4));

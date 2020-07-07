@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 06:02:13 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/06 22:58:57 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/07 19:04:52 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,14 +77,12 @@ bool				rt_parse_obj_bonus(t_scene *s, char *line)
 	if (id != CUBE && id != PYRAMID)
 		ft_objadd_back(&s->objs, obj);
 	id == CUBE ? id = rt_parse_error_cube(s, obj, line) : 0;
-	id == CONE ? id = rt_parse_error_cone(obj, line) : 0;
 	id == PYRAMID ? id = rt_parse_error_pyramid(s, obj, line) : 0;
+	if (!id && obj)
+		free(obj);
+	id == CONE ? id = rt_parse_error_cone(obj, line) : 0;
 	if (!id)
-	{
-		if (obj)
-			free(obj);
 		return (false);
-	}
 	s->flags |= RT_OBJ;
 	return (true);
 }
