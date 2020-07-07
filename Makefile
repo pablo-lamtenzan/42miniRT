@@ -72,7 +72,7 @@ $(OBJDIR)/%.o:	$(SRCDIR)/%.c $(HDRS) Makefile
 	$(CC) $(CFLAGS) $(IFLAGS) -c -o $@ $<
 
 clean:
-	make clean -C $(LIBX) $@
+	make -C $(LIBX) $@
 	@echo RM $(OBJDIR)
 	@$(RM) -rf $(OBJDIR)
 
