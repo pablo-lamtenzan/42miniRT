@@ -81,12 +81,7 @@ fclean:			clean
 	@echo RM $(NAME)
 	@$(RM) $(NAME)
 
-
 re:				fclean all
-
-#test-dir:		$(OBJDIR)
-#	@echo MK $(OBJDIR)/tests
-#	@mkdir -p $(OBJDIR)/tests
 
 .PHONY: clean fclean minilibX
 
