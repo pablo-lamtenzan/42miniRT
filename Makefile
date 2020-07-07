@@ -79,6 +79,7 @@ clean:
 fclean:			clean
 	make -C $(LIBX) clean
 	@echo RM $(NAME)
+	@$(RM) $(NAME)
 
 
 re:				fclean all
