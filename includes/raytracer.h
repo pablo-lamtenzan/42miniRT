@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 20:41:45 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/07 00:29:22 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/07 15:16:24 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <ft_color.h>
 # include <stdbool.h>
-# include <../minilibX/mlx.h>
+# include <../mlx/mlx.h>
 
 # define REBOUNDS_MIRROR		10
 
