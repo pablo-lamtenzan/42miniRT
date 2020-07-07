@@ -1,7 +1,5 @@
 NAME	= miniRT
 LIBX	= minilibX
-# LIBTST	= tests
-# DIST	= debug
 
 CC		= /usr/bin/gcc
 DBG		= valgrind
@@ -11,7 +9,6 @@ SRCDIR	= srcs
 BLDDIR	= bin
 OBJDIR	= bin
 INCDIR	= includes
-# TSTDIR	= tests
 
 CFLAGS	= -Wall -Wextra -Werror -g3 -fsanitize=address
 IFLAGS	= -I$(INCDIR) -I$(LIBX)
@@ -26,8 +23,6 @@ ifeq ($(OS), Darwin)
 LFLAGS	= -framework AppKit -framework OpenGL -lpthread 
 lFLAGS	= -lz -lm
 endif
-
-# LOG		= err.log
 
 MAIN	= $(SRCDIR)/raytracer/main.c
 
@@ -55,28 +50,10 @@ OBJDS	= $(addprefix $(OBJDIR)/, allocations aux color gnl hooks parsing raytrace
 HDRS	= $(addprefix $(INCDIR)/, allocations.h aux.h ft_error.h ft_color.h get_next_line.h hooks.h raytracer.h \
 			parsing.h shape.h vec3.h data.h)
 
-# ifeq ($(DIST), debug)
-#	CFLAGS += -g -DDIST_DEBUG
-#	NAME := $(NAME)-debug
-#endif
-
 all:		$(NAME)
-
-#debug:			all
-#	@echo DBG $(NAME)
-#	@$(DBG) ./$(NAME) 2>$(LOG)
-
-#log:
-#	tail -f $(LOG) 2>&1 | perl -ne 'if (/file truncated/) {system 'clear'; print} else {print}'
 
 $(LIBX)/libmlx.a:
 	make -C $(LIBX)
-
-#libtest:
-#	make -C $(LIBTST) libtest.a CC="$(CC)" CFLAGS="$(CFLAGS)"
-
-# $(LIBX)/libmlx.a: libx
-#$(LIBTST)/libtest.a: libtest
 
 $(OBJDS):
 	@echo MK $@
@@ -85,14 +62,6 @@ $(OBJDS):
 $(NAME):		$(LIBX)/libmlx.a $(OBJDS) $(OBJS)
 	@echo LINK $(NAME)
 	$(CC) -o $(NAME) $(CFLAGS) $(LFLAGS) $(IFLAGS) $(OBJS) $(lFLAGS)
-
-# test:			NAME := $(NAME)-test
-# test:			LFLAGS += -Ltests -ltest
-# test:			MAIN =
-# test:			libtest $(OBJDS) $(OBJS) $(LIBFT)/libft.a
-#	@echo LINK $(NAME)
-#	$(CC) $(OBJS) $(CFLAGS) $(IFLAGS) $(LFLAGS) -o $(NAME)
-#	./$(NAME) 2>$(LOG)
 
 $(OBJDIR):
 	@echo MK $@
@@ -103,19 +72,14 @@ $(OBJDIR)/%.o:	$(SRCDIR)/%.c $(HDRS) Makefile
 	$(CC) $(CFLAGS) $(IFLAGS) -c -o $@ $<
 
 clean:
-	make -C $(LIBX) $@
-#	make -C $(LIBTST) $@
-	@echo RM $(BLDDIR)
-	@$(RM) -rf $(BLDDIR)
+	make clean -C $(LIBX) $@
+	@echo RM $(OBJDIR)
+	@$(RM) -rf $(OBJDIR)
 
 fclean:			clean
-	make -C $(LIBX) $@
-#	make -C $(LIBTST) $@
+	make -C $(LIBX) clean
 	@echo RM $(NAME)
-#	@echo RM $(NAME)-test
-#	@$(RM) -f $(NAME) $(NAME)-test
-#	@echo RM test.dSYM
-#	@$(RM) -rf test.dSYM
+
 
 re:				fclean all
 
