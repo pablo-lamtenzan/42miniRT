@@ -10,7 +10,7 @@ BLDDIR	= bin
 OBJDIR	= bin
 INCDIR	= includes
 
-CFLAGS	= -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS	= -Wall -Wextra -Werror #-g3 -fsanitize=address
 IFLAGS	= -I$(INCDIR) -I$(LIBX)
 
 OS		= $(shell uname)
