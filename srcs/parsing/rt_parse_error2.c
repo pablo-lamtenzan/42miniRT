@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 07:18:15 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/07 20:13:44 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/08 14:22:13 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,25 @@
 #include <ft_error.h>
 #include <stdlib.h>
 
+static bool			rt_parse_error_plane_fill(t_obj *obj, char **values,
+		t_plane p)
+{
+	p.color.a = 0;
+	rt_plane_obj(obj, rt_new_plane(p.pos, p.dir, p.color));
+	free_values(values);
+	return (true);
+}
+
 bool				rt_parse_error_plane(t_obj *obj, char *line)
 {
 	t_plane			p;
 	char			**values;
+	int				len;
 
-	if (!(values = split_multicharset(line, " ,")) || !frmt(&values[1], 9))
+	if (!(values = split_multicharset(line, " ,", &len)) || len < 10)
 		return (values ? ft_error_free(OBJ_PARAMS, values) : ft_error(4));
-	if (!values[9] || !parse_obj_bonus_properties(obj, &values[10], PLANE))
+	if (!frmt(&values[1], 9)
+			|| !parse_obj_bonus_properties(obj, &values[10], PLANE))
 		return (ft_error_free(OBJ_PARAMS, values));
 	p.pos = vec3(ft_atod(values[1]), ft_atod(values[2]), ft_atod(values[3]));
 	if ((p.dir.x = ft_atod(values[4])) < -1 || p.dir.x > 1)
@@ -37,20 +48,19 @@ bool				rt_parse_error_plane(t_obj *obj, char *line)
 		return (ft_error_free(OBJ_PARAMS, values));
 	if ((p.color.b = (double)ft_atoi(values[9])) < 0 || p.color.b > 0xff)
 		return (ft_error_free(OBJ_PARAMS, values));
-	p.color.a = 0;
-	rt_plane_obj(obj, rt_new_plane(p.pos, p.dir, p.color));
-	free_values(values);
-	return (true);
+	return (rt_parse_error_plane_fill(obj, values, p));
 }
 
 bool				rt_parse_error_sphere(t_obj *obj, char *line)
 {
 	t_sphere		sp;
 	char			**values;
+	int				len;
 
-	if (!(values = split_multicharset(line, " ,")) || !frmt(&values[1], 7))
+	if (!(values = split_multicharset(line, " ,", &len)) || len < 8)
 		return (values ? ft_error_free(OBJ_PARAMS, values) : ft_error(4));
-	if (!values[7] || !parse_obj_bonus_properties(obj, &values[8], SPHERE))
+	if (!frmt(&values[1], 7)
+			|| !parse_obj_bonus_properties(obj, &values[8], SPHERE))
 		return (ft_error_free(OBJ_PARAMS, values));
 	sp.pos = vec3(ft_atod(values[1]), ft_atod(values[2]), ft_atod(values[3]));
 	if ((sp.d = ft_atod(values[4])) < 0 || sp.d == INFINITY)
@@ -96,10 +106,12 @@ bool				rt_parse_error_cylinder(t_scene *s, t_obj *obj, char *line)
 {
 	t_cyl			cy;
 	char			**values;
+	int				len;
 
-	if (!(values = split_multicharset(line, " ,")) || !frmt(&values[1], 11))
+	if (!(values = split_multicharset(line, " ,", &len)) || len < 12)
 		return (values ? ft_error_free(OBJ_PARAMS, values) : ft_error(4));
-	if (!values[11] || !parse_obj_bonus_properties(obj, &values[12], CYLINDER))
+	if (!frmt(&values[1], 11)
+			|| !parse_obj_bonus_properties(obj, &values[12], CYLINDER))
 		return (ft_error_free(OBJ_PARAMS, values));
 	cy.pos = vec3(ft_atod(values[1]), ft_atod(values[2]), ft_atod(values[3]));
 	if ((cy.dir.x = ft_atod(values[4])) < -1 || cy.dir.x > 1)

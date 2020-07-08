@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 16:55:52 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/07 20:13:37 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/08 14:34:15 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 
 static bool		parse_damier(t_obj *obj, char **values)
 {
-	if (!frmt(&values[1], 4) || values[5])
+	if (!values[1] || !values[2] || !values[3] || !values[4]
+			|| !frmt(&values[1], 4) || values[5])
 		return (false);
 	if ((obj->color_damier.r = (double)ft_atoi(values[1])) < 0x0
 			|| obj->color_damier.r > 0xff)
@@ -37,7 +38,7 @@ static bool		parse_damier(t_obj *obj, char **values)
 
 static bool		parse_rainbow(t_obj *obj, char **values)
 {
-	if (!frmt(&values[1], 1) || values[2])
+	if (!values[1] || !frmt(&values[1], 1) || values[2])
 		return (false);
 	if ((obj->rainbow = ft_atod(values[1])) < 0.000 || obj->rainbow > 1.000)
 		return (false);
@@ -68,7 +69,7 @@ static bool		parse_textures(t_obj *obj, char **values)
 	t_uvmap		*map;
 
 	i = 0;
-	if (values[2])
+	if (!values[1] || values[2])
 		return (false);
 	if (values[1][i] == '"')
 		i++;

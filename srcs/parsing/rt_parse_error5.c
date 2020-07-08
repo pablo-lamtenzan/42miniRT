@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 17:15:08 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/07 20:13:52 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/08 14:01:56 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ bool			frmt(char **start, int size)
 		y = -1;
 		bools[0] = 0;
 		bools[1] = 0;
-		while (start[i][++y])
+		while (start[i][y + 1] && start[i][++y])
 		{
 			if ((!ft_isdigit(start[i][y]) &&
 					start[i][y] != '-' && start[i][y] != '.')
@@ -78,12 +78,13 @@ bool			frmt2(char *line)
 bool			rt_parse_error_aa(t_scene *s, char *line)
 {
 	char	**values;
+	int		len;
 
 	if (s->flags & RT_AA)
 		return (ft_error(MANY_AA));
-	if (!(values = split_multicharset(line, " ,")) || !frmt(&values[1], 1))
+	if (!(values = split_multicharset(line, " ,", &len)) || len < 2)
 		return (values ? ft_error_free(OBJ_PARAMS, values) : ft_error(4));
-	if (!values[1] || values[2])
+	if (!frmt(&values[1], 1) || values[2])
 		return (ft_error_free(AA_PARAMS, values));
 	s->aa = ft_atoi(values[1]);
 	if (s->aa > 6 || s->aa < 1)
@@ -96,12 +97,13 @@ bool			rt_parse_error_aa(t_scene *s, char *line)
 bool			rt_parse_error_filter(t_scene *s, char *line)
 {
 	char	**values;
+	int		len;
 
 	if (s->flags & RT_FILTER)
 		return (ft_error(MANY_FILTERS));
-	if (!(values = split_multicharset(line, " ,")))
+	if (!(values = split_multicharset(line, " ,", &len)))
 		return (ft_error(HEAP_ALLOC));
-	if (!values[1] || values[2])
+	if (len < 2 || values[2])
 		return (ft_error_free(INV_INPUT, values));
 	if (*values[1] == 'r')
 		s->filter = RED;

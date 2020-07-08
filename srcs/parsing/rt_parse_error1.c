@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 03:02:03 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/07 20:13:42 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/08 14:01:08 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ bool			rt_parse_error_res(t_scene *scene, char *line)
 
 	if (scene->flags & RT_RES)
 		return (ft_error(MANY_RES));
-	if (!(values = split_multicharset(line, " ,")) || !frmt(&values[1], 2))
+	if (!(values = split_multicharset(line, " ,", &w)) || w < 3)
 		return (values ? ft_error_free(CAM_PARAMS, values) : ft_error(4));
-	if (!values[2] || values[3])
+	if (!frmt(&values[1], 2) || values[3])
 		return (ft_error_free(CAM_PARAMS, values));
 	mlx_get_screen_size(scene->image->mlx, &w, &h);
 	if ((scene->image->max_w = ft_atoi(values[1])) <= 0)
@@ -42,12 +42,13 @@ bool			rt_parse_error_res(t_scene *scene, char *line)
 bool			rt_parse_error_amb(t_scene *scene, char *line)
 {
 	char		**values;
+	int			len;
 
 	if (scene->flags & RT_AMB)
 		return (ft_error(AMB_PARAMS));
-	if (!(values = split_multicharset(line, " ,")) || !frmt(&values[1], 4))
+	if (!(values = split_multicharset(line, " ,", &len)) || len < 5)
 		return (values ? ft_error_free(LIGHT_PARAMS, values) : ft_error(4));
-	if (!values[4] || values[5])
+	if (!frmt(&values[1], 4) || values[5])
 		return (ft_error_free(LIGHT_PARAMS, values));
 	if ((scene->amb_intensity = ft_atod(values[1])) < 0 ||
 			scene->amb_intensity > 1)
@@ -70,10 +71,11 @@ bool			rt_parse_error_amb(t_scene *scene, char *line)
 bool			rt_parse_error_point(t_light *light, char *line)
 {
 	char	**values;
+	int		len;
 
-	if (!(values = split_multicharset(line, " ,")) || !frmt(&values[1], 7))
+	if (!(values = split_multicharset(line, " ,", &len)) || len < 8)
 		return (values ? ft_error_free(LIGHT_PARAMS, values) : ft_error(4));
-	if (!values[7] || values[8])
+	if (!frmt(&values[1], 7) || values[8])
 		return (ft_error_free(LIGHT_PARAMS, values));
 	light->pos = vec3(ft_atod(values[1]), ft_atod(values[2]),
 			ft_atod(values[3]));
@@ -97,10 +99,11 @@ bool			rt_parse_error_point(t_light *light, char *line)
 bool			rt_parse_error_cam(t_cam *cam, char *line)
 {
 	char	**values;
+	int		len;
 
-	if (!(values = split_multicharset(line, " ,")) || !frmt(&values[1], 7))
+	if (!(values = split_multicharset(line, " ,", &len)) || len < 8)
 		return (values ? ft_error_free(CAM_PARAMS, values) : ft_error(4));
-	if (!values[7] || values[8])
+	if (!frmt(&values[1], 7) || values[8])
 		return (ft_error_free(CAM_PARAMS, values));
 	cam->pos = vec3(ft_atod(values[1]), ft_atod(values[2]),
 			ft_atod(values[3]));

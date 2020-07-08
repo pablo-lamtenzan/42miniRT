@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 20:30:45 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/07 20:15:18 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/08 14:24:04 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void					ft_lightadd_back(t_light **alst, t_light *nw);
 void					ft_camadd_back(t_cam **alst, t_cam *nw);
 char					*ft_itoa(int n);
 char					*ft_dtoa(double n, int precision);
-char					**split_multicharset(char *str, char *charset);
+char					**split_multicharset(char *str, char *charset,
+		int *it_tab);
 int						ft_strlen(char *str);
 char					*ft_strdup(const char *src);
 char					*ft_strjoin(const char *s1, const char *s2);

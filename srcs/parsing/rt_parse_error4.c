@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 17:33:37 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/07 20:13:50 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/08 14:17:12 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 static	bool	rt_parse_error_cube_fill(t_scene *s, t_obj *obj,
 		char **values, t_cu cu)
 {
+	cu.color.a = 0;
 	if (!create_cube(s, obj, cu))
 		return (ft_error_free2(HEAP_ALLOC, values, obj));
 	free_values(values);
@@ -28,10 +29,12 @@ bool			rt_parse_error_cube(t_scene *s, t_obj *obj, char *line)
 {
 	t_cu	cu;
 	char	**values;
+	int		len;
 
-	if (!(values = split_multicharset(line, " ,")) || !frmt(&values[1], 10))
+	if (!(values = split_multicharset(line, " ,", &len)) || len < 11)
 		return (values ? ft_error_free(OBJ_PARAMS, values) : ft_error(4));
-	if (!values[10] || !parse_obj_bonus_properties(obj, &values[11], CUBE))
+	if (!frmt(&values[1], 10) ||
+			!parse_obj_bonus_properties(obj, &values[11], CUBE))
 		return (ft_error_free(OBJ_PARAMS, values));
 	cu.pos = vec3(ft_atod(values[1]), ft_atod(values[2]), ft_atod(values[3]));
 	if ((cu.dir.x = ft_atod(values[4])) < -1 || cu.dir.x > 1)
@@ -48,7 +51,6 @@ bool			rt_parse_error_cube(t_scene *s, t_obj *obj, char *line)
 		return (ft_error_free(OBJ_PARAMS, values));
 	if ((cu.color.b = ft_atoi(values[10])) < 0x0 || cu.color.b > 0xFF)
 		return (ft_error_free(OBJ_PARAMS, values));
-	cu.color.a = 0;
 	return (rt_parse_error_cube_fill(s, obj, values, cu));
 }
 
@@ -70,10 +72,12 @@ bool			rt_parse_error_cone(t_obj *obj, char *line)
 {
 	t_co		co;
 	char		**values;
+	int			len;
 
-	if (!(values = split_multicharset(line, " ,")) || !frmt(&values[1], 11))
+	if (!(values = split_multicharset(line, " ,", &len)) || len < 12)
 		return (values ? ft_error_free(OBJ_PARAMS, values) : ft_error(4));
-	if (!values[11] || !parse_obj_bonus_properties(obj, &values[12], CONE))
+	if (!frmt(&values[1], 11)
+			|| !parse_obj_bonus_properties(obj, &values[12], CONE))
 		return (ft_error_free(OBJ_PARAMS, values));
 	co.pos = vec3(ft_atod(values[1]), ft_atod(values[2]), ft_atod(values[3]));
 	if ((co.dir.x = ft_atod(values[4])) < -1 || co.dir.x > 1)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split_multicharset.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: plamtenz <plamtenz@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 03:40:07 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/04 14:49:50 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/08 13:56:04 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,14 +82,13 @@ char	*copy_word(char *str, char *charset)
 	return (tab);
 }
 
-char	**split_multicharset(char *str, char *charset)
+char	**split_multicharset(char *str, char *charset, int *it_tab)
 {
 	int		it;
-	int		it_tab;
 	char	**tab;
 
 	it = 0;
-	it_tab = 0;
+	*it_tab = 0;
 	tab = (char**)malloc((count_word(str, charset) + 1) * sizeof(char*));
 	if (tab == NULL)
 		return (NULL);
@@ -99,11 +98,11 @@ char	**split_multicharset(char *str, char *charset)
 			it++;
 		if (!is_sep(str[it], charset) && str[it])
 		{
-			tab[it_tab] = copy_word(&str[it], charset);
+			tab[*it_tab] = copy_word(&str[it], charset);
 			it += len_word(&str[it], charset);
-			it_tab++;
+			*it_tab += 1;
 		}
 	}
-	tab[it_tab] = 0;
+	tab[*it_tab] = 0;
 	return (tab);
 }
