@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_obj_bonus_properties.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: plamtenz <plamtenz@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 16:55:52 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 16:22:01 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/07 20:13:37 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

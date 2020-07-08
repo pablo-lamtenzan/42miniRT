@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   square_collisions.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: plamtenz <plamtenz@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 15:11:14 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 16:37:27 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/07 20:14:50 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

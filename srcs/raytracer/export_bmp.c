@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   export_bmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: plamtenz <plamtenz@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 15:50:43 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/07/05 18:10:14 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/07/07 20:59:12 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static void				write_bmp_fill(t_scene *s, t_bmp b,
 static void				write_bmp(t_scene *s, const unsigned char *header,
 		const unsigned char *data, const unsigned char *padding)
 {
-	t_bmp b;
+	t_bmp				b;
 
 	b.i = -1;
 	b.extension[0] = ft_strdup(".bmp");
@@ -79,6 +79,8 @@ static void				write_bmp(t_scene *s, const unsigned char *header,
 	{
 		free(b.extension[0]);
 		free(b.extension[1]);
+		free(b.extension[2]);
+		free(b.extension[3]);
 		return ;
 	}
 	(void)write(b.fd, header, 14);
